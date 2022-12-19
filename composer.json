@@ -1,0 +1,53 @@
+
+{
+    "name": "vng/dennis-core",
+    "description": "Kern voor beheerapplicaties van instrumentengids Dennis",
+    "type": "library",
+    "license": "MIT",
+
+    "authors": [
+        {
+            "name": "Wouter de Developer",
+            "email": "wouterdedeveloper@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "ext-dom": "*",
+        "elasticsearch/elasticsearch": "^7.4",
+        "guzzlehttp/guzzle": "^7.0.1",
+        "myclabs/php-enum": "^1.8",
+        "spatie/laravel-permission": "^5.5",
+        "webpatser/laravel-uuid": "^4.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Vng\\DennisCore\\": "src/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/",
+            "Vng\\DennisCore\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": [],
+            "providers": [
+                "Vng\\DennisCore\\Providers\\DennisServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "platform": {
+            "php": "8.0"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

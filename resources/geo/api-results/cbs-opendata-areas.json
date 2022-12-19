@@ -1,0 +1,709 @@
+{
+  "odata.metadata":"https://opendata.cbs.nl/ODataApi/OData/84929NED/$metadata#Cbs.OData.WebAPI.TypedDataSet&$select=RegioS,Code_1,Naam_2,Code_4,Naam_5","value":[
+    {
+      "RegioS":"GM1680    ","Code_1":"GM1680    ","Naam_2":"Aa en Hunze                                       ","Code_4":"AM01      ","Naam_5":"Groningen                                         "
+    },{
+      "RegioS":"GM0358    ","Code_1":"GM0358    ","Naam_2":"Aalsmeer                                          ","Code_4":"AM18      ","Naam_5":"Groot Amsterdam                                   "
+    },{
+      "RegioS":"GM0197    ","Code_1":"GM0197    ","Naam_2":"Aalten                                            ","Code_4":"AM09      ","Naam_5":"Achterhoek                                        "
+    },{
+      "RegioS":"GM0059    ","Code_1":"GM0059    ","Naam_2":"Achtkarspelen                                     ","Code_4":"AM02      ","Naam_5":"Friesland                                         "
+    },{
+      "RegioS":"GM0482    ","Code_1":"GM0482    ","Naam_2":"Alblasserdam                                      ","Code_4":"AM23      ","Naam_5":"Drechtsteden                                      "
+    },{
+      "RegioS":"GM0613    ","Code_1":"GM0613    ","Naam_2":"Albrandswaard                                     ","Code_4":"AM22      ","Naam_5":"Rijnmond                                          "
+    },{
+      "RegioS":"GM0361    ","Code_1":"GM0361    ","Naam_2":"Alkmaar                                           ","Code_4":"AM15      ","Naam_5":"Noord-Holland Noord                               "
+    },{
+      "RegioS":"GM0141    ","Code_1":"GM0141    ","Naam_2":"Almelo                                            ","Code_4":"AM05      ","Naam_5":"Twente                                            "
+    },{
+      "RegioS":"GM0034    ","Code_1":"GM0034    ","Naam_2":"Almere                                            ","Code_4":"AM11      ","Naam_5":"Flevoland                                         "
+    },{
+      "RegioS":"GM0484    ","Code_1":"GM0484    ","Naam_2":"Alphen aan den Rijn                               ","Code_4":"AM19      ","Naam_5":"Holland Rijnland                                  "
+    },{
+      "RegioS":"GM1723    ","Code_1":"GM1723    ","Naam_2":"Alphen-Chaam                                      ","Code_4":"AM26      ","Naam_5":"Midden-Brabant                                    "
+    },{
+      "RegioS":"GM1959    ","Code_1":"GM1959    ","Naam_2":"Altena                                            ","Code_4":"AM25      ","Naam_5":"West-Brabant                                      "
+    },{
+      "RegioS":"GM0060    ","Code_1":"GM0060    ","Naam_2":"Ameland                                           ","Code_4":"AM02      ","Naam_5":"Friesland                                         "
+    },{
+      "RegioS":"GM0307    ","Code_1":"GM0307    ","Naam_2":"Amersfoort                                        ","Code_4":"AM14      ","Naam_5":"Amersfoort                                        "
+    },{
+      "RegioS":"GM0362    ","Code_1":"GM0362    ","Naam_2":"Amstelveen                                        ","Code_4":"AM18      ","Naam_5":"Groot Amsterdam                                   "
+    },{
+      "RegioS":"GM0363    ","Code_1":"GM0363    ","Naam_2":"Amsterdam                                         ","Code_4":"AM18      ","Naam_5":"Groot Amsterdam                                   "
+    },{
+      "RegioS":"GM0200    ","Code_1":"GM0200    ","Naam_2":"Apeldoorn                                         ","Code_4":"AM06      ","Naam_5":"Stedendriehoek en Noordwest Veluwe                "
+    },{
+      "RegioS":"GM0202    ","Code_1":"GM0202    ","Naam_2":"Arnhem                                            ","Code_4":"AM07      ","Naam_5":"Midden-Gelderland                                 "
+    },{
+      "RegioS":"GM0106    ","Code_1":"GM0106    ","Naam_2":"Assen                                             ","Code_4":"AM01      ","Naam_5":"Groningen                                         "
+    },{
+      "RegioS":"GM0743    ","Code_1":"GM0743    ","Naam_2":"Asten                                             ","Code_4":"AM32      ","Naam_5":"Helmond-De Peel                                   "
+    },{
+      "RegioS":"GM0744    ","Code_1":"GM0744    ","Naam_2":"Baarle-Nassau                                     ","Code_4":"AM26      ","Naam_5":"Midden-Brabant                                    "
+    },{
+      "RegioS":"GM0308    ","Code_1":"GM0308    ","Naam_2":"Baarn                                             ","Code_4":"AM14      ","Naam_5":"Amersfoort                                        "
+    },{
+      "RegioS":"GM0489    ","Code_1":"GM0489    ","Naam_2":"Barendrecht                                       ","Code_4":"AM22      ","Naam_5":"Rijnmond                                          "
+    },{
+      "RegioS":"GM0203    ","Code_1":"GM0203    ","Naam_2":"Barneveld                                         ","Code_4":"AM38      ","Naam_5":"FoodValley                                        "
+    },{
+      "RegioS":"GM0888    ","Code_1":"GM0888    ","Naam_2":"Beek                                              ","Code_4":"AM30      ","Naam_5":"Zuid-Limburg                                      "
+    },{
+      "RegioS":"GM1954    ","Code_1":"GM1954    ","Naam_2":"Beekdaelen                                        ","Code_4":"AM30      ","Naam_5":"Zuid-Limburg                                      "
+    },{
+      "RegioS":"GM0370    ","Code_1":"GM0370    ","Naam_2":"Beemster                                          ","Code_4":"AM17      ","Naam_5":"Zaanstreek/Waterland                              "
+    },{
+      "RegioS":"GM0889    ","Code_1":"GM0889    ","Naam_2":"Beesel                                            ","Code_4":"AM29      ","Naam_5":"Noord-Limburg                                     "
+    },{
+      "RegioS":"GM1945    ","Code_1":"GM1945    ","Naam_2":"Berg en Dal                                       ","Code_4":"AM08      ","Naam_5":"Rijk van Nijmegen                                 "
+    },{
+      "RegioS":"GM1724    ","Code_1":"GM1724    ","Naam_2":"Bergeijk                                          ","Code_4":"AM28      ","Naam_5":"Zuidoost-Brabant                                  "
+    },{
+      "RegioS":"GM0893    ","Code_1":"GM0893    ","Naam_2":"Bergen (L.)                                       ","Code_4":"AM29      ","Naam_5":"Noord-Limburg                                     "
+    },{
+      "RegioS":"GM0373    ","Code_1":"GM0373    ","Naam_2":"Bergen (NH.)                                      ","Code_4":"AM15      ","Naam_5":"Noord-Holland Noord                               "
+    },{
+      "RegioS":"GM0748    ","Code_1":"GM0748    ","Naam_2":"Bergen op Zoom                                    ","Code_4":"AM25      ","Naam_5":"West-Brabant                                      "
+    },{
+      "RegioS":"GM1859    ","Code_1":"GM1859    ","Naam_2":"Berkelland                                        ","Code_4":"AM09      ","Naam_5":"Achterhoek                                        "
+    },{
+      "RegioS":"GM1721    ","Code_1":"GM1721    ","Naam_2":"Bernheze                                          ","Code_4":"AM27      ","Naam_5":"Noordoost-Brabant                                 "
+    },{
+      "RegioS":"GM0753    ","Code_1":"GM0753    ","Naam_2":"Best                                              ","Code_4":"AM28      ","Naam_5":"Zuidoost-Brabant                                  "
+    },{
+      "RegioS":"GM0209    ","Code_1":"GM0209    ","Naam_2":"Beuningen                                         ","Code_4":"AM08      ","Naam_5":"Rijk van Nijmegen                                 "
+    },{
+      "RegioS":"GM0375    ","Code_1":"GM0375    ","Naam_2":"Beverwijk                                         ","Code_4":"AM37      ","Naam_5":"Zuid-Kennemerland en IJmond                       "
+    },{
+      "RegioS":"GM0310    ","Code_1":"GM0310    ","Naam_2":"De Bilt                                           ","Code_4":"AM13      ","Naam_5":"Midden-Utrecht                                    "
+    },{
+      "RegioS":"GM1728    ","Code_1":"GM1728    ","Naam_2":"Bladel                                            ","Code_4":"AM28      ","Naam_5":"Zuidoost-Brabant                                  "
+    },{
+      "RegioS":"GM0376    ","Code_1":"GM0376    ","Naam_2":"Blaricum                                          ","Code_4":"AM12      ","Naam_5":"Gooi en Vechtstreek                               "
+    },{
+      "RegioS":"GM0377    ","Code_1":"GM0377    ","Naam_2":"Bloemendaal                                       ","Code_4":"AM37      ","Naam_5":"Zuid-Kennemerland en IJmond                       "
+    },{
+      "RegioS":"GM1901    ","Code_1":"GM1901    ","Naam_2":"Bodegraven-Reeuwijk                               ","Code_4":"AM20      ","Naam_5":"Midden-Holland                                    "
+    },{
+      "RegioS":"GM0755    ","Code_1":"GM0755    ","Naam_2":"Boekel                                            ","Code_4":"AM27      ","Naam_5":"Noordoost-Brabant                                 "
+    },{
+      "RegioS":"GM1681    ","Code_1":"GM1681    ","Naam_2":"Borger-Odoorn                                     ","Code_4":"AM03      ","Naam_5":"Drenthe                                           "
+    },{
+      "RegioS":"GM0147    ","Code_1":"GM0147    ","Naam_2":"Borne                                             ","Code_4":"AM05      ","Naam_5":"Twente                                            "
+    },{
+      "RegioS":"GM0654    ","Code_1":"GM0654    ","Naam_2":"Borsele                                           ","Code_4":"AM24      ","Naam_5":"Zeeland                                           "
+    },{
+      "RegioS":"GM0756    ","Code_1":"GM0756    ","Naam_2":"Boxmeer                                           ","Code_4":"AM27      ","Naam_5":"Noordoost-Brabant                                 "
+    },{
+      "RegioS":"GM0757    ","Code_1":"GM0757    ","Naam_2":"Boxtel                                            ","Code_4":"AM27      ","Naam_5":"Noordoost-Brabant                                 "
+    },{
+      "RegioS":"GM0758    ","Code_1":"GM0758    ","Naam_2":"Breda                                             ","Code_4":"AM25      ","Naam_5":"West-Brabant                                      "
+    },{
+      "RegioS":"GM0501    ","Code_1":"GM0501    ","Naam_2":"Brielle                                           ","Code_4":"AM22      ","Naam_5":"Rijnmond                                          "
+    },{
+      "RegioS":"GM1876    ","Code_1":"GM1876    ","Naam_2":"Bronckhorst                                       ","Code_4":"AM09      ","Naam_5":"Achterhoek                                        "
+    },{
+      "RegioS":"GM0213    ","Code_1":"GM0213    ","Naam_2":"Brummen                                           ","Code_4":"AM06      ","Naam_5":"Stedendriehoek en Noordwest Veluwe                "
+    },{
+      "RegioS":"GM0899    ","Code_1":"GM0899    ","Naam_2":"Brunssum                                          ","Code_4":"AM30      ","Naam_5":"Zuid-Limburg                                      "
+    },{
+      "RegioS":"GM0312    ","Code_1":"GM0312    ","Naam_2":"Bunnik                                            ","Code_4":"AM13      ","Naam_5":"Midden-Utrecht                                    "
+    },{
+      "RegioS":"GM0313    ","Code_1":"GM0313    ","Naam_2":"Bunschoten                                        ","Code_4":"AM14      ","Naam_5":"Amersfoort                                        "
+    },{
+      "RegioS":"GM0214    ","Code_1":"GM0214    ","Naam_2":"Buren                                             ","Code_4":"AM10      ","Naam_5":"Rivierenland                                      "
+    },{
+      "RegioS":"GM0502    ","Code_1":"GM0502    ","Naam_2":"Capelle aan den IJssel                            ","Code_4":"AM22      ","Naam_5":"Rijnmond                                          "
+    },{
+      "RegioS":"GM0383    ","Code_1":"GM0383    ","Naam_2":"Castricum                                         ","Code_4":"AM15      ","Naam_5":"Noord-Holland Noord                               "
+    },{
+      "RegioS":"GM0109    ","Code_1":"GM0109    ","Naam_2":"Coevorden                                         ","Code_4":"AM03      ","Naam_5":"Drenthe                                           "
+    },{
+      "RegioS":"GM1706    ","Code_1":"GM1706    ","Naam_2":"Cranendonck                                       ","Code_4":"AM33      ","Naam_5":"Midden-Limburg                                    "
+    },{
+      "RegioS":"GM1684    ","Code_1":"GM1684    ","Naam_2":"Cuijk                                             ","Code_4":"AM27      ","Naam_5":"Noordoost-Brabant                                 "
+    },{
+      "RegioS":"GM0216    ","Code_1":"GM0216    ","Naam_2":"Culemborg                                         ","Code_4":"AM10      ","Naam_5":"Rivierenland                                      "
+    },{
+      "RegioS":"GM0148    ","Code_1":"GM0148    ","Naam_2":"Dalfsen                                           ","Code_4":"AM36      ","Naam_5":"Regio Zwolle                                      "
+    },{
+      "RegioS":"GM1891    ","Code_1":"GM1891    ","Naam_2":"Dantumadiel                                       ","Code_4":"AM02      ","Naam_5":"Friesland                                         "
+    },{
+      "RegioS":"GM0503    ","Code_1":"GM0503    ","Naam_2":"Delft                                             ","Code_4":"AM21      ","Naam_5":"Haaglanden                                        "
+    },{
+      "RegioS":"GM0762    ","Code_1":"GM0762    ","Naam_2":"Deurne                                            ","Code_4":"AM32      ","Naam_5":"Helmond-De Peel                                   "
+    },{
+      "RegioS":"GM0150    ","Code_1":"GM0150    ","Naam_2":"Deventer                                          ","Code_4":"AM06      ","Naam_5":"Stedendriehoek en Noordwest Veluwe                "
+    },{
+      "RegioS":"GM0384    ","Code_1":"GM0384    ","Naam_2":"Diemen                                            ","Code_4":"AM18      ","Naam_5":"Groot Amsterdam                                   "
+    },{
+      "RegioS":"GM1774    ","Code_1":"GM1774    ","Naam_2":"Dinkelland                                        ","Code_4":"AM05      ","Naam_5":"Twente                                            "
+    },{
+      "RegioS":"GM0221    ","Code_1":"GM0221    ","Naam_2":"Doesburg                                          ","Code_4":"AM07      ","Naam_5":"Midden-Gelderland                                 "
+    },{
+      "RegioS":"GM0222    ","Code_1":"GM0222    ","Naam_2":"Doetinchem                                        ","Code_4":"AM09      ","Naam_5":"Achterhoek                                        "
+    },{
+      "RegioS":"GM0766    ","Code_1":"GM0766    ","Naam_2":"Dongen                                            ","Code_4":"AM26      ","Naam_5":"Midden-Brabant                                    "
+    },{
+      "RegioS":"GM0505    ","Code_1":"GM0505    ","Naam_2":"Dordrecht                                         ","Code_4":"AM23      ","Naam_5":"Drechtsteden                                      "
+    },{
+      "RegioS":"GM0498    ","Code_1":"GM0498    ","Naam_2":"Drechterland                                      ","Code_4":"AM15      ","Naam_5":"Noord-Holland Noord                               "
+    },{
+      "RegioS":"GM1719    ","Code_1":"GM1719    ","Naam_2":"Drimmelen                                         ","Code_4":"AM25      ","Naam_5":"West-Brabant                                      "
+    },{
+      "RegioS":"GM0303    ","Code_1":"GM0303    ","Naam_2":"Dronten                                           ","Code_4":"AM11      ","Naam_5":"Flevoland                                         "
+    },{
+      "RegioS":"GM0225    ","Code_1":"GM0225    ","Naam_2":"Druten                                            ","Code_4":"AM08      ","Naam_5":"Rijk van Nijmegen                                 "
+    },{
+      "RegioS":"GM0226    ","Code_1":"GM0226    ","Naam_2":"Duiven                                            ","Code_4":"AM07      ","Naam_5":"Midden-Gelderland                                 "
+    },{
+      "RegioS":"GM1711    ","Code_1":"GM1711    ","Naam_2":"Echt-Susteren                                     ","Code_4":"AM33      ","Naam_5":"Midden-Limburg                                    "
+    },{
+      "RegioS":"GM0385    ","Code_1":"GM0385    ","Naam_2":"Edam-Volendam                                     ","Code_4":"AM17      ","Naam_5":"Zaanstreek/Waterland                              "
+    },{
+      "RegioS":"GM0228    ","Code_1":"GM0228    ","Naam_2":"Ede                                               ","Code_4":"AM38      ","Naam_5":"FoodValley                                        "
+    },{
+      "RegioS":"GM0317    ","Code_1":"GM0317    ","Naam_2":"Eemnes                                            ","Code_4":"AM12      ","Naam_5":"Gooi en Vechtstreek                               "
+    },{
+      "RegioS":"GM1979    ","Code_1":"GM1979    ","Naam_2":"Eemsdelta                                         ","Code_4":"AM01      ","Naam_5":"Groningen                                         "
+    },{
+      "RegioS":"GM0770    ","Code_1":"GM0770    ","Naam_2":"Eersel                                            ","Code_4":"AM28      ","Naam_5":"Zuidoost-Brabant                                  "
+    },{
+      "RegioS":"GM1903    ","Code_1":"GM1903    ","Naam_2":"Eijsden-Margraten                                 ","Code_4":"AM30      ","Naam_5":"Zuid-Limburg                                      "
+    },{
+      "RegioS":"GM0772    ","Code_1":"GM0772    ","Naam_2":"Eindhoven                                         ","Code_4":"AM28      ","Naam_5":"Zuidoost-Brabant                                  "
+    },{
+      "RegioS":"GM0230    ","Code_1":"GM0230    ","Naam_2":"Elburg                                            ","Code_4":"AM06      ","Naam_5":"Stedendriehoek en Noordwest Veluwe                "
+    },{
+      "RegioS":"GM0114    ","Code_1":"GM0114    ","Naam_2":"Emmen                                             ","Code_4":"AM03      ","Naam_5":"Drenthe                                           "
+    },{
+      "RegioS":"GM0388    ","Code_1":"GM0388    ","Naam_2":"Enkhuizen                                         ","Code_4":"AM15      ","Naam_5":"Noord-Holland Noord                               "
+    },{
+      "RegioS":"GM0153    ","Code_1":"GM0153    ","Naam_2":"Enschede                                          ","Code_4":"AM05      ","Naam_5":"Twente                                            "
+    },{
+      "RegioS":"GM0232    ","Code_1":"GM0232    ","Naam_2":"Epe                                               ","Code_4":"AM06      ","Naam_5":"Stedendriehoek en Noordwest Veluwe                "
+    },{
+      "RegioS":"GM0233    ","Code_1":"GM0233    ","Naam_2":"Ermelo                                            ","Code_4":"AM06      ","Naam_5":"Stedendriehoek en Noordwest Veluwe                "
+    },{
+      "RegioS":"GM0777    ","Code_1":"GM0777    ","Naam_2":"Etten-Leur                                        ","Code_4":"AM25      ","Naam_5":"West-Brabant                                      "
+    },{
+      "RegioS":"GM1940    ","Code_1":"GM1940    ","Naam_2":"De Fryske Marren                                  ","Code_4":"AM02      ","Naam_5":"Friesland                                         "
+    },{
+      "RegioS":"GM0779    ","Code_1":"GM0779    ","Naam_2":"Geertruidenberg                                   ","Code_4":"AM25      ","Naam_5":"West-Brabant                                      "
+    },{
+      "RegioS":"GM1771    ","Code_1":"GM1771    ","Naam_2":"Geldrop-Mierlo                                    ","Code_4":"AM32      ","Naam_5":"Helmond-De Peel                                   "
+    },{
+      "RegioS":"GM1652    ","Code_1":"GM1652    ","Naam_2":"Gemert-Bakel                                      ","Code_4":"AM32      ","Naam_5":"Helmond-De Peel                                   "
+    },{
+      "RegioS":"GM0907    ","Code_1":"GM0907    ","Naam_2":"Gennep                                            ","Code_4":"AM29      ","Naam_5":"Noord-Limburg                                     "
+    },{
+      "RegioS":"GM0784    ","Code_1":"GM0784    ","Naam_2":"Gilze en Rijen                                    ","Code_4":"AM26      ","Naam_5":"Midden-Brabant                                    "
+    },{
+      "RegioS":"GM1924    ","Code_1":"GM1924    ","Naam_2":"Goeree-Overflakkee                                ","Code_4":"AM22      ","Naam_5":"Rijnmond                                          "
+    },{
+      "RegioS":"GM0664    ","Code_1":"GM0664    ","Naam_2":"Goes                                              ","Code_4":"AM24      ","Naam_5":"Zeeland                                           "
+    },{
+      "RegioS":"GM0785    ","Code_1":"GM0785    ","Naam_2":"Goirle                                            ","Code_4":"AM26      ","Naam_5":"Midden-Brabant                                    "
+    },{
+      "RegioS":"GM1942    ","Code_1":"GM1942    ","Naam_2":"Gooise Meren                                      ","Code_4":"AM12      ","Naam_5":"Gooi en Vechtstreek                               "
+    },{
+      "RegioS":"GM0512    ","Code_1":"GM0512    ","Naam_2":"Gorinchem                                         ","Code_4":"AM35      ","Naam_5":"Gorinchem                                         "
+    },{
+      "RegioS":"GM0513    ","Code_1":"GM0513    ","Naam_2":"Gouda                                             ","Code_4":"AM20      ","Naam_5":"Midden-Holland                                    "
+    },{
+      "RegioS":"GM0786    ","Code_1":"GM0786    ","Naam_2":"Grave                                             ","Code_4":"AM27      ","Naam_5":"Noordoost-Brabant                                 "
+    },{
+      "RegioS":"GM0518    ","Code_1":"GM0518    ","Naam_2":"'s-Gravenhage                                     ","Code_4":"AM21      ","Naam_5":"Haaglanden                                        "
+    },{
+      "RegioS":"GM0014    ","Code_1":"GM0014    ","Naam_2":"Groningen                                         ","Code_4":"AM01      ","Naam_5":"Groningen                                         "
+    },{
+      "RegioS":"GM1729    ","Code_1":"GM1729    ","Naam_2":"Gulpen-Wittem                                     ","Code_4":"AM30      ","Naam_5":"Zuid-Limburg                                      "
+    },{
+      "RegioS":"GM0158    ","Code_1":"GM0158    ","Naam_2":"Haaksbergen                                       ","Code_4":"AM05      ","Naam_5":"Twente                                            "
+    },{
+      "RegioS":"GM0392    ","Code_1":"GM0392    ","Naam_2":"Haarlem                                           ","Code_4":"AM37      ","Naam_5":"Zuid-Kennemerland en IJmond                       "
+    },{
+      "RegioS":"GM0394    ","Code_1":"GM0394    ","Naam_2":"Haarlemmermeer                                    ","Code_4":"AM18      ","Naam_5":"Groot Amsterdam                                   "
+    },{
+      "RegioS":"GM1655    ","Code_1":"GM1655    ","Naam_2":"Halderberge                                       ","Code_4":"AM25      ","Naam_5":"West-Brabant                                      "
+    },{
+      "RegioS":"GM0160    ","Code_1":"GM0160    ","Naam_2":"Hardenberg                                        ","Code_4":"AM36      ","Naam_5":"Regio Zwolle                                      "
+    },{
+      "RegioS":"GM0243    ","Code_1":"GM0243    ","Naam_2":"Harderwijk                                        ","Code_4":"AM06      ","Naam_5":"Stedendriehoek en Noordwest Veluwe                "
+    },{
+      "RegioS":"GM0523    ","Code_1":"GM0523    ","Naam_2":"Hardinxveld-Giessendam                            ","Code_4":"AM23      ","Naam_5":"Drechtsteden                                      "
+    },{
+      "RegioS":"GM0072    ","Code_1":"GM0072    ","Naam_2":"Harlingen                                         ","Code_4":"AM02      ","Naam_5":"Friesland                                         "
+    },{
+      "RegioS":"GM0244    ","Code_1":"GM0244    ","Naam_2":"Hattem                                            ","Code_4":"AM36      ","Naam_5":"Regio Zwolle                                      "
+    },{
+      "RegioS":"GM0396    ","Code_1":"GM0396    ","Naam_2":"Heemskerk                                         ","Code_4":"AM37      ","Naam_5":"Zuid-Kennemerland en IJmond                       "
+    },{
+      "RegioS":"GM0397    ","Code_1":"GM0397    ","Naam_2":"Heemstede                                         ","Code_4":"AM37      ","Naam_5":"Zuid-Kennemerland en IJmond                       "
+    },{
+      "RegioS":"GM0246    ","Code_1":"GM0246    ","Naam_2":"Heerde                                            ","Code_4":"AM06      ","Naam_5":"Stedendriehoek en Noordwest Veluwe                "
+    },{
+      "RegioS":"GM0074    ","Code_1":"GM0074    ","Naam_2":"Heerenveen                                        ","Code_4":"AM02      ","Naam_5":"Friesland                                         "
+    },{
+      "RegioS":"GM0398    ","Code_1":"GM0398    ","Naam_2":"Heerhugowaard                                     ","Code_4":"AM15      ","Naam_5":"Noord-Holland Noord                               "
+    },{
+      "RegioS":"GM0917    ","Code_1":"GM0917    ","Naam_2":"Heerlen                                           ","Code_4":"AM30      ","Naam_5":"Zuid-Limburg                                      "
+    },{
+      "RegioS":"GM1658    ","Code_1":"GM1658    ","Naam_2":"Heeze-Leende                                      ","Code_4":"AM28      ","Naam_5":"Zuidoost-Brabant                                  "
+    },{
+      "RegioS":"GM0399    ","Code_1":"GM0399    ","Naam_2":"Heiloo                                            ","Code_4":"AM15      ","Naam_5":"Noord-Holland Noord                               "
+    },{
+      "RegioS":"GM0400    ","Code_1":"GM0400    ","Naam_2":"Den Helder                                        ","Code_4":"AM15      ","Naam_5":"Noord-Holland Noord                               "
+    },{
+      "RegioS":"GM0163    ","Code_1":"GM0163    ","Naam_2":"Hellendoorn                                       ","Code_4":"AM05      ","Naam_5":"Twente                                            "
+    },{
+      "RegioS":"GM0530    ","Code_1":"GM0530    ","Naam_2":"Hellevoetsluis                                    ","Code_4":"AM22      ","Naam_5":"Rijnmond                                          "
+    },{
+      "RegioS":"GM0794    ","Code_1":"GM0794    ","Naam_2":"Helmond                                           ","Code_4":"AM32      ","Naam_5":"Helmond-De Peel                                   "
+    },{
+      "RegioS":"GM0531    ","Code_1":"GM0531    ","Naam_2":"Hendrik-Ido-Ambacht                               ","Code_4":"AM23      ","Naam_5":"Drechtsteden                                      "
+    },{
+      "RegioS":"GM0164    ","Code_1":"GM0164    ","Naam_2":"Hengelo                                           ","Code_4":"AM05      ","Naam_5":"Twente                                            "
+    },{
+      "RegioS":"GM0796    ","Code_1":"GM0796    ","Naam_2":"'s-Hertogenbosch                                  ","Code_4":"AM27      ","Naam_5":"Noordoost-Brabant                                 "
+    },{
+      "RegioS":"GM0252    ","Code_1":"GM0252    ","Naam_2":"Heumen                                            ","Code_4":"AM08      ","Naam_5":"Rijk van Nijmegen                                 "
+    },{
+      "RegioS":"GM0797    ","Code_1":"GM0797    ","Naam_2":"Heusden                                           ","Code_4":"AM26      ","Naam_5":"Midden-Brabant                                    "
+    },{
+      "RegioS":"GM0534    ","Code_1":"GM0534    ","Naam_2":"Hillegom                                          ","Code_4":"AM19      ","Naam_5":"Holland Rijnland                                  "
+    },{
+      "RegioS":"GM0798    ","Code_1":"GM0798    ","Naam_2":"Hilvarenbeek                                      ","Code_4":"AM26      ","Naam_5":"Midden-Brabant                                    "
+    },{
+      "RegioS":"GM0402    ","Code_1":"GM0402    ","Naam_2":"Hilversum                                         ","Code_4":"AM12      ","Naam_5":"Gooi en Vechtstreek                               "
+    },{
+      "RegioS":"GM1963    ","Code_1":"GM1963    ","Naam_2":"Hoeksche Waard                                    ","Code_4":"AM22      ","Naam_5":"Rijnmond                                          "
+    },{
+      "RegioS":"GM1735    ","Code_1":"GM1735    ","Naam_2":"Hof van Twente                                    ","Code_4":"AM05      ","Naam_5":"Twente                                            "
+    },{
+      "RegioS":"GM1966    ","Code_1":"GM1966    ","Naam_2":"Het Hogeland                                      ","Code_4":"AM01      ","Naam_5":"Groningen                                         "
+    },{
+      "RegioS":"GM1911    ","Code_1":"GM1911    ","Naam_2":"Hollands Kroon                                    ","Code_4":"AM15      ","Naam_5":"Noord-Holland Noord                               "
+    },{
+      "RegioS":"GM0118    ","Code_1":"GM0118    ","Naam_2":"Hoogeveen                                         ","Code_4":"AM03      ","Naam_5":"Drenthe                                           "
+    },{
+      "RegioS":"GM0405    ","Code_1":"GM0405    ","Naam_2":"Hoorn                                             ","Code_4":"AM15      ","Naam_5":"Noord-Holland Noord                               "
+    },{
+      "RegioS":"GM1507    ","Code_1":"GM1507    ","Naam_2":"Horst aan de Maas                                 ","Code_4":"AM29      ","Naam_5":"Noord-Limburg                                     "
+    },{
+      "RegioS":"GM0321    ","Code_1":"GM0321    ","Naam_2":"Houten                                            ","Code_4":"AM13      ","Naam_5":"Midden-Utrecht                                    "
+    },{
+      "RegioS":"GM0406    ","Code_1":"GM0406    ","Naam_2":"Huizen                                            ","Code_4":"AM12      ","Naam_5":"Gooi en Vechtstreek                               "
+    },{
+      "RegioS":"GM0677    ","Code_1":"GM0677    ","Naam_2":"Hulst                                             ","Code_4":"AM24      ","Naam_5":"Zeeland                                           "
+    },{
+      "RegioS":"GM0353    ","Code_1":"GM0353    ","Naam_2":"IJsselstein                                       ","Code_4":"AM13      ","Naam_5":"Midden-Utrecht                                    "
+    },{
+      "RegioS":"GM1884    ","Code_1":"GM1884    ","Naam_2":"Kaag en Braassem                                  ","Code_4":"AM19      ","Naam_5":"Holland Rijnland                                  "
+    },{
+      "RegioS":"GM0166    ","Code_1":"GM0166    ","Naam_2":"Kampen                                            ","Code_4":"AM36      ","Naam_5":"Regio Zwolle                                      "
+    },{
+      "RegioS":"GM0678    ","Code_1":"GM0678    ","Naam_2":"Kapelle                                           ","Code_4":"AM24      ","Naam_5":"Zeeland                                           "
+    },{
+      "RegioS":"GM0537    ","Code_1":"GM0537    ","Naam_2":"Katwijk                                           ","Code_4":"AM19      ","Naam_5":"Holland Rijnland                                  "
+    },{
+      "RegioS":"GM0928    ","Code_1":"GM0928    ","Naam_2":"Kerkrade                                          ","Code_4":"AM30      ","Naam_5":"Zuid-Limburg                                      "
+    },{
+      "RegioS":"GM1598    ","Code_1":"GM1598    ","Naam_2":"Koggenland                                        ","Code_4":"AM15      ","Naam_5":"Noord-Holland Noord                               "
+    },{
+      "RegioS":"GM0542    ","Code_1":"GM0542    ","Naam_2":"Krimpen aan den IJssel                            ","Code_4":"AM22      ","Naam_5":"Rijnmond                                          "
+    },{
+      "RegioS":"GM1931    ","Code_1":"GM1931    ","Naam_2":"Krimpenerwaard                                    ","Code_4":"AM20      ","Naam_5":"Midden-Holland                                    "
+    },{
+      "RegioS":"GM1659    ","Code_1":"GM1659    ","Naam_2":"Laarbeek                                          ","Code_4":"AM32      ","Naam_5":"Helmond-De Peel                                   "
+    },{
+      "RegioS":"GM1685    ","Code_1":"GM1685    ","Naam_2":"Landerd                                           ","Code_4":"AM27      ","Naam_5":"Noordoost-Brabant                                 "
+    },{
+      "RegioS":"GM0882    ","Code_1":"GM0882    ","Naam_2":"Landgraaf                                         ","Code_4":"AM30      ","Naam_5":"Zuid-Limburg                                      "
+    },{
+      "RegioS":"GM0415    ","Code_1":"GM0415    ","Naam_2":"Landsmeer                                         ","Code_4":"AM17      ","Naam_5":"Zaanstreek/Waterland                              "
+    },{
+      "RegioS":"GM0416    ","Code_1":"GM0416    ","Naam_2":"Langedijk                                         ","Code_4":"AM15      ","Naam_5":"Noord-Holland Noord                               "
+    },{
+      "RegioS":"GM1621    ","Code_1":"GM1621    ","Naam_2":"Lansingerland                                     ","Code_4":"AM34      ","Naam_5":"Zuid-Holland Centraal                             "
+    },{
+      "RegioS":"GM0417    ","Code_1":"GM0417    ","Naam_2":"Laren                                             ","Code_4":"AM12      ","Naam_5":"Gooi en Vechtstreek                               "
+    },{
+      "RegioS":"GM0080    ","Code_1":"GM0080    ","Naam_2":"Leeuwarden                                        ","Code_4":"AM02      ","Naam_5":"Friesland                                         "
+    },{
+      "RegioS":"GM0546    ","Code_1":"GM0546    ","Naam_2":"Leiden                                            ","Code_4":"AM19      ","Naam_5":"Holland Rijnland                                  "
+    },{
+      "RegioS":"GM0547    ","Code_1":"GM0547    ","Naam_2":"Leiderdorp                                        ","Code_4":"AM19      ","Naam_5":"Holland Rijnland                                  "
+    },{
+      "RegioS":"GM1916    ","Code_1":"GM1916    ","Naam_2":"Leidschendam-Voorburg                             ","Code_4":"AM34      ","Naam_5":"Zuid-Holland Centraal                             "
+    },{
+      "RegioS":"GM0995    ","Code_1":"GM0995    ","Naam_2":"Lelystad                                          ","Code_4":"AM11      ","Naam_5":"Flevoland                                         "
+    },{
+      "RegioS":"GM1640    ","Code_1":"GM1640    ","Naam_2":"Leudal                                            ","Code_4":"AM33      ","Naam_5":"Midden-Limburg                                    "
+    },{
+      "RegioS":"GM0327    ","Code_1":"GM0327    ","Naam_2":"Leusden                                           ","Code_4":"AM14      ","Naam_5":"Amersfoort                                        "
+    },{
+      "RegioS":"GM1705    ","Code_1":"GM1705    ","Naam_2":"Lingewaard                                        ","Code_4":"AM07      ","Naam_5":"Midden-Gelderland                                 "
+    },{
+      "RegioS":"GM0553    ","Code_1":"GM0553    ","Naam_2":"Lisse                                             ","Code_4":"AM19      ","Naam_5":"Holland Rijnland                                  "
+    },{
+      "RegioS":"GM0262    ","Code_1":"GM0262    ","Naam_2":"Lochem                                            ","Code_4":"AM06      ","Naam_5":"Stedendriehoek en Noordwest Veluwe                "
+    },{
+      "RegioS":"GM0809    ","Code_1":"GM0809    ","Naam_2":"Loon op Zand                                      ","Code_4":"AM26      ","Naam_5":"Midden-Brabant                                    "
+    },{
+      "RegioS":"GM0331    ","Code_1":"GM0331    ","Naam_2":"Lopik                                             ","Code_4":"AM13      ","Naam_5":"Midden-Utrecht                                    "
+    },{
+      "RegioS":"GM0168    ","Code_1":"GM0168    ","Naam_2":"Losser                                            ","Code_4":"AM05      ","Naam_5":"Twente                                            "
+    },{
+      "RegioS":"GM0263    ","Code_1":"GM0263    ","Naam_2":"Maasdriel                                         ","Code_4":"AM10      ","Naam_5":"Rivierenland                                      "
+    },{
+      "RegioS":"GM1641    ","Code_1":"GM1641    ","Naam_2":"Maasgouw                                          ","Code_4":"AM33      ","Naam_5":"Midden-Limburg                                    "
+    },{
+      "RegioS":"GM0556    ","Code_1":"GM0556    ","Naam_2":"Maassluis                                         ","Code_4":"AM22      ","Naam_5":"Rijnmond                                          "
+    },{
+      "RegioS":"GM0935    ","Code_1":"GM0935    ","Naam_2":"Maastricht                                        ","Code_4":"AM30      ","Naam_5":"Zuid-Limburg                                      "
+    },{
+      "RegioS":"GM0420    ","Code_1":"GM0420    ","Naam_2":"Medemblik                                         ","Code_4":"AM15      ","Naam_5":"Noord-Holland Noord                               "
+    },{
+      "RegioS":"GM0938    ","Code_1":"GM0938    ","Naam_2":"Meerssen                                          ","Code_4":"AM30      ","Naam_5":"Zuid-Limburg                                      "
+    },{
+      "RegioS":"GM1948    ","Code_1":"GM1948    ","Naam_2":"Meierijstad                                       ","Code_4":"AM27      ","Naam_5":"Noordoost-Brabant                                 "
+    },{
+      "RegioS":"GM0119    ","Code_1":"GM0119    ","Naam_2":"Meppel                                            ","Code_4":"AM36      ","Naam_5":"Regio Zwolle                                      "
+    },{
+      "RegioS":"GM0687    ","Code_1":"GM0687    ","Naam_2":"Middelburg                                        ","Code_4":"AM24      ","Naam_5":"Zeeland                                           "
+    },{
+      "RegioS":"GM1842    ","Code_1":"GM1842    ","Naam_2":"Midden-Delfland                                   ","Code_4":"AM21      ","Naam_5":"Haaglanden                                        "
+    },{
+      "RegioS":"GM1731    ","Code_1":"GM1731    ","Naam_2":"Midden-Drenthe                                    ","Code_4":"AM03      ","Naam_5":"Drenthe                                           "
+    },{
+      "RegioS":"GM1952    ","Code_1":"GM1952    ","Naam_2":"Midden-Groningen                                  ","Code_4":"AM01      ","Naam_5":"Groningen                                         "
+    },{
+      "RegioS":"GM0815    ","Code_1":"GM0815    ","Naam_2":"Mill en Sint Hubert                               ","Code_4":"AM27      ","Naam_5":"Noordoost-Brabant                                 "
+    },{
+      "RegioS":"GM1709    ","Code_1":"GM1709    ","Naam_2":"Moerdijk                                          ","Code_4":"AM25      ","Naam_5":"West-Brabant                                      "
+    },{
+      "RegioS":"GM1978    ","Code_1":"GM1978    ","Naam_2":"Molenlanden                                       ","Code_4":"AM35      ","Naam_5":"Gorinchem                                         "
+    },{
+      "RegioS":"GM1955    ","Code_1":"GM1955    ","Naam_2":"Montferland                                       ","Code_4":"AM09      ","Naam_5":"Achterhoek                                        "
+    },{
+      "RegioS":"GM0335    ","Code_1":"GM0335    ","Naam_2":"Montfoort                                         ","Code_4":"AM13      ","Naam_5":"Midden-Utrecht                                    "
+    },{
+      "RegioS":"GM0944    ","Code_1":"GM0944    ","Naam_2":"Mook en Middelaar                                 ","Code_4":"AM08      ","Naam_5":"Rijk van Nijmegen                                 "
+    },{
+      "RegioS":"GM1740    ","Code_1":"GM1740    ","Naam_2":"Neder-Betuwe                                      ","Code_4":"AM10      ","Naam_5":"Rivierenland                                      "
+    },{
+      "RegioS":"GM0946    ","Code_1":"GM0946    ","Naam_2":"Nederweert                                        ","Code_4":"AM33      ","Naam_5":"Midden-Limburg                                    "
+    },{
+      "RegioS":"GM0356    ","Code_1":"GM0356    ","Naam_2":"Nieuwegein                                        ","Code_4":"AM13      ","Naam_5":"Midden-Utrecht                                    "
+    },{
+      "RegioS":"GM0569    ","Code_1":"GM0569    ","Naam_2":"Nieuwkoop                                         ","Code_4":"AM19      ","Naam_5":"Holland Rijnland                                  "
+    },{
+      "RegioS":"GM0267    ","Code_1":"GM0267    ","Naam_2":"Nijkerk                                           ","Code_4":"AM14      ","Naam_5":"Amersfoort                                        "
+    },{
+      "RegioS":"GM0268    ","Code_1":"GM0268    ","Naam_2":"Nijmegen                                          ","Code_4":"AM08      ","Naam_5":"Rijk van Nijmegen                                 "
+    },{
+      "RegioS":"GM1930    ","Code_1":"GM1930    ","Naam_2":"Nissewaard                                        ","Code_4":"AM22      ","Naam_5":"Rijnmond                                          "
+    },{
+      "RegioS":"GM1970    ","Code_1":"GM1970    ","Naam_2":"Noardeast-Frysl\u00e2n                                 ","Code_4":"AM02      ","Naam_5":"Friesland                                         "
+    },{
+      "RegioS":"GM1695    ","Code_1":"GM1695    ","Naam_2":"Noord-Beveland                                    ","Code_4":"AM24      ","Naam_5":"Zeeland                                           "
+    },{
+      "RegioS":"GM1699    ","Code_1":"GM1699    ","Naam_2":"Noordenveld                                       ","Code_4":"AM01      ","Naam_5":"Groningen                                         "
+    },{
+      "RegioS":"GM0171    ","Code_1":"GM0171    ","Naam_2":"Noordoostpolder                                   ","Code_4":"AM11      ","Naam_5":"Flevoland                                         "
+    },{
+      "RegioS":"GM0575    ","Code_1":"GM0575    ","Naam_2":"Noordwijk                                         ","Code_4":"AM19      ","Naam_5":"Holland Rijnland                                  "
+    },{
+      "RegioS":"GM0820    ","Code_1":"GM0820    ","Naam_2":"Nuenen, Gerwen en Nederwetten                     ","Code_4":"AM28      ","Naam_5":"Zuidoost-Brabant                                  "
+    },{
+      "RegioS":"GM0302    ","Code_1":"GM0302    ","Naam_2":"Nunspeet                                          ","Code_4":"AM06      ","Naam_5":"Stedendriehoek en Noordwest Veluwe                "
+    },{
+      "RegioS":"GM0579    ","Code_1":"GM0579    ","Naam_2":"Oegstgeest                                        ","Code_4":"AM19      ","Naam_5":"Holland Rijnland                                  "
+    },{
+      "RegioS":"GM0823    ","Code_1":"GM0823    ","Naam_2":"Oirschot                                          ","Code_4":"AM28      ","Naam_5":"Zuidoost-Brabant                                  "
+    },{
+      "RegioS":"GM0824    ","Code_1":"GM0824    ","Naam_2":"Oisterwijk                                        ","Code_4":"AM26      ","Naam_5":"Midden-Brabant                                    "
+    },{
+      "RegioS":"GM1895    ","Code_1":"GM1895    ","Naam_2":"Oldambt                                           ","Code_4":"AM01      ","Naam_5":"Groningen                                         "
+    },{
+      "RegioS":"GM0269    ","Code_1":"GM0269    ","Naam_2":"Oldebroek                                         ","Code_4":"AM36      ","Naam_5":"Regio Zwolle                                      "
+    },{
+      "RegioS":"GM0173    ","Code_1":"GM0173    ","Naam_2":"Oldenzaal                                         ","Code_4":"AM05      ","Naam_5":"Twente                                            "
+    },{
+      "RegioS":"GM1773    ","Code_1":"GM1773    ","Naam_2":"Olst-Wijhe                                        ","Code_4":"AM06      ","Naam_5":"Stedendriehoek en Noordwest Veluwe                "
+    },{
+      "RegioS":"GM0175    ","Code_1":"GM0175    ","Naam_2":"Ommen                                             ","Code_4":"AM36      ","Naam_5":"Regio Zwolle                                      "
+    },{
+      "RegioS":"GM1586    ","Code_1":"GM1586    ","Naam_2":"Oost Gelre                                        ","Code_4":"AM09      ","Naam_5":"Achterhoek                                        "
+    },{
+      "RegioS":"GM0826    ","Code_1":"GM0826    ","Naam_2":"Oosterhout                                        ","Code_4":"AM25      ","Naam_5":"West-Brabant                                      "
+    },{
+      "RegioS":"GM0085    ","Code_1":"GM0085    ","Naam_2":"Ooststellingwerf                                  ","Code_4":"AM02      ","Naam_5":"Friesland                                         "
+    },{
+      "RegioS":"GM0431    ","Code_1":"GM0431    ","Naam_2":"Oostzaan                                          ","Code_4":"AM17      ","Naam_5":"Zaanstreek/Waterland                              "
+    },{
+      "RegioS":"GM0432    ","Code_1":"GM0432    ","Naam_2":"Opmeer                                            ","Code_4":"AM15      ","Naam_5":"Noord-Holland Noord                               "
+    },{
+      "RegioS":"GM0086    ","Code_1":"GM0086    ","Naam_2":"Opsterland                                        ","Code_4":"AM02      ","Naam_5":"Friesland                                         "
+    },{
+      "RegioS":"GM0828    ","Code_1":"GM0828    ","Naam_2":"Oss                                               ","Code_4":"AM27      ","Naam_5":"Noordoost-Brabant                                 "
+    },{
+      "RegioS":"GM1509    ","Code_1":"GM1509    ","Naam_2":"Oude IJsselstreek                                 ","Code_4":"AM09      ","Naam_5":"Achterhoek                                        "
+    },{
+      "RegioS":"GM0437    ","Code_1":"GM0437    ","Naam_2":"Ouder-Amstel                                      ","Code_4":"AM18      ","Naam_5":"Groot Amsterdam                                   "
+    },{
+      "RegioS":"GM0589    ","Code_1":"GM0589    ","Naam_2":"Oudewater                                         ","Code_4":"AM13      ","Naam_5":"Midden-Utrecht                                    "
+    },{
+      "RegioS":"GM1734    ","Code_1":"GM1734    ","Naam_2":"Overbetuwe                                        ","Code_4":"AM07      ","Naam_5":"Midden-Gelderland                                 "
+    },{
+      "RegioS":"GM0590    ","Code_1":"GM0590    ","Naam_2":"Papendrecht                                       ","Code_4":"AM23      ","Naam_5":"Drechtsteden                                      "
+    },{
+      "RegioS":"GM1894    ","Code_1":"GM1894    ","Naam_2":"Peel en Maas                                      ","Code_4":"AM29      ","Naam_5":"Noord-Limburg                                     "
+    },{
+      "RegioS":"GM0765    ","Code_1":"GM0765    ","Naam_2":"Pekela                                            ","Code_4":"AM01      ","Naam_5":"Groningen                                         "
+    },{
+      "RegioS":"GM1926    ","Code_1":"GM1926    ","Naam_2":"Pijnacker-Nootdorp                                ","Code_4":"AM34      ","Naam_5":"Zuid-Holland Centraal                             "
+    },{
+      "RegioS":"GM0439    ","Code_1":"GM0439    ","Naam_2":"Purmerend                                         ","Code_4":"AM17      ","Naam_5":"Zaanstreek/Waterland                              "
+    },{
+      "RegioS":"GM0273    ","Code_1":"GM0273    ","Naam_2":"Putten                                            ","Code_4":"AM06      ","Naam_5":"Stedendriehoek en Noordwest Veluwe                "
+    },{
+      "RegioS":"GM0177    ","Code_1":"GM0177    ","Naam_2":"Raalte                                            ","Code_4":"AM36      ","Naam_5":"Regio Zwolle                                      "
+    },{
+      "RegioS":"GM0703    ","Code_1":"GM0703    ","Naam_2":"Reimerswaal                                       ","Code_4":"AM24      ","Naam_5":"Zeeland                                           "
+    },{
+      "RegioS":"GM0274    ","Code_1":"GM0274    ","Naam_2":"Renkum                                            ","Code_4":"AM38      ","Naam_5":"FoodValley                                        "
+    },{
+      "RegioS":"GM0339    ","Code_1":"GM0339    ","Naam_2":"Renswoude                                         ","Code_4":"AM38      ","Naam_5":"FoodValley                                        "
+    },{
+      "RegioS":"GM1667    ","Code_1":"GM1667    ","Naam_2":"Reusel-De Mierden                                 ","Code_4":"AM28      ","Naam_5":"Zuidoost-Brabant                                  "
+    },{
+      "RegioS":"GM0275    ","Code_1":"GM0275    ","Naam_2":"Rheden                                            ","Code_4":"AM07      ","Naam_5":"Midden-Gelderland                                 "
+    },{
+      "RegioS":"GM0340    ","Code_1":"GM0340    ","Naam_2":"Rhenen                                            ","Code_4":"AM38      ","Naam_5":"FoodValley                                        "
+    },{
+      "RegioS":"GM0597    ","Code_1":"GM0597    ","Naam_2":"Ridderkerk                                        ","Code_4":"AM22      ","Naam_5":"Rijnmond                                          "
+    },{
+      "RegioS":"GM1742    ","Code_1":"GM1742    ","Naam_2":"Rijssen-Holten                                    ","Code_4":"AM05      ","Naam_5":"Twente                                            "
+    },{
+      "RegioS":"GM0603    ","Code_1":"GM0603    ","Naam_2":"Rijswijk                                          ","Code_4":"AM21      ","Naam_5":"Haaglanden                                        "
+    },{
+      "RegioS":"GM1669    ","Code_1":"GM1669    ","Naam_2":"Roerdalen                                         ","Code_4":"AM33      ","Naam_5":"Midden-Limburg                                    "
+    },{
+      "RegioS":"GM0957    ","Code_1":"GM0957    ","Naam_2":"Roermond                                          ","Code_4":"AM33      ","Naam_5":"Midden-Limburg                                    "
+    },{
+      "RegioS":"GM0736    ","Code_1":"GM0736    ","Naam_2":"De Ronde Venen                                    ","Code_4":"AM18      ","Naam_5":"Groot Amsterdam                                   "
+    },{
+      "RegioS":"GM1674    ","Code_1":"GM1674    ","Naam_2":"Roosendaal                                        ","Code_4":"AM25      ","Naam_5":"West-Brabant                                      "
+    },{
+      "RegioS":"GM0599    ","Code_1":"GM0599    ","Naam_2":"Rotterdam                                         ","Code_4":"AM22      ","Naam_5":"Rijnmond                                          "
+    },{
+      "RegioS":"GM0277    ","Code_1":"GM0277    ","Naam_2":"Rozendaal                                         ","Code_4":"AM07      ","Naam_5":"Midden-Gelderland                                 "
+    },{
+      "RegioS":"GM0840    ","Code_1":"GM0840    ","Naam_2":"Rucphen                                           ","Code_4":"AM25      ","Naam_5":"West-Brabant                                      "
+    },{
+      "RegioS":"GM0441    ","Code_1":"GM0441    ","Naam_2":"Schagen                                           ","Code_4":"AM15      ","Naam_5":"Noord-Holland Noord                               "
+    },{
+      "RegioS":"GM0279    ","Code_1":"GM0279    ","Naam_2":"Scherpenzeel                                      ","Code_4":"AM38      ","Naam_5":"FoodValley                                        "
+    },{
+      "RegioS":"GM0606    ","Code_1":"GM0606    ","Naam_2":"Schiedam                                          ","Code_4":"AM22      ","Naam_5":"Rijnmond                                          "
+    },{
+      "RegioS":"GM0088    ","Code_1":"GM0088    ","Naam_2":"Schiermonnikoog                                   ","Code_4":"AM02      ","Naam_5":"Friesland                                         "
+    },{
+      "RegioS":"GM1676    ","Code_1":"GM1676    ","Naam_2":"Schouwen-Duiveland                                ","Code_4":"AM24      ","Naam_5":"Zeeland                                           "
+    },{
+      "RegioS":"GM0965    ","Code_1":"GM0965    ","Naam_2":"Simpelveld                                        ","Code_4":"AM30      ","Naam_5":"Zuid-Limburg                                      "
+    },{
+      "RegioS":"GM1702    ","Code_1":"GM1702    ","Naam_2":"Sint Anthonis                                     ","Code_4":"AM27      ","Naam_5":"Noordoost-Brabant                                 "
+    },{
+      "RegioS":"GM0845    ","Code_1":"GM0845    ","Naam_2":"Sint-Michielsgestel                               ","Code_4":"AM27      ","Naam_5":"Noordoost-Brabant                                 "
+    },{
+      "RegioS":"GM1883    ","Code_1":"GM1883    ","Naam_2":"Sittard-Geleen                                    ","Code_4":"AM30      ","Naam_5":"Zuid-Limburg                                      "
+    },{
+      "RegioS":"GM0610    ","Code_1":"GM0610    ","Naam_2":"Sliedrecht                                        ","Code_4":"AM23      ","Naam_5":"Drechtsteden                                      "
+    },{
+      "RegioS":"GM1714    ","Code_1":"GM1714    ","Naam_2":"Sluis                                             ","Code_4":"AM24      ","Naam_5":"Zeeland                                           "
+    },{
+      "RegioS":"GM0090    ","Code_1":"GM0090    ","Naam_2":"Smallingerland                                    ","Code_4":"AM02      ","Naam_5":"Friesland                                         "
+    },{
+      "RegioS":"GM0342    ","Code_1":"GM0342    ","Naam_2":"Soest                                             ","Code_4":"AM14      ","Naam_5":"Amersfoort                                        "
+    },{
+      "RegioS":"GM0847    ","Code_1":"GM0847    ","Naam_2":"Someren                                           ","Code_4":"AM32      ","Naam_5":"Helmond-De Peel                                   "
+    },{
+      "RegioS":"GM0848    ","Code_1":"GM0848    ","Naam_2":"Son en Breugel                                    ","Code_4":"AM28      ","Naam_5":"Zuidoost-Brabant                                  "
+    },{
+      "RegioS":"GM0037    ","Code_1":"GM0037    ","Naam_2":"Stadskanaal                                       ","Code_4":"AM01      ","Naam_5":"Groningen                                         "
+    },{
+      "RegioS":"GM0180    ","Code_1":"GM0180    ","Naam_2":"Staphorst                                         ","Code_4":"AM36      ","Naam_5":"Regio Zwolle                                      "
+    },{
+      "RegioS":"GM0532    ","Code_1":"GM0532    ","Naam_2":"Stede Broec                                       ","Code_4":"AM15      ","Naam_5":"Noord-Holland Noord                               "
+    },{
+      "RegioS":"GM0851    ","Code_1":"GM0851    ","Naam_2":"Steenbergen                                       ","Code_4":"AM25      ","Naam_5":"West-Brabant                                      "
+    },{
+      "RegioS":"GM1708    ","Code_1":"GM1708    ","Naam_2":"Steenwijkerland                                   ","Code_4":"AM36      ","Naam_5":"Regio Zwolle                                      "
+    },{
+      "RegioS":"GM0971    ","Code_1":"GM0971    ","Naam_2":"Stein                                             ","Code_4":"AM30      ","Naam_5":"Zuid-Limburg                                      "
+    },{
+      "RegioS":"GM1904    ","Code_1":"GM1904    ","Naam_2":"Stichtse Vecht                                    ","Code_4":"AM13      ","Naam_5":"Midden-Utrecht                                    "
+    },{
+      "RegioS":"GM1900    ","Code_1":"GM1900    ","Naam_2":"S\u00fadwest-Frysl\u00e2n                                   ","Code_4":"AM02      ","Naam_5":"Friesland                                         "
+    },{
+      "RegioS":"GM0715    ","Code_1":"GM0715    ","Naam_2":"Terneuzen                                         ","Code_4":"AM24      ","Naam_5":"Zeeland                                           "
+    },{
+      "RegioS":"GM0093    ","Code_1":"GM0093    ","Naam_2":"Terschelling                                      ","Code_4":"AM02      ","Naam_5":"Friesland                                         "
+    },{
+      "RegioS":"GM0448    ","Code_1":"GM0448    ","Naam_2":"Texel                                             ","Code_4":"AM15      ","Naam_5":"Noord-Holland Noord                               "
+    },{
+      "RegioS":"GM1525    ","Code_1":"GM1525    ","Naam_2":"Teylingen                                         ","Code_4":"AM19      ","Naam_5":"Holland Rijnland                                  "
+    },{
+      "RegioS":"GM0716    ","Code_1":"GM0716    ","Naam_2":"Tholen                                            ","Code_4":"AM24      ","Naam_5":"Zeeland                                           "
+    },{
+      "RegioS":"GM0281    ","Code_1":"GM0281    ","Naam_2":"Tiel                                              ","Code_4":"AM10      ","Naam_5":"Rivierenland                                      "
+    },{
+      "RegioS":"GM0855    ","Code_1":"GM0855    ","Naam_2":"Tilburg                                           ","Code_4":"AM26      ","Naam_5":"Midden-Brabant                                    "
+    },{
+      "RegioS":"GM0183    ","Code_1":"GM0183    ","Naam_2":"Tubbergen                                         ","Code_4":"AM05      ","Naam_5":"Twente                                            "
+    },{
+      "RegioS":"GM1700    ","Code_1":"GM1700    ","Naam_2":"Twenterand                                        ","Code_4":"AM05      ","Naam_5":"Twente                                            "
+    },{
+      "RegioS":"GM1730    ","Code_1":"GM1730    ","Naam_2":"Tynaarlo                                          ","Code_4":"AM01      ","Naam_5":"Groningen                                         "
+    },{
+      "RegioS":"GM0737    ","Code_1":"GM0737    ","Naam_2":"Tytsjerksteradiel                                 ","Code_4":"AM02      ","Naam_5":"Friesland                                         "
+    },{
+      "RegioS":"GM0856    ","Code_1":"GM0856    ","Naam_2":"Uden                                              ","Code_4":"AM27      ","Naam_5":"Noordoost-Brabant                                 "
+    },{
+      "RegioS":"GM0450    ","Code_1":"GM0450    ","Naam_2":"Uitgeest                                          ","Code_4":"AM15      ","Naam_5":"Noord-Holland Noord                               "
+    },{
+      "RegioS":"GM0451    ","Code_1":"GM0451    ","Naam_2":"Uithoorn                                          ","Code_4":"AM18      ","Naam_5":"Groot Amsterdam                                   "
+    },{
+      "RegioS":"GM0184    ","Code_1":"GM0184    ","Naam_2":"Urk                                               ","Code_4":"AM11      ","Naam_5":"Flevoland                                         "
+    },{
+      "RegioS":"GM0344    ","Code_1":"GM0344    ","Naam_2":"Utrecht                                           ","Code_4":"AM13      ","Naam_5":"Midden-Utrecht                                    "
+    },{
+      "RegioS":"GM1581    ","Code_1":"GM1581    ","Naam_2":"Utrechtse Heuvelrug                               ","Code_4":"AM13      ","Naam_5":"Midden-Utrecht                                    "
+    },{
+      "RegioS":"GM0981    ","Code_1":"GM0981    ","Naam_2":"Vaals                                             ","Code_4":"AM30      ","Naam_5":"Zuid-Limburg                                      "
+    },{
+      "RegioS":"GM0994    ","Code_1":"GM0994    ","Naam_2":"Valkenburg aan de Geul                            ","Code_4":"AM30      ","Naam_5":"Zuid-Limburg                                      "
+    },{
+      "RegioS":"GM0858    ","Code_1":"GM0858    ","Naam_2":"Valkenswaard                                      ","Code_4":"AM28      ","Naam_5":"Zuidoost-Brabant                                  "
+    },{
+      "RegioS":"GM0047    ","Code_1":"GM0047    ","Naam_2":"Veendam                                           ","Code_4":"AM01      ","Naam_5":"Groningen                                         "
+    },{
+      "RegioS":"GM0345    ","Code_1":"GM0345    ","Naam_2":"Veenendaal                                        ","Code_4":"AM38      ","Naam_5":"FoodValley                                        "
+    },{
+      "RegioS":"GM0717    ","Code_1":"GM0717    ","Naam_2":"Veere                                             ","Code_4":"AM24      ","Naam_5":"Zeeland                                           "
+    },{
+      "RegioS":"GM0861    ","Code_1":"GM0861    ","Naam_2":"Veldhoven                                         ","Code_4":"AM28      ","Naam_5":"Zuidoost-Brabant                                  "
+    },{
+      "RegioS":"GM0453    ","Code_1":"GM0453    ","Naam_2":"Velsen                                            ","Code_4":"AM37      ","Naam_5":"Zuid-Kennemerland en IJmond                       "
+    },{
+      "RegioS":"GM0983    ","Code_1":"GM0983    ","Naam_2":"Venlo                                             ","Code_4":"AM29      ","Naam_5":"Noord-Limburg                                     "
+    },{
+      "RegioS":"GM0984    ","Code_1":"GM0984    ","Naam_2":"Venray                                            ","Code_4":"AM29      ","Naam_5":"Noord-Limburg                                     "
+    },{
+      "RegioS":"GM1961    ","Code_1":"GM1961    ","Naam_2":"Vijfheerenlanden                                  ","Code_4":"AM35      ","Naam_5":"Gorinchem                                         "
+    },{
+      "RegioS":"GM0622    ","Code_1":"GM0622    ","Naam_2":"Vlaardingen                                       ","Code_4":"AM22      ","Naam_5":"Rijnmond                                          "
+    },{
+      "RegioS":"GM0096    ","Code_1":"GM0096    ","Naam_2":"Vlieland                                          ","Code_4":"AM02      ","Naam_5":"Friesland                                         "
+    },{
+      "RegioS":"GM0718    ","Code_1":"GM0718    ","Naam_2":"Vlissingen                                        ","Code_4":"AM24      ","Naam_5":"Zeeland                                           "
+    },{
+      "RegioS":"GM0986    ","Code_1":"GM0986    ","Naam_2":"Voerendaal                                        ","Code_4":"AM30      ","Naam_5":"Zuid-Limburg                                      "
+    },{
+      "RegioS":"GM0626    ","Code_1":"GM0626    ","Naam_2":"Voorschoten                                       ","Code_4":"AM34      ","Naam_5":"Zuid-Holland Centraal                             "
+    },{
+      "RegioS":"GM0285    ","Code_1":"GM0285    ","Naam_2":"Voorst                                            ","Code_4":"AM06      ","Naam_5":"Stedendriehoek en Noordwest Veluwe                "
+    },{
+      "RegioS":"GM0865    ","Code_1":"GM0865    ","Naam_2":"Vught                                             ","Code_4":"AM27      ","Naam_5":"Noordoost-Brabant                                 "
+    },{
+      "RegioS":"GM1949    ","Code_1":"GM1949    ","Naam_2":"Waadhoeke                                         ","Code_4":"AM02      ","Naam_5":"Friesland                                         "
+    },{
+      "RegioS":"GM0866    ","Code_1":"GM0866    ","Naam_2":"Waalre                                            ","Code_4":"AM28      ","Naam_5":"Zuidoost-Brabant                                  "
+    },{
+      "RegioS":"GM0867    ","Code_1":"GM0867    ","Naam_2":"Waalwijk                                          ","Code_4":"AM26      ","Naam_5":"Midden-Brabant                                    "
+    },{
+      "RegioS":"GM0627    ","Code_1":"GM0627    ","Naam_2":"Waddinxveen                                       ","Code_4":"AM20      ","Naam_5":"Midden-Holland                                    "
+    },{
+      "RegioS":"GM0289    ","Code_1":"GM0289    ","Naam_2":"Wageningen                                        ","Code_4":"AM38      ","Naam_5":"FoodValley                                        "
+    },{
+      "RegioS":"GM0629    ","Code_1":"GM0629    ","Naam_2":"Wassenaar                                         ","Code_4":"AM34      ","Naam_5":"Zuid-Holland Centraal                             "
+    },{
+      "RegioS":"GM0852    ","Code_1":"GM0852    ","Naam_2":"Waterland                                         ","Code_4":"AM17      ","Naam_5":"Zaanstreek/Waterland                              "
+    },{
+      "RegioS":"GM0988    ","Code_1":"GM0988    ","Naam_2":"Weert                                             ","Code_4":"AM33      ","Naam_5":"Midden-Limburg                                    "
+    },{
+      "RegioS":"GM0457    ","Code_1":"GM0457    ","Naam_2":"Weesp                                             ","Code_4":"AM12      ","Naam_5":"Gooi en Vechtstreek                               "
+    },{
+      "RegioS":"GM1960    ","Code_1":"GM1960    ","Naam_2":"West Betuwe                                       ","Code_4":"AM10      ","Naam_5":"Rivierenland                                      "
+    },{
+      "RegioS":"GM0668    ","Code_1":"GM0668    ","Naam_2":"West Maas en Waal                                 ","Code_4":"AM10      ","Naam_5":"Rivierenland                                      "
+    },{
+      "RegioS":"GM1969    ","Code_1":"GM1969    ","Naam_2":"Westerkwartier                                    ","Code_4":"AM01      ","Naam_5":"Groningen                                         "
+    },{
+      "RegioS":"GM1701    ","Code_1":"GM1701    ","Naam_2":"Westerveld                                        ","Code_4":"AM36      ","Naam_5":"Regio Zwolle                                      "
+    },{
+      "RegioS":"GM0293    ","Code_1":"GM0293    ","Naam_2":"Westervoort                                       ","Code_4":"AM07      ","Naam_5":"Midden-Gelderland                                 "
+    },{
+      "RegioS":"GM1950    ","Code_1":"GM1950    ","Naam_2":"Westerwolde                                       ","Code_4":"AM01      ","Naam_5":"Groningen                                         "
+    },{
+      "RegioS":"GM1783    ","Code_1":"GM1783    ","Naam_2":"Westland                                          ","Code_4":"AM21      ","Naam_5":"Haaglanden                                        "
+    },{
+      "RegioS":"GM0098    ","Code_1":"GM0098    ","Naam_2":"Weststellingwerf                                  ","Code_4":"AM02      ","Naam_5":"Friesland                                         "
+    },{
+      "RegioS":"GM0614    ","Code_1":"GM0614    ","Naam_2":"Westvoorne                                        ","Code_4":"AM22      ","Naam_5":"Rijnmond                                          "
+    },{
+      "RegioS":"GM0189    ","Code_1":"GM0189    ","Naam_2":"Wierden                                           ","Code_4":"AM05      ","Naam_5":"Twente                                            "
+    },{
+      "RegioS":"GM0296    ","Code_1":"GM0296    ","Naam_2":"Wijchen                                           ","Code_4":"AM08      ","Naam_5":"Rijk van Nijmegen                                 "
+    },{
+      "RegioS":"GM1696    ","Code_1":"GM1696    ","Naam_2":"Wijdemeren                                        ","Code_4":"AM12      ","Naam_5":"Gooi en Vechtstreek                               "
+    },{
+      "RegioS":"GM0352    ","Code_1":"GM0352    ","Naam_2":"Wijk bij Duurstede                                ","Code_4":"AM13      ","Naam_5":"Midden-Utrecht                                    "
+    },{
+      "RegioS":"GM0294    ","Code_1":"GM0294    ","Naam_2":"Winterswijk                                       ","Code_4":"AM09      ","Naam_5":"Achterhoek                                        "
+    },{
+      "RegioS":"GM0873    ","Code_1":"GM0873    ","Naam_2":"Woensdrecht                                       ","Code_4":"AM25      ","Naam_5":"West-Brabant                                      "
+    },{
+      "RegioS":"GM0632    ","Code_1":"GM0632    ","Naam_2":"Woerden                                           ","Code_4":"AM13      ","Naam_5":"Midden-Utrecht                                    "
+    },{
+      "RegioS":"GM1690    ","Code_1":"GM1690    ","Naam_2":"De Wolden                                         ","Code_4":"AM03      ","Naam_5":"Drenthe                                           "
+    },{
+      "RegioS":"GM0880    ","Code_1":"GM0880    ","Naam_2":"Wormerland                                        ","Code_4":"AM17      ","Naam_5":"Zaanstreek/Waterland                              "
+    },{
+      "RegioS":"GM0351    ","Code_1":"GM0351    ","Naam_2":"Woudenberg                                        ","Code_4":"AM14      ","Naam_5":"Amersfoort                                        "
+    },{
+      "RegioS":"GM0479    ","Code_1":"GM0479    ","Naam_2":"Zaanstad                                          ","Code_4":"AM17      ","Naam_5":"Zaanstreek/Waterland                              "
+    },{
+      "RegioS":"GM0297    ","Code_1":"GM0297    ","Naam_2":"Zaltbommel                                        ","Code_4":"AM10      ","Naam_5":"Rivierenland                                      "
+    },{
+      "RegioS":"GM0473    ","Code_1":"GM0473    ","Naam_2":"Zandvoort                                         ","Code_4":"AM37      ","Naam_5":"Zuid-Kennemerland en IJmond                       "
+    },{
+      "RegioS":"GM0050    ","Code_1":"GM0050    ","Naam_2":"Zeewolde                                          ","Code_4":"AM06      ","Naam_5":"Stedendriehoek en Noordwest Veluwe                "
+    },{
+      "RegioS":"GM0355    ","Code_1":"GM0355    ","Naam_2":"Zeist                                             ","Code_4":"AM13      ","Naam_5":"Midden-Utrecht                                    "
+    },{
+      "RegioS":"GM0299    ","Code_1":"GM0299    ","Naam_2":"Zevenaar                                          ","Code_4":"AM07      ","Naam_5":"Midden-Gelderland                                 "
+    },{
+      "RegioS":"GM0637    ","Code_1":"GM0637    ","Naam_2":"Zoetermeer                                        ","Code_4":"AM34      ","Naam_5":"Zuid-Holland Centraal                             "
+    },{
+      "RegioS":"GM0638    ","Code_1":"GM0638    ","Naam_2":"Zoeterwoude                                       ","Code_4":"AM19      ","Naam_5":"Holland Rijnland                                  "
+    },{
+      "RegioS":"GM1892    ","Code_1":"GM1892    ","Naam_2":"Zuidplas                                          ","Code_4":"AM22      ","Naam_5":"Rijnmond                                          "
+    },{
+      "RegioS":"GM0879    ","Code_1":"GM0879    ","Naam_2":"Zundert                                           ","Code_4":"AM25      ","Naam_5":"West-Brabant                                      "
+    },{
+      "RegioS":"GM0301    ","Code_1":"GM0301    ","Naam_2":"Zutphen                                           ","Code_4":"AM06      ","Naam_5":"Stedendriehoek en Noordwest Veluwe                "
+    },{
+      "RegioS":"GM1896    ","Code_1":"GM1896    ","Naam_2":"Zwartewaterland                                   ","Code_4":"AM36      ","Naam_5":"Regio Zwolle                                      "
+    },{
+      "RegioS":"GM0642    ","Code_1":"GM0642    ","Naam_2":"Zwijndrecht                                       ","Code_4":"AM23      ","Naam_5":"Drechtsteden                                      "
+    },{
+      "RegioS":"GM0193    ","Code_1":"GM0193    ","Naam_2":"Zwolle                                            ","Code_4":"AM36      ","Naam_5":"Regio Zwolle                                      "
+    }
+  ]
+}

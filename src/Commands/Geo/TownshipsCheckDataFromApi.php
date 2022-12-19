@@ -1,0 +1,113 @@
+<?php
+
+namespace Vng\DennisCore\Commands\Geo;
+
+use Illuminate\Support\Collection;
+use Vng\DennisCore\Services\GeoApi\CbsAreaTownshipApiService;
+use Vng\DennisCore\Services\GeoApi\CbsDistrictNeighborhoodTownshipApiService;
+use Vng\DennisCore\Services\GeoApi\CbsOpenDataApiService;
+use Vng\DennisCore\Services\GeoApi\KadasterTownshipApiService;
+use Vng\DennisCore\Services\GeoComparison\TownshipDataComparisonService;
+use Vng\DennisCore\Services\GeoData\TownshipDataService;
+
+class TownshipsCheckDataFromApi extends GeoCheckCommand
+{
+    protected $signature = 'geo:townships-check-data-from-api';
+    protected $description = 'Check township data compared to api results';
+
+    protected string $labelCollectionA = 'Current';
+    protected string $labelCollectionB = 'API';
+
+    public function handle(): int
+    {
+        $this->output->writeln('check database data from api results..');
+        $this->output->writeln('');
+
+        $this->call('geo:integrity');
+
+        $this->output->writeln('Checking CBS Open Data API');
+        // This source seems to update late
+        $this->checkCbsOpenDataTownships();
+        $this->output->writeln('');
+
+        if ($this->confirm('Check other API\'s as well?')) {
+            $this->output->writeln('Checking CBS Area API');
+            $this->checkCbsAreaTownshipApiTownships();
+            $this->output->writeln('');
+
+            $this->output->writeln('Checking CBS District Neighborhood API');
+            $this->checkCbsDistrictNeighborhoodTownshipApiTownships();
+            $this->output->writeln('');
+
+//          NO LONGER AVAILABLE..?
+//
+//            $this->output->writeln('Checking Kadaster API');
+//            // This source seems to update late
+//            $this->checkKadasterTownshipApiTownships();
+//            $this->output->writeln('');
+        }
+
+        $this->output->writeln('check database data from api results finished!');
+        $this->output->writeln('');
+        $this->output->writeln('');
+        return 0;
+    }
+
+    public function checkCbsOpenDataTownships()
+    {
+        $apiData = CbsOpenDataApiService::getData();
+        $testData = CbsOpenDataApiService::getFormattedTownshipData($apiData);
+        $geoCollection = TownshipDataService::createBasicGeoCollectionFromData($testData);
+
+        $this->checkForMissingItems($geoCollection);
+        $this->checkForContentDeviation($geoCollection);
+
+    }
+
+    public function checkCbsAreaTownshipApiTownships()
+    {
+        $apiData = CbsAreaTownshipApiService::getData();
+        $testData = CbsAreaTownshipApiService::getFormattedData($apiData['features']);
+        $geoCollection = TownshipDataService::createBasicGeoCollectionFromData($testData);
+
+        $this->checkForMissingItems($geoCollection);
+        $this->checkForContentDeviation($geoCollection);
+    }
+
+    public function checkCbsDistrictNeighborhoodTownshipApiTownships()
+    {
+        $apiData = CbsDistrictNeighborhoodTownshipApiService::getData();
+        $testData = CbsDistrictNeighborhoodTownshipApiService::getFormattedData($apiData['features']);
+        $geoCollection = TownshipDataService::createBasicGeoCollectionFromData($testData);
+
+        $this->checkForMissingItems($geoCollection);
+        $this->checkForContentDeviation($geoCollection);
+    }
+
+    public function checkKadasterTownshipApiTownships()
+    {
+        $apiData = KadasterTownshipApiService::getData();
+        $testData = KadasterTownshipApiService::getFormattedData($apiData['features']);
+        $geoCollection = TownshipDataService::createBasicGeoCollectionFromData($testData);
+
+        $this->checkForMissingItems($geoCollection);
+        $this->checkForContentDeviation($geoCollection);
+    }
+
+    public function checkForMissingItems(Collection $geoCollection)
+    {
+        $comparisonService = TownshipDataComparisonService::createWithDatabaseCollection($geoCollection);
+        $this->checkItemsMissingFromCollectionA($comparisonService);
+        $this->checkItemsMissingFromCollectionB($comparisonService);
+    }
+
+    public function checkForContentDeviation(Collection $geoCollection, $attributes = null)
+    {
+        if (is_null($attributes)) {
+            $attributes = ['name', 'slug', 'region_code'];
+        }
+        $comparisonService = TownshipDataComparisonService::createWithDatabaseCollection($geoCollection);
+        $this->checkDeviatingItems($comparisonService, null, $attributes);
+    }
+
+}
