@@ -186,6 +186,12 @@ class DennisServiceProvider extends AggregateServiceProvider
     {
         parent::register();
         $this->bindRepositoryInterfaces();
+
+        $this->mergeConfigFrom(__DIR__.'/../../config/authorization.php', 'authorization');
+        $this->mergeConfigFrom(__DIR__.'/../../config/dennis-core.php', 'dennis-core');
+        $this->mergeConfigFrom(__DIR__.'/../../config/elastic.php', 'elastic');
+        $this->mergeConfigFrom(__DIR__.'/../../config/filesystems.php', 'filesystems');
+        $this->mergeConfigFrom(__DIR__.'/../../config/permission.php', 'permission');
     }
 
     public function boot()
@@ -201,13 +207,15 @@ class DennisServiceProvider extends AggregateServiceProvider
 
     private function publishConfig()
     {
-        $this->publishes([
-            __DIR__ . '/../../config/authorization.php' => config_path('authorization.php'),
-            __DIR__.'/../../config/dennis-core.php' => config_path('dennis-core.php'),
-            __DIR__ . '/../../config/elastic.php' => config_path('elastic.php'),
-            __DIR__ . '/../../config/filesystems.php' => config_path('filesystems.php'),
-            __DIR__ . '/../../config/permission.php' => config_path('permission.php'),
-        ], 'dennis-config');
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__ . '/../../config/authorization.php' => config_path('authorization.php'),
+                __DIR__.'/../../config/dennis-core.php' => config_path('dennis-core.php'),
+                __DIR__ . '/../../config/elastic.php' => config_path('elastic.php'),
+                __DIR__ . '/../../config/filesystems.php' => config_path('filesystems.php'),
+                __DIR__ . '/../../config/permission.php' => config_path('permission.php'),
+            ], 'dennis-config');
+        }
     }
 
     private function publishTranslations()
@@ -259,7 +267,6 @@ class DennisServiceProvider extends AggregateServiceProvider
         $this->app->bind(NeighbourhoodRepositoryInterface::class, NeighbourhoodRepository::class);
         $this->app->bind(OrganisationRepositoryInterface::class, OrganisationRepository::class);
         $this->app->bind(PartnershipRepositoryInterface::class, PartnershipRepository::class);
-        $this->app->bind(ProfessionalRepositoryInterface::class, ProfessionalRepository::class);
         $this->app->bind(ProviderRepositoryInterface::class, ProviderRepository::class);
         $this->app->bind(RegionalPartyRepositoryInterface::class, RegionalPartyRepository::class);
         $this->app->bind(RegionRepositoryInterface::class, RegionRepository::class);
