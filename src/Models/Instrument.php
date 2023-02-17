@@ -20,11 +20,18 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
+use Vng\DennisCore\Traits\ModelSearch;
 use Webpatser\Uuid\Uuid;
 
 class Instrument extends SearchableModel
 {
-    use SoftDeletes, HasOwner, HasFactory, CanSaveQuietly, HasContacts, MutationLog;
+    use SoftDeletes,
+        CanSaveQuietly,
+        HasContacts,
+        HasFactory,
+        HasOwner,
+        ModelSearch,
+        MutationLog;
 
     const REACH_LOCAL = 'local';
     const REACH_REGIONAL = 'regional';
@@ -59,11 +66,13 @@ class Instrument extends SearchableModel
 
     protected $attributes = [
         'is_active' => true,
+        'is_temporary' => false,
         'is_leerwerktraject' => false,
     ];
 
     protected $casts = [
         'is_active' => 'boolean',
+        'is_temporary' => 'boolean',
         'is_leerwerktraject' => 'boolean',
 
         'short_description' => CleanedHtml::class,
@@ -189,7 +198,7 @@ class Instrument extends SearchableModel
             });
         }
 
-        return $areas->values();
+        return !$areas->isEmpty() ? $areas->values() : null;
     }
 
     /**

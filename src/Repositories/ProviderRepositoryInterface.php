@@ -6,7 +6,7 @@ use Vng\DennisCore\Http\Requests\ProviderCreateRequest;
 use Vng\DennisCore\Http\Requests\ProviderUpdateRequest;
 use Vng\DennisCore\Models\Provider;
 
-interface ProviderRepositoryInterface extends BaseRepositoryInterface, SoftDeletableRepositoryInterface
+interface ProviderRepositoryInterface extends OwnedEntityRepositoryInterface, SoftDeletableRepositoryInterface
 {
     public function create(ProviderCreateRequest $request): Provider;
     public function update(Provider $provider, ProviderUpdateRequest $request): Provider;

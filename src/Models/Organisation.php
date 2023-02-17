@@ -15,7 +15,9 @@ use Vng\DennisCore\Traits\HasContacts;
 
 class Organisation extends Model
 {
-    use HasFactory, SoftDeletes, HasContacts;
+    use HasFactory,
+        SoftDeletes,
+        HasContacts;
 
     protected $table = 'organisations';
 

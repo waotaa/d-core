@@ -157,6 +157,7 @@ $organisationAddressPermissions = [
 
 $globalAddressPermissions = [
     ...$organisationAddressPermissions,
+    'address.viewAll',
     'address.viewAny',
     'address.view',
     'address.create',
@@ -179,6 +180,7 @@ $organisationContactPermissions = [
 
 $globalContactPermissions = [
     ...$organisationContactPermissions,
+    'contact.viewAll',
     'contact.viewAny',
     'contact.view',
     'contact.create',
@@ -195,7 +197,6 @@ $instrumentPropertyPermissions = [
 
     'contact.viewAny',
     'contact.view',
-
 
     'ageGroup.viewAny',
     'ageGroup.view',
@@ -227,12 +228,6 @@ $instrumentPropertyPermissions = [
 $instrumentPropertyManagementPermissions = [
     ...$instrumentPropertyPermissions,
 
-    'location.create',
-    'location.update',
-    'location.delete',
-    'location.restore',
-    'location.forceDelete',
-
     'neighbourhood.create',
     'neighbourhood.update',
     'neighbourhood.delete',
@@ -254,6 +249,7 @@ $organisationInstrumentPermissions = [
 $globalInstrumentPermissions = [
     ...$organisationInstrumentPermissions,
     ...$instrumentPropertyPermissions,
+    'instrument.viewAll',
     'instrument.viewAny',
     'instrument.view',
     'instrument.create',
@@ -275,6 +271,7 @@ $organisationProviderPermissions = [
 ];
 $globalProviderPermissions = [
     ...$organisationProviderPermissions,
+    'provider.viewAll',
     'provider.viewAny',
     'provider.view',
     'provider.create',
@@ -309,6 +306,7 @@ return [
         'rating',
         'region',
         'regionalParty',
+        'registrationCode',
         'sector',
         'targetGroup',
         'targetGroupRegister',
@@ -326,18 +324,26 @@ return [
             ...$nationalPartyAdministratorPermissions,
             ...$partnershipAdministratorPermissions,
 
+            ...$globalAddressPermissions,
+            ...$globalContactPermissions,
             ...$globalInstrumentPermissions,
             ...$globalProviderPermissions,
 
             ...$userAdministratorPermissions,
+            ...$instrumentPropertyManagementPermissions,
         ],
         'instrument-manager' => [
             ...$generalPermissions,
+            ...$globalAddressPermissions,
+            ...$globalContactPermissions,
             ...$globalInstrumentPermissions,
             ...$globalProviderPermissions,
+            ...$instrumentPropertyManagementPermissions,
         ],
         'instrument-manager-organisation' => [
             ...$generalPermissions,
+            ...$organisationAddressPermissions,
+            ...$organisationContactPermissions,
             ...$organisationInstrumentPermissions,
             ...$organisationProviderPermissions,
         ],

@@ -4,6 +4,7 @@ namespace Vng\DennisCore\Observers;
 
 use Vng\DennisCore\Events\ElasticRelatedResourceChanged;
 use Vng\DennisCore\Models\Contact;
+use Vng\DennisCore\Models\Organisation;
 
 class ContactObserver
 {
@@ -35,9 +36,24 @@ class ContactObserver
         $contact->providers->each(
             fn($provider) => ElasticRelatedResourceChanged::dispatch($provider, $contact)
         );
-        $contact->environments->each(
-            fn($environment) => ElasticRelatedResourceChanged::dispatch($environment, $contact)
+        $contact->organisations->each(
+            function (Organisation $organisation) use ($contact) {
+                if ($organisation->localParty) {
+                    ElasticRelatedResourceChanged::dispatch($organisation->localParty, $contact);
+                }
+                if ($organisation->regionalParty) {
+                    ElasticRelatedResourceChanged::dispatch($organisation->regionalParty, $contact);
+                }
+                if ($organisation->nationalParty) {
+                    ElasticRelatedResourceChanged::dispatch($organisation->nationalParty, $contact);
+                }
+                if ($organisation->partnership) {
+                    ElasticRelatedResourceChanged::dispatch($organisation->partnership, $contact);
+                }
+            }
         );
+
+        /** @deprecated  */
         $contact->regions->each(
             fn($region) => ElasticRelatedResourceChanged::dispatch($region, $contact)
         );

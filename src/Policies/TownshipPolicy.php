@@ -3,7 +3,9 @@
 namespace Vng\DennisCore\Policies;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Illuminate\Contracts\Auth\Access\Authorizable;
 use Vng\DennisCore\Interfaces\IsManagerInterface;
+use Vng\DennisCore\Models\Partnership;
 use Vng\DennisCore\Models\Township;
 
 class TownshipPolicy extends BasePolicy
@@ -43,5 +45,18 @@ class TownshipPolicy extends BasePolicy
     public function forceDelete(IsManagerInterface $user, Township $township): bool
     {
         return false;
+    }
+
+    public function attachAnyPartnership(Authorizable $user, Township $township): bool
+    {
+        return $user->can('create', Partnership::class);
+    }
+    public function attachPartnership(Authorizable $user, Township $township, Partnership $partnership,): bool
+    {
+        return $user->can('attachAnyPartnership', $township);
+    }
+    public function detachPartnership(Authorizable $user, Township $township, Partnership $partnership): bool
+    {
+        return $user->can('attachAnyPartnership', $township);
     }
 }

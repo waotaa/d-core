@@ -14,6 +14,7 @@ class RegionResource extends ElasticResource
             'color' => $this->color,
             'cooperation_partners' => $this->cooperation_partners,
             'townships' => TownshipResource::many($this->townships),
+
             'contacts' => ContactResource::many($this->contacts),
         ];
     }

@@ -48,6 +48,9 @@ class LocalPartyPolicy extends BaseOrganisationPolicy
 
     public function restore(IsManagerInterface $user, LocalParty $localParty)
     {
+        if (!$localParty->trashed()) {
+            return false;
+        }
         if($localParty->hasMember($user)
             && $user->managerCan('organisation.restore')) {
             return true;
@@ -57,6 +60,9 @@ class LocalPartyPolicy extends BaseOrganisationPolicy
 
     public function forceDelete(IsManagerInterface $user, LocalParty $localParty)
     {
+        if (!$localParty->trashed()) {
+            return false;
+        }
         if($localParty->hasMember($user)
             && $user->managerCan('organisation.forceDelete')) {
             return true;

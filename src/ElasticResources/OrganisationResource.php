@@ -16,6 +16,12 @@ class OrganisationResource extends ElasticResource
             'regionalParty' => RegionalPartyResource::one($this->regionalParty),
             'nationalParty' => NationalPartyResource::one($this->nationalParty),
             'partnership' => PartnershipResource::one($this->partnership),
+
+            /**
+             * @deprecated
+             * Use organisation contacts in stead
+             */
+            'contacts' => ContactResource::many($this->contacts),
         ];
     }
 }

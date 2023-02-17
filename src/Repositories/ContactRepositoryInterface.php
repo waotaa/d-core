@@ -7,7 +7,7 @@ use Vng\DennisCore\Http\Requests\ContactUpdateRequest;
 use Vng\DennisCore\Models\Contact;
 use Vng\DennisCore\Models\Instrument;
 
-interface ContactRepositoryInterface extends BaseRepositoryInterface
+interface ContactRepositoryInterface extends OwnedEntityRepositoryInterface
 {
     public function create(ContactCreateRequest $request): Contact;
     public function update(Contact $download, ContactUpdateRequest $request): Contact;

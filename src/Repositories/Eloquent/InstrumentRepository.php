@@ -37,6 +37,7 @@ class InstrumentRepository extends BaseRepository implements InstrumentRepositor
             ->fill([
                 'name' => $request->input('name'),
                 'is_active' => $request->input('is_active'),
+                'is_temporary' => $request->input('is_temporary'),
                 'publish_from' => $request->input('publish_from'),
                 'publish_to' => $request->input('publish_to'),
                 'summary' => $request->input('summary'),

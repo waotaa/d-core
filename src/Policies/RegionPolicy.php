@@ -3,7 +3,9 @@
 namespace Vng\DennisCore\Policies;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Illuminate\Contracts\Auth\Access\Authorizable;
 use Vng\DennisCore\Interfaces\IsManagerInterface;
+use Vng\DennisCore\Models\Contact;
 use Vng\DennisCore\Models\Region;
 
 class RegionPolicy extends BasePolicy
@@ -43,5 +45,19 @@ class RegionPolicy extends BasePolicy
     public function forceDelete(IsManagerInterface $user, Region $region): bool
     {
         return false;
+    }
+
+
+    public function attachAnyContact(Authorizable $user, Region $region): bool
+    {
+        return $user->can('update', $region);
+    }
+    public function attachContact(Authorizable $user, Region $region, Contact $contact): bool
+    {
+        return $user->can('attachAnyContact', $region);
+    }
+    public function detachContact(Authorizable $user, Region $region, Contact $contact): bool
+    {
+        return $user->can('attachAnyContact', $region);
     }
 }

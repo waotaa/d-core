@@ -2,11 +2,11 @@
 
 namespace Vng\DennisCore\Repositories\Eloquent;
 
+use Illuminate\Contracts\Auth\Access\Authorizable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
-use Vng\DennisCore\Interfaces\DennisUserInterface;
-use Vng\DennisCore\Interfaces\IsOwnerInterface;
-use Vng\DennisCore\Models\Instrument;
+use Vng\DennisCore\Interfaces\IsManagerInterface;
+use Vng\DennisCore\Models\Organisation;
 
 trait OwnedEntityRepository
 {
@@ -15,30 +15,38 @@ trait OwnedEntityRepository
         return $query->whereNull('owner_id');
     }
 
-    public function addMultipleOwnerConditions(Builder $query, Collection $associations): Builder
+    public function addMultipleOwnerConditions(Builder $query, Collection $organisations): Builder
     {
-        $associations->each(function (IsOwnerInterface $owner) use (&$query) {
-            $query->orWhere(function($query) use ($owner) {
-                return $this->addOwnerCondition($query, $owner);
+        $organisations->each(function (Organisation $organisation) use (&$query) {
+            $query->orWhere(function($query) use ($organisation) {
+                return $this->addOrganisationCondition($query, $organisation);
             });
         });
         return $query;
     }
 
-    public function addOwnerCondition(Builder $query, IsOwnerInterface $owner): Builder
+    public function addOrganisationCondition(Builder $query, Organisation $organisation): Builder
     {
-        return $query
-            ->where('owner_type', $owner->getOwnerClass())
-            ->where('owner_id', $owner->getOwnerId());
+        return $query->where('organisation_id', $organisation->id);
     }
 
-    public function addForUserConditions(Builder $query, DennisUserInterface $user)
+    /**
+     * @param Builder $query
+     * @param IsManagerInterface&Authorizable $user
+     * @return Builder
+     */
+    public function addForUserConditions(Builder $query, IsManagerInterface $user): Builder
     {
-
-        if (!$user->can('viewAll', Instrument::class)) {
-            $query = $this->addMultipleOwnerConditions($query, $user->getAssociations());
+        if (!$user->can('viewAll', $this->model)) {
+            $query = $query->whereNull('organisation_id');
+            $query = $this->addMultipleOwnerConditions($query, $user->getManager()->organisations);
         }
 
         return $query;
+    }
+
+    public function getQueryItemsManagedByUser(IsManagerInterface $user): Builder
+    {
+        return $this->addForUserConditions($this->builder(), $user);
     }
 }

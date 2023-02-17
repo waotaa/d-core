@@ -51,6 +51,13 @@ class Contact extends Model
         return $this->attributes['type'] ?? null;
     }
 
+    public function organisations(): MorphToMany
+    {
+        return $this->morphedByMany(Organisation::class, 'contactable')
+            ->using(Contactables::class)
+            ->withPivot('type');
+    }
+
     public function instruments(): MorphToMany
     {
         return $this->morphedByMany(Instrument::class, 'contactable')

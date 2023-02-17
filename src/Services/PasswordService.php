@@ -3,7 +3,9 @@
 
 namespace Vng\DennisCore\Services;
 
-
+/**
+ * This password service generates passwords witch include a character from all characterGroups
+ */
 class PasswordService
 {
     public static function generatePassword(): string

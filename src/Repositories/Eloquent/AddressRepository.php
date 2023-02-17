@@ -8,8 +8,10 @@ use Vng\DennisCore\Http\Requests\AddressUpdateRequest;
 use Vng\DennisCore\Models\Address;
 use Vng\DennisCore\Repositories\AddressRepositoryInterface;
 
-class  AddressRepository extends BaseRepository implements AddressRepositoryInterface
+class AddressRepository extends BaseRepository implements AddressRepositoryInterface
 {
+    use OwnedEntityRepository;
+
     public string $model = Address::class;
 
     public function create(AddressCreateRequest $request): Address
