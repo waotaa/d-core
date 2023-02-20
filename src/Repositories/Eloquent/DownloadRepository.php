@@ -7,7 +7,9 @@ use Illuminate\Http\UploadedFile;
 use Vng\DennisCore\Http\Requests\DownloadCreateRequest;
 use Vng\DennisCore\Http\Requests\DownloadUpdateRequest;
 use Vng\DennisCore\Models\Download;
+use Vng\DennisCore\Models\Instrument;
 use Vng\DennisCore\Repositories\DownloadRepositoryInterface;
+use Vng\DennisCore\Repositories\InstrumentRepositoryInterface;
 use Vng\DennisCore\Services\DownloadsService;
 
 class DownloadRepository extends BaseRepository implements DownloadRepositoryInterface
@@ -28,9 +30,20 @@ class DownloadRepository extends BaseRepository implements DownloadRepositoryInt
 
     public function saveFromRequest(Download $download, FormRequest $request): Download
     {
+        $instrumentRepository = app(InstrumentRepositoryInterface::class);
+        /** @var Instrument $instrument */
+        $instrument = $instrumentRepository->find($request->input('instrument_id'));
+        if (is_null($instrument)) {
+            throw new \Exception('invalid instrument provided');
+        }
+        $organisation = $instrument->organisation;
+        if (is_null($organisation)) {
+            throw new \Exception('instrument requires an organisation');
+        }
+
         /** @var UploadedFile $uploadedFile */
         $uploadedFile = $request->file('file');
-        $download = DownloadsService::saveUploadedFile($uploadedFile, $download);
+        $download = DownloadsService::saveUploadedFile($uploadedFile, $organisation, $download);
         $download->fill([
             'label' => $request->input('label'),
         ]);

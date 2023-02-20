@@ -31,7 +31,7 @@ class InstrumentObserver
 
     public function saving(Instrument $instrument): void
     {
-        $dedicatedType = config('eva-core.instrument.dedicatedType');
+        $dedicatedType = config('dennis-core.instrument.dedicatedType');
         if ($dedicatedType) {
             $instrumentType = InstrumentType::query()->where('name', $dedicatedType)->first();
             if (is_null($instrumentType)) {

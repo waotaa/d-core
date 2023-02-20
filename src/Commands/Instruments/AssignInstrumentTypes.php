@@ -30,7 +30,7 @@ class AssignInstrumentTypes extends Command
     {
         $type = $this->argument('type');
         if (is_null($type)) {
-            $type = config('eva-core.instrument.dedicatedType');
+            $type = config('dennis-core.instrument.dedicatedType');
         }
         /** @var ?InstrumentType $instrumentType */
         $instrumentType = InstrumentType::query()->where('name', $type)->firstOrFail();
