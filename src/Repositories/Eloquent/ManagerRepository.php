@@ -3,6 +3,7 @@
 namespace Vng\DennisCore\Repositories\Eloquent;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Gate;
 use Vng\DennisCore\Http\Requests\ManagerUpdateRequest;
 use Vng\DennisCore\Interfaces\DennisUserInterface;
 use Vng\DennisCore\Interfaces\IsManagerInterface;
@@ -10,6 +11,7 @@ use Vng\DennisCore\Models\Manager;
 use Vng\DennisCore\Models\Organisation;
 use Vng\DennisCore\Models\Role;
 use Vng\DennisCore\Repositories\ManagerRepositoryInterface;
+use Vng\DennisCore\Repositories\OrganisationRepositoryInterface;
 
 class ManagerRepository extends BaseRepository implements ManagerRepositoryInterface
 {
@@ -49,24 +51,42 @@ class ManagerRepository extends BaseRepository implements ManagerRepositoryInter
 
     public function attachOrganisations(Manager $manager, string|array $organisationIds): Manager
     {
+        $organisationIds = (array) $organisationIds;
+
+        /** @var OrganisationRepositoryInterface $organisationRepo */
+        $organisationRepo = app(OrganisationRepositoryInterface::class);
+        $organisations = $organisationRepo->builder()->whereIn('id', $organisationIds)->get();
+        $organisations->each(fn (Organisation $org) => Gate::authorize('attachOrganisation', [$manager, $org]));
+
         $manager->organisations()->syncWithoutDetaching($organisationIds);
         return $manager;
     }
 
     public function detachOrganisations(Manager $manager, string|array $organisationIds): Manager
     {
+        $organisationIds = (array) $organisationIds;
+
+        /** @var OrganisationRepositoryInterface $organisationRepo */
+        $organisationRepo = app(OrganisationRepositoryInterface::class);
+        $organisations = $organisationRepo->builder()->whereIn('id', $organisationIds)->get();
+        $organisations->each(fn (Organisation $org) => Gate::authorize('detachOrganisation', [$manager, $org]));
+
         $manager->organisations()->detach($organisationIds);
         return $manager;
     }
 
     public function attachRole(Manager $manager, Role $role): Manager
     {
+        Gate::authorize('attachRole', [$manager, $role]);
+
         $manager->assignRole($role);
         return $manager;
     }
 
     public function detachRole(Manager $manager, Role $role): Manager
     {
+        Gate::authorize('detachRole', [$manager, $role]);
+
         $manager->removeRole($role);
         return $manager;
     }

@@ -192,12 +192,6 @@ $globalContactPermissions = [
 
 // Instruments
 $instrumentPropertyPermissions = [
-    'address.viewAny',
-    'address.view',
-
-    'contact.viewAny',
-    'contact.view',
-
     'ageGroup.viewAny',
     'ageGroup.view',
 
@@ -209,9 +203,6 @@ $instrumentPropertyPermissions = [
 
     'instrumentType.viewAny',
     'instrumentType.view',
-
-    'location.viewAny',
-    'location.view',
 
     'targetGroup.viewAny',
     'targetGroup.view',

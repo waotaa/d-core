@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\Permission\Traits\HasRoles;
+use Vng\DennisCore\Observers\ManagerObserver;
 use Vng\DennisCore\Traits\IsInstrumentWatcher;
 
 class Manager extends Model implements IsInstrumentWatcherInterface
@@ -26,6 +27,12 @@ class Manager extends Model implements IsInstrumentWatcherInterface
         'email',
         'months_unupdated_limit',
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+        static::observe(ManagerObserver::class);
+    }
 
     public function getFirstNameAttribute()
     {
@@ -79,7 +86,7 @@ class Manager extends Model implements IsInstrumentWatcherInterface
 
     public function hasOrganisation(Organisation $organisation): bool
     {
-        return $this->hasAnyOrganisations() && $this->organisations()->contains($organisation);
+        return $this->hasAnyOrganisations() && $this->organisations()->get()->contains($organisation);
     }
 
     public function managersShareOrganisation(Manager $manager): bool
@@ -87,7 +94,8 @@ class Manager extends Model implements IsInstrumentWatcherInterface
         if (!$this->hasAnyOrganisations()) {
             return false;
         }
-        $sharedOrganisations = $this->organisations->filter(fn (Organisation $organisation) => $organisation->hasMember($manager));
+        $sharedOrganisations = $this->organisations
+            ->filter(fn (Organisation $organisation) => $organisation->hasMember($manager));
         return $sharedOrganisations->count() > 0;
     }
 
@@ -113,5 +121,15 @@ class Manager extends Model implements IsInstrumentWatcherInterface
     public function isSuperAdmin()
     {
         return $this->hasRole(config('authorization.super-admin-role'));
+    }
+
+    public function getAssignableRoles(): array
+    {
+        $assignableRoles = [];
+        /** @var Role $role */
+        foreach ($this->roles as $role) {
+            $assignableRoles = array_unique(array_merge($assignableRoles, $role->getAssignableRoles()));
+        }
+        return $assignableRoles;
     }
 }

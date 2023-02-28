@@ -3,9 +3,12 @@
 namespace Vng\DennisCore\Repositories\Eloquent;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Gate;
 use Vng\DennisCore\Http\Requests\TileCreateRequest;
 use Vng\DennisCore\Http\Requests\TileUpdateRequest;
+use Vng\DennisCore\Models\Instrument;
 use Vng\DennisCore\Models\Tile;
+use Vng\DennisCore\Repositories\InstrumentRepositoryInterface;
 use Vng\DennisCore\Repositories\TileRepositoryInterface;
 
 class TileRepository extends BaseRepository implements TileRepositoryInterface
@@ -14,11 +17,13 @@ class TileRepository extends BaseRepository implements TileRepositoryInterface
 
     public function create(TileCreateRequest $request): Tile
     {
+        Gate::authorize('create', Tile::class);
         return $this->saveFromRequest(new $this->model(), $request);
     }
 
     public function update(Tile $tile, TileUpdateRequest $request): Tile
     {
+        Gate::authorize('update', Tile::class);
         return $this->saveFromRequest($tile, $request);
     }
 
@@ -41,13 +46,35 @@ class TileRepository extends BaseRepository implements TileRepositoryInterface
 
     public function attachInstruments(Tile $tile, string|array $instrumentIds): Tile
     {
-        $tile->instruments()->syncWithoutDetaching((array) $instrumentIds);
+        $instrumentIds = (array) $instrumentIds;
+        /** @var InstrumentRepositoryInterface $instrumentRepository */
+        $instrumentRepository = app(InstrumentRepositoryInterface::class);
+        $instrumentRepository
+            ->findMany($instrumentIds)
+            ->each(
+                function (Instrument $instrument) use ($tile) {
+                    Gate::authorize('attachInstrument', [$tile, $instrument]);
+                }
+            );
+
+        $tile->instruments()->syncWithoutDetaching($instrumentIds);
         return $tile;
     }
 
     public function detachInstruments(Tile $tile, string|array $instrumentIds): Tile
     {
-        $tile->instruments()->detach((array) $instrumentIds);
+        $instrumentIds = (array) $instrumentIds;
+        /** @var InstrumentRepositoryInterface $instrumentRepository */
+        $instrumentRepository = app(InstrumentRepositoryInterface::class);
+        $instrumentRepository
+            ->findMany($instrumentIds)
+            ->each(
+                function (Instrument $instrument) use ($tile) {
+                    Gate::authorize('detachInstrument', [$tile, $instrument]);
+                }
+            );
+
+        $tile->instruments()->detach($instrumentIds);
         return $tile;
     }
 }

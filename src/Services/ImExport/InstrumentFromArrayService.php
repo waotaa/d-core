@@ -22,7 +22,7 @@ use Vng\DennisCore\Models\Video;
 
 class InstrumentFromArrayService extends BaseFromArrayService
 {
-    public function handle(): Model
+    public function handle(): ?Model
     {
         $data = $this->data;
 

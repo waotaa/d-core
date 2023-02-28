@@ -15,14 +15,11 @@ class SyncInstruments extends Command
 
     public function handle(): int
     {
-        $this->output->info('fetch ratings first');
-        $this->call('elastic:fetch-ratings');
-
         $this->output->writeln('syncing instruments...');
         $this->output->writeln('used index-prefix: ' . config('elastic.prefix'));
 
         if ($this->option('fresh')) {
-            $this->call('elastic:delete-index', ['index' => 'instruments', '--force' => true]);
+            $this->call(DeleteIndex::class, ['index' => 'instruments', '--force' => true]);
         }
 
         $this->output->writeln('');

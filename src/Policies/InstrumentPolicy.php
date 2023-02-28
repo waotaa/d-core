@@ -5,7 +5,19 @@ namespace Vng\DennisCore\Policies;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Vng\DennisCore\Interfaces\DennisUserInterface;
 use Vng\DennisCore\Interfaces\IsManagerInterface;
+use Vng\DennisCore\Models\Address;
+use Vng\DennisCore\Models\AgeGroup;
+use Vng\DennisCore\Models\Contact;
+use Vng\DennisCore\Models\EmploymentType;
 use Vng\DennisCore\Models\Instrument;
+use Vng\DennisCore\Models\Location;
+use Vng\DennisCore\Models\Neighbourhood;
+use Vng\DennisCore\Models\Region;
+use Vng\DennisCore\Models\Sector;
+use Vng\DennisCore\Models\TargetGroup;
+use Vng\DennisCore\Models\TargetGroupRegister;
+use Vng\DennisCore\Models\Tile;
+use Vng\DennisCore\Models\Township;
 
 class InstrumentPolicy extends BasePolicy
 {
@@ -110,28 +122,15 @@ class InstrumentPolicy extends BasePolicy
     }
 
 //    All things you can do when you can edit
-    public function attachAnyGroupForm(IsManagerInterface $user, Instrument $instrument): bool
-    {
-        return $this->update($user, $instrument);
-    }
-    public function attachGroupForm(IsManagerInterface $user, Instrument $instrument): bool
-    {
-        return $this->update($user, $instrument);
-    }
-    public function detachGroupForm(IsManagerInterface $user, Instrument $instrument): bool
-    {
-        return $this->update($user, $instrument);
-    }
-
     public function attachAnyLocation(IsManagerInterface $user, Instrument $instrument): bool
     {
         return $this->update($user, $instrument);
     }
-    public function attachLocation(IsManagerInterface $user, Instrument $instrument): bool
+    public function attachLocation(IsManagerInterface $user, Instrument $instrument, Location $location): bool
     {
         return $this->update($user, $instrument);
     }
-    public function detachLocation(IsManagerInterface $user, Instrument $instrument): bool
+    public function detachLocation(IsManagerInterface $user, Instrument $instrument, Location $location): bool
     {
         return $this->update($user, $instrument);
     }
@@ -140,11 +139,11 @@ class InstrumentPolicy extends BasePolicy
     {
         return $this->update($user, $instrument);
     }
-    public function attachAddress(IsManagerInterface $user, Instrument $instrument): bool
+    public function attachAddress(IsManagerInterface $user, Instrument $instrument, Address $address): bool
     {
         return $this->update($user, $instrument);
     }
-    public function detachAddress(IsManagerInterface $user, Instrument $instrument): bool
+    public function detachAddress(IsManagerInterface $user, Instrument $instrument, Address $address): bool
     {
         return $this->update($user, $instrument);
     }
@@ -170,11 +169,63 @@ class InstrumentPolicy extends BasePolicy
     {
         return $this->update($user, $instrument);
     }
-    public function attachContact(IsManagerInterface $user, Instrument $instrument): bool
+    public function attachContact(IsManagerInterface $user, Instrument $instrument, Contact $contact): bool
     {
         return $this->update($user, $instrument);
     }
-    public function detachContact(IsManagerInterface $user, Instrument $instrument): bool
+    public function detachContact(IsManagerInterface $user, Instrument $instrument, Contact $contact): bool
+    {
+        return $this->update($user, $instrument);
+    }
+
+    public function attachAnyAgeGroup(IsManagerInterface $user, Instrument $instrument): bool
+    {
+        return $this->update($user, $instrument);
+    }
+    public function attachAgeGroup(IsManagerInterface $user, Instrument $instrument, AgeGroup $ageGroup): bool
+    {
+        return $this->update($user, $instrument);
+    }
+    public function detachAgeGroup(IsManagerInterface $user, Instrument $instrument, AgeGroup $ageGroup): bool
+    {
+        return $this->update($user, $instrument);
+    }
+
+    public function attachAnyEmploymentType(IsManagerInterface $user, Instrument $instrument): bool
+    {
+        return $this->update($user, $instrument);
+    }
+    public function attachEmploymentType(IsManagerInterface $user, Instrument $instrument, EmploymentType $employmentType): bool
+    {
+        return $this->update($user, $instrument);
+    }
+    public function detachEmploymentType(IsManagerInterface $user, Instrument $instrument, EmploymentType $employmentType): bool
+    {
+        return $this->update($user, $instrument);
+    }
+
+    public function attachAnySector(IsManagerInterface $user, Instrument $instrument): bool
+    {
+        return $this->update($user, $instrument);
+    }
+    public function attachSector(IsManagerInterface $user, Instrument $instrument, Sector $sector): bool
+    {
+        return $this->update($user, $instrument);
+    }
+    public function detachSector(IsManagerInterface $user, Instrument $instrument, Sector $sector): bool
+    {
+        return $this->update($user, $instrument);
+    }
+
+    public function attachAnyTargetGroupRegister(IsManagerInterface $user, Instrument $instrument): bool
+    {
+        return $this->update($user, $instrument);
+    }
+    public function attachTargetGroupRegister(IsManagerInterface $user, Instrument $instrument, TargetGroupRegister $targetGroupRegister): bool
+    {
+        return $this->update($user, $instrument);
+    }
+    public function detachTargetGroupRegister(IsManagerInterface $user, Instrument $instrument, TargetGroupRegister $targetGroupRegister): bool
     {
         return $this->update($user, $instrument);
     }
@@ -183,11 +234,11 @@ class InstrumentPolicy extends BasePolicy
     {
         return $this->update($user, $instrument);
     }
-    public function attachTargetGroup(IsManagerInterface $user, Instrument $instrument): bool
+    public function attachTargetGroup(IsManagerInterface $user, Instrument $instrument, TargetGroup $targetGroup): bool
     {
         return $this->update($user, $instrument);
     }
-    public function detachTargetGroup(IsManagerInterface $user, Instrument $instrument): bool
+    public function detachTargetGroup(IsManagerInterface $user, Instrument $instrument, TargetGroup $targetGroup): bool
     {
         return $this->update($user, $instrument);
     }
@@ -196,63 +247,50 @@ class InstrumentPolicy extends BasePolicy
     {
         return $this->update($user, $instrument);
     }
-    public function attachTile(IsManagerInterface $user, Instrument $instrument): bool
+    public function attachTile(IsManagerInterface $user, Instrument $instrument, Tile $tile): bool
     {
         return $this->update($user, $instrument);
     }
-    public function detachTile(IsManagerInterface $user, Instrument $instrument): bool
-    {
-        return $this->update($user, $instrument);
-    }
-
-    public function attachAnyClientCharacteristic(IsManagerInterface $user, Instrument $instrument): bool
-    {
-        return $this->update($user, $instrument);
-    }
-    public function attachClientCharacteristic(IsManagerInterface $user, Instrument $instrument): bool
-    {
-        return $this->update($user, $instrument);
-    }
-    public function detachClientCharacteristic(IsManagerInterface $user, Instrument $instrument): bool
+    public function detachTile(IsManagerInterface $user, Instrument $instrument, Tile $tile): bool
     {
         return $this->update($user, $instrument);
     }
 
-    public function attachAnyRegion(IsManagerInterface $user, Instrument $instrument): bool
+    public function attachAnyAvailableRegion(IsManagerInterface $user, Instrument $instrument): bool
     {
         return $this->update($user, $instrument);
     }
-    public function attachRegion(IsManagerInterface $user, Instrument $instrument): bool
+    public function attachAvailableRegion(IsManagerInterface $user, Instrument $instrument, Region $region): bool
     {
         return $this->update($user, $instrument);
     }
-    public function detachRegion(IsManagerInterface $user, Instrument $instrument): bool
-    {
-        return $this->update($user, $instrument);
-    }
-
-    public function attachAnyTownship(IsManagerInterface $user, Instrument $instrument): bool
-    {
-        return $this->update($user, $instrument);
-    }
-    public function attachTownship(IsManagerInterface $user, Instrument $instrument): bool
-    {
-        return $this->update($user, $instrument);
-    }
-    public function detachTownship(IsManagerInterface $user, Instrument $instrument): bool
+    public function detachAvailableRegion(IsManagerInterface $user, Instrument $instrument, Region $region): bool
     {
         return $this->update($user, $instrument);
     }
 
-    public function attachAnyNeighbourhood(IsManagerInterface $user, Instrument $instrument): bool
+    public function attachAnyAvailableTownship(IsManagerInterface $user, Instrument $instrument): bool
     {
         return $this->update($user, $instrument);
     }
-    public function attachNeighbourhood(IsManagerInterface $user, Instrument $instrument): bool
+    public function attachAvailableTownship(IsManagerInterface $user, Instrument $instrument, Township $township): bool
     {
         return $this->update($user, $instrument);
     }
-    public function detachNeighbourhood(IsManagerInterface $user, Instrument $instrument): bool
+    public function detachAvailableTownship(IsManagerInterface $user, Instrument $instrument, Township $township): bool
+    {
+        return $this->update($user, $instrument);
+    }
+
+    public function attachAnyAvailableNeighbourhood(IsManagerInterface $user, Instrument $instrument): bool
+    {
+        return $this->update($user, $instrument);
+    }
+    public function attachAvailableNeighbourhood(IsManagerInterface $user, Instrument $instrument, Neighbourhood $neighbourhood): bool
+    {
+        return $this->update($user, $instrument);
+    }
+    public function detachAvailableNeighbourhood(IsManagerInterface $user, Instrument $instrument, Neighbourhood $neighbourhood): bool
     {
         return $this->update($user, $instrument);
     }

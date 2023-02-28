@@ -7,6 +7,7 @@ use Vng\DennisCore\Http\Requests\AddressCreateRequest;
 use Vng\DennisCore\Http\Requests\AddressUpdateRequest;
 use Vng\DennisCore\Models\Address;
 use Vng\DennisCore\Repositories\AddressRepositoryInterface;
+use Vng\DennisCore\Repositories\OrganisationRepositoryInterface;
 
 class AddressRepository extends BaseRepository implements AddressRepositoryInterface
 {
@@ -26,7 +27,7 @@ class AddressRepository extends BaseRepository implements AddressRepositoryInter
 
     public function saveFromRequest(Address $address, FormRequest $request): Address
     {
-        $organisationRepository = new OrganisationRepository();
+        $organisationRepository = app(OrganisationRepositoryInterface::class);
         $organisation = $organisationRepository->find($request->input('organisation_id'));
         if (is_null($organisation)) {
             throw new \Exception('invalid organisation provided');

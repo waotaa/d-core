@@ -4,7 +4,6 @@ namespace Vng\DennisCore\Observers;
 
 use Vng\DennisCore\Interfaces\IsManagerInterface;
 use Vng\DennisCore\Models\Manager;
-use Vng\DennisCore\Repositories\Eloquent\ManagerRepository;
 
 class ManagerObserver
 {
@@ -12,10 +11,11 @@ class ManagerObserver
     {
         /** @var IsManagerInterface $creatingUser */
         $creatingUser = request()->user();
-        $creatingManager = $creatingUser->manager()->get();
-
-        if ($creatingManager) {
-            $manager->createdBy()->associate($creatingManager);
+        if ($creatingUser) {
+            $creatingManager = $creatingUser->manager()->get();
+            if ($creatingManager) {
+                $manager->createdBy()->associate($creatingManager);
+            }
         }
     }
 }

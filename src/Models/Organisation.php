@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Illuminate\Support\Collection;
 use Vng\DennisCore\Interfaces\IsManagerInterface;
 use Vng\DennisCore\Traits\HasContacts;
 
@@ -26,6 +27,11 @@ class Organisation extends Model
     public function getIdentifierAttribute()
     {
         return $this->name . ' - ' . __($this->type);
+    }
+
+    public function getShortIdentifierAttribute()
+    {
+        return $this->id . '-' . $this->slug;
     }
 
     public function getNameAttribute()
@@ -48,9 +54,8 @@ class Organisation extends Model
         return $this->belongsToMany(Manager::class);
     }
 
-    public function hasMember(IsManagerInterface $user): bool
+    public function hasMember(Manager $manager): bool
     {
-        $manager = $user->getManager();
         return $this->managers && $this->managers->contains($manager->id);
     }
 
@@ -89,9 +94,29 @@ class Organisation extends Model
         return $this->morphTo();
     }
 
+    public function ownedAddresses(): HasMany
+    {
+        return $this->hasMany(Address::class);
+    }
+
+    public function ownedContacts(): HasMany
+    {
+        return $this->hasMany(Contact::class);
+    }
+
+    public function ownedInstruments(): HasMany
+    {
+        return $this->instruments();
+    }
+
     public function instruments(): HasMany
     {
         return $this->hasMany(Instrument::class);
+    }
+
+    public function ownedProviders(): HasMany
+    {
+        return $this->providers();
     }
 
     public function providers(): HasMany
@@ -103,4 +128,27 @@ class Organisation extends Model
     {
         return $this->instruments && $this->instruments->contains($instrument->id);
     }
+
+    public function getOverarchingOrganisations(): Collection
+    {
+        // include this organisation
+        $organisations = collect([$this]);
+
+        if (!is_null($this->localParty)){
+            /** @var LocalParty $localParty */
+            $localParty = $this->localParty;
+            // add overarching regional party organisations
+            $regionalParties = $localParty->township->region->regionalParties;
+            $regionalParties->each(fn (RegionalParty $rp) => $organisations->add($rp->organisation));
+
+            // add overarching partnership organisations
+            $partnerships = $localParty->township->partnerships;
+            $partnerships->each(fn (Partnership $p) => $organisations->add($p->organisation));
+        }
+
+        // we include all national parties
+        $nationalOrganisations = Organisation::query()->whereHasMorph('organisationable', [NationalParty::class])->get();
+        return $organisations->merge($nationalOrganisations);
+    }
+
 }

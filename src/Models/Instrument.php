@@ -40,8 +40,12 @@ class Instrument extends SearchableModel
     protected $table = 'instruments';
     protected string $elasticResource = InstrumentResource::class;
     protected $fillable = [
+        'created_at',
+        'updated_at',
+
         'uuid',
         'name',
+
         'is_active',
         'is_temporary',
         'is_leerwerktraject',
@@ -213,14 +217,14 @@ class Instrument extends SearchableModel
             return $this->specifiedAvailableAreas;
         }
 
-        if (is_null($this->owner)) {
+        if (is_null($this->organisation)) {
             return AreaService::getNationalAreas();
         }
 
         // Has owner: Return owner areas
-        /** @var Partnership|Region|Township $owner */
-        $owner = $this->owner;
-        return $owner->getOwnAreas();
+        /** @var AreaInterface $organisationEntity */
+        $organisationEntity = $this->organisation->organisationable;
+        return $organisationEntity->getOwnAreas();
     }
 
     /**

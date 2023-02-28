@@ -36,6 +36,11 @@ class Region extends SearchableModel implements IsOwnerInterface, AreaInterface
         return $this->hasMany(Township::class);
     }
 
+    public function regionalParties(): HasMany
+    {
+        return $this->hasMany(RegionalParty::class);
+    }
+
     public function getParentAreas(): ?Collection
     {
         return null;

@@ -7,7 +7,7 @@ use Vng\DennisCore\Models\Manager;
 
 class ManagerFromArrayService extends BaseFromArrayService
 {
-    public function handle(): Model
+    public function handle(): ?Model
     {
         $data = $this->data;
         /** @var Manager $manager */

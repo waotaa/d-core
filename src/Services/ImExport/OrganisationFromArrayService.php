@@ -11,7 +11,7 @@ use Vng\DennisCore\Models\RegionalParty;
 
 class OrganisationFromArrayService extends BaseFromArrayService
 {
-    public function handle(): Model
+    public function handle(): ?Model
     {
         $data = $this->data;
         switch ($data['type']) {

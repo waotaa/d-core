@@ -8,7 +8,7 @@ use Vng\DennisCore\Models\RegionalParty;
 
 class RegionalPartyFromArrayService extends BaseFromArrayService
 {
-    public function handle(): Model
+    public function handle(): ?Model
     {
         $data = $this->data;
 

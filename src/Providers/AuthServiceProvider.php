@@ -28,6 +28,7 @@ use Vng\DennisCore\Models\Role;
 use Vng\DennisCore\Models\Sector;
 use Vng\DennisCore\Models\TargetGroup;
 use Vng\DennisCore\Models\TargetGroupRegister;
+use Vng\DennisCore\Models\Tile;
 use Vng\DennisCore\Models\Township;
 use Vng\DennisCore\Models\Video;
 use Vng\DennisCore\Policies\AddressPolicy;
@@ -55,6 +56,7 @@ use Vng\DennisCore\Policies\RolePolicy;
 use Vng\DennisCore\Policies\SectorPolicy;
 use Vng\DennisCore\Policies\TargetGroupPolicy;
 use Vng\DennisCore\Policies\TargetGroupRegisterPolicy;
+use Vng\DennisCore\Policies\TilePolicy;
 use Vng\DennisCore\Policies\TownshipPolicy;
 use Vng\DennisCore\Policies\VideoPolicy;
 
@@ -91,6 +93,7 @@ class AuthServiceProvider extends ServiceProvider
         Sector::class => SectorPolicy::class,
         TargetGroup::class => TargetGroupPolicy::class,
         TargetGroupRegister::class => TargetGroupRegisterPolicy::class,
+        Tile::class => TilePolicy::class,
         Township::class => TownshipPolicy::class,
         Video::class => VideoPolicy::class
     ];

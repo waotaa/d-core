@@ -38,7 +38,9 @@ trait MutationLog
                 if (is_null($user)) {
                     return;
                 }
-                Mutation::forResourceDelete($user->manager, $model);
+                $models = collect([$model]);
+                $mutations = Mutation::forResourceDelete($user->manager, $models);
+                $mutations->each(fn (Mutation $m) => $m->save());
             });
             static::restored(function($model) {
                 /** @var User $user */
@@ -46,7 +48,9 @@ trait MutationLog
                 if (is_null($user)) {
                     return;
                 }
-                Mutation::forResourceRestore($user->manager, $model);
+                $models = collect([$model]);
+                $mutations = Mutation::forResourceRestore($user->manager, $models);
+                $mutations->each(fn (Mutation $m) => $m->save());
             });
         }
 

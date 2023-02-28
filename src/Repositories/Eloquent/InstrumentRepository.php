@@ -2,12 +2,34 @@
 
 namespace Vng\DennisCore\Repositories\Eloquent;
 
+use Exception;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Gate;
 use Vng\DennisCore\Enums\ContactTypeEnum;
 use Vng\DennisCore\Http\Requests\InstrumentCreateRequest;
 use Vng\DennisCore\Http\Requests\InstrumentUpdateRequest;
+use Vng\DennisCore\Models\AgeGroup;
+use Vng\DennisCore\Models\Contact;
+use Vng\DennisCore\Models\EmploymentType;
 use Vng\DennisCore\Models\Instrument;
+use Vng\DennisCore\Models\Neighbourhood;
+use Vng\DennisCore\Models\Region;
+use Vng\DennisCore\Models\Sector;
+use Vng\DennisCore\Models\TargetGroup;
+use Vng\DennisCore\Models\TargetGroupRegister;
+use Vng\DennisCore\Models\Tile;
+use Vng\DennisCore\Models\Township;
+use Vng\DennisCore\Repositories\AgeGroupRepositoryInterface;
+use Vng\DennisCore\Repositories\ContactRepositoryInterface;
+use Vng\DennisCore\Repositories\EmploymentTypeRepositoryInterface;
 use Vng\DennisCore\Repositories\InstrumentRepositoryInterface;
+use Vng\DennisCore\Repositories\NeighbourhoodRepositoryInterface;
+use Vng\DennisCore\Repositories\RegionRepositoryInterface;
+use Vng\DennisCore\Repositories\SectorRepositoryInterface;
+use Vng\DennisCore\Repositories\TargetGroupRegisterRepositoryInterface;
+use Vng\DennisCore\Repositories\TargetGroupRepositoryInterface;
+use Vng\DennisCore\Repositories\TileRepositoryInterface;
+use Vng\DennisCore\Repositories\TownshipRepositoryInterface;
 
 class InstrumentRepository extends BaseRepository implements InstrumentRepositoryInterface
 {
@@ -17,11 +39,13 @@ class InstrumentRepository extends BaseRepository implements InstrumentRepositor
 
     public function create(InstrumentCreateRequest $request): Instrument
     {
+        Gate::authorize('create', Instrument::class);
         return $this->saveFromRequest(new Instrument(), $request);
     }
 
     public function update(Instrument $instrument, InstrumentUpdateRequest $request): Instrument
     {
+        Gate::authorize('update', Instrument::class);
         return $this->saveFromRequest($instrument, $request);
     }
 
@@ -30,7 +54,7 @@ class InstrumentRepository extends BaseRepository implements InstrumentRepositor
         $organisationRepository = new OrganisationRepository();
         $organisation = $organisationRepository->find($request->input('organisation_id'));
         if (is_null($organisation)) {
-            throw new \Exception('invalid organisation provided');
+            throw new Exception('invalid organisation provided');
         }
 
         $instrument = $instrument
@@ -87,127 +111,347 @@ class InstrumentRepository extends BaseRepository implements InstrumentRepositor
 
     public function attachContacts(Instrument $instrument, string|array $contactIds, ?string $type = null): Instrument
     {
+        $contactIds = (array) $contactIds;
+        /** @var ContactRepositoryInterface $contactRepository */
+        $contactRepository = app(ContactRepositoryInterface::class);
+        $contactRepository
+            ->findMany($contactIds)
+            ->each(
+                function (Contact $contact) use ($instrument) {
+                    Gate::authorize('attachContact', [$instrument, $contact]);
+                }
+            );
+
         if (!is_null($type) && !ContactTypeEnum::search($type)) {
-            throw new \Exception('invalid type given ' . $type);
+            throw new Exception('invalid type given ' . $type);
         }
         $pivotValues = [
             'type' => $type
         ];
-        $instrument->contacts()->syncWithPivotValues((array) $contactIds, $pivotValues, false);
+        $instrument->contacts()->syncWithPivotValues($contactIds, $pivotValues, false);
         return $instrument;
     }
 
     public function detachContacts(Instrument $instrument, string|array $contactIds): Instrument
     {
-        $instrument->contacts()->detach((array) $contactIds);
+        $contactIds = (array) $contactIds;
+        /** @var ContactRepositoryInterface $contactRepository */
+        $contactRepository = app(ContactRepositoryInterface::class);
+        $contactRepository
+            ->findMany($contactIds)
+            ->each(
+                function (Contact $contact) use ($instrument) {
+                    Gate::authorize('detachContact', [$instrument, $contact]);
+                }
+            );
+
+        $instrument->contacts()->detach($contactIds);
         return $instrument;
     }
 
     public function attachAgeGroups(Instrument $instrument, string|array $ageGroupIds): Instrument
     {
-        $instrument->ageGroups()->syncWithoutDetaching((array) $ageGroupIds);
+        $ageGroupIds = (array) $ageGroupIds;
+        /** @var AgeGroupRepositoryInterface $ageGroupRepository */
+        $ageGroupRepository = app(AgeGroupRepositoryInterface::class);
+        $ageGroupRepository
+            ->findMany($ageGroupIds)
+            ->each(
+                function (AgeGroup $ageGroup) use ($instrument) {
+                    Gate::authorize('attachAgeGroup', [$instrument, $ageGroup]);
+                }
+            );
+
+        $instrument->ageGroups()->syncWithoutDetaching($ageGroupIds);
         return $instrument;
     }
 
     public function detachAgeGroups(Instrument $instrument, string|array $ageGroupIds): Instrument
     {
-        $instrument->ageGroups()->detach((array) $ageGroupIds);
+        $ageGroupIds = (array) $ageGroupIds;
+        /** @var AgeGroupRepositoryInterface $ageGroupRepository */
+        $ageGroupRepository = app(AgeGroupRepositoryInterface::class);
+        $ageGroupRepository
+            ->findMany($ageGroupIds)
+            ->each(
+                function (AgeGroup $ageGroup) use ($instrument) {
+                    Gate::authorize('detachAgeGroup', [$instrument, $ageGroup]);
+                }
+            );
+
+        $instrument->ageGroups()->detach($ageGroupIds);
         return $instrument;
     }
 
     public function attachEmploymentTypes(Instrument $instrument, string|array $employmentTypeIds): Instrument
     {
-        $instrument->employmentTypes()->syncWithoutDetaching((array) $employmentTypeIds);
+        $employmentTypeIds = (array) $employmentTypeIds;
+        /** @var EmploymentTypeRepositoryInterface $employmentTypeRepository */
+        $employmentTypeRepository = app(EmploymentTypeRepositoryInterface::class);
+        $employmentTypeRepository
+            ->findMany($employmentTypeIds)
+            ->each(
+                function (EmploymentType $employmentType) use ($instrument) {
+                    Gate::authorize('attachEmploymentType', [$instrument, $employmentType]);
+                }
+            );
+
+        $instrument->employmentTypes()->syncWithoutDetaching($employmentTypeIds);
         return $instrument;
     }
 
     public function detachEmploymentTypes(Instrument $instrument, string|array $employmentTypeIds): Instrument
     {
-        $instrument->employmentTypes()->detach((array) $employmentTypeIds);
+        $employmentTypeIds = (array) $employmentTypeIds;
+        /** @var EmploymentTypeRepositoryInterface $employmentTypeRepository */
+        $employmentTypeRepository = app(EmploymentTypeRepositoryInterface::class);
+        $employmentTypeRepository
+            ->findMany($employmentTypeIds)
+            ->each(
+                function (EmploymentType $employmentType) use ($instrument) {
+                    Gate::authorize('detachEmploymentType', [$instrument, $employmentType]);
+                }
+            );
+
+        $instrument->employmentTypes()->detach($employmentTypeIds);
         return $instrument;
     }
 
     public function attachSectors(Instrument $instrument, string|array $sectorIds): Instrument
     {
-        $instrument->sectors()->syncWithoutDetaching((array) $sectorIds);
+        $sectorIds = (array) $sectorIds;
+        /** @var SectorRepositoryInterface $sectorRepository */
+        $sectorRepository = app(SectorRepositoryInterface::class);
+        $sectorRepository
+            ->findMany($sectorIds)
+            ->each(
+                function (Sector $sector) use ($instrument) {
+                    Gate::authorize('attachSector', [$instrument, $sector]);
+                }
+            );
+
+        $instrument->sectors()->syncWithoutDetaching($sectorIds);
         return $instrument;
     }
 
     public function detachSectors(Instrument $instrument, string|array $sectorIds): Instrument
     {
-        $instrument->sectors()->detach((array) $sectorIds);
+        $sectorIds = (array) $sectorIds;
+        /** @var SectorRepositoryInterface $sectorRepository */
+        $sectorRepository = app(SectorRepositoryInterface::class);
+        $sectorRepository
+            ->findMany($sectorIds)
+            ->each(
+                function (Sector $sector) use ($instrument) {
+                    Gate::authorize('detachSector', [$instrument, $sector]);
+                }
+            );
+
+        $instrument->sectors()->detach($sectorIds);
         return $instrument;
     }
 
     public function attachTargetGroups(Instrument $instrument, string|array $targetGroupIds): Instrument
     {
-        $instrument->targetGroups()->syncWithoutDetaching((array) $targetGroupIds);
+        $targetGroupIds = (array) $targetGroupIds;
+        /** @var TargetGroupRepositoryInterface $targetGroupRepository */
+        $targetGroupRepository = app(TargetGroupRepositoryInterface::class);
+        $targetGroupRepository
+            ->findMany($targetGroupIds)
+            ->each(
+                function (TargetGroup $targetGroup) use ($instrument) {
+                    Gate::authorize('attachTargetGroup', [$instrument, $targetGroup]);
+                }
+            );
+
+        $instrument->targetGroups()->syncWithoutDetaching($targetGroupIds);
         return $instrument;
     }
 
     public function detachTargetGroups(Instrument $instrument, string|array $targetGroupIds): Instrument
     {
-        $instrument->targetGroups()->detach((array) $targetGroupIds);
+        $targetGroupIds = (array) $targetGroupIds;
+        /** @var TargetGroupRepositoryInterface $targetGroupRepository */
+        $targetGroupRepository = app(TargetGroupRepositoryInterface::class);
+        $targetGroupRepository
+            ->findMany($targetGroupIds)
+            ->each(
+                function (TargetGroup $targetGroup) use ($instrument) {
+                    Gate::authorize('detachTargetGroup', [$instrument, $targetGroup]);
+                }
+            );
+
+        $instrument->targetGroups()->detach($targetGroupIds);
         return $instrument;
     }
 
     public function attachTargetGroupRegisters(Instrument $instrument, string|array $targetGroupRegisterIds): Instrument
     {
-        $instrument->targetGroupRegisters()->syncWithoutDetaching((array) $targetGroupRegisterIds);
+        $targetGroupRegisterIds = (array) $targetGroupRegisterIds;
+        /** @var TargetGroupRegisterRepositoryInterface $targetGroupRegisterRepository */
+        $targetGroupRegisterRepository = app(TargetGroupRegisterRepositoryInterface::class);
+        $targetGroupRegisterRepository
+            ->findMany($targetGroupRegisterIds)
+            ->each(
+                function (TargetGroupRegister $targetGroupRegister) use ($instrument) {
+                    Gate::authorize('attachTargetGroupRegister', [$instrument, $targetGroupRegister]);
+                }
+            );
+
+        $instrument->targetGroupRegisters()->syncWithoutDetaching($targetGroupRegisterIds);
         return $instrument;
     }
 
     public function detachTargetGroupRegisters(Instrument $instrument, string|array $targetGroupRegisterIds): Instrument
     {
-        $instrument->targetGroupRegisters()->detach((array) $targetGroupRegisterIds);
+        $targetGroupRegisterIds = (array) $targetGroupRegisterIds;
+        /** @var TargetGroupRegisterRepositoryInterface $targetGroupRegisterRepository */
+        $targetGroupRegisterRepository = app(TargetGroupRegisterRepositoryInterface::class);
+        $targetGroupRegisterRepository
+            ->findMany($targetGroupRegisterIds)
+            ->each(
+                function (TargetGroupRegister $targetGroupRegister) use ($instrument) {
+                    Gate::authorize('detachTargetGroupRegister', [$instrument, $targetGroupRegister]);
+                }
+            );
+
+        $instrument->targetGroupRegisters()->detach($targetGroupRegisterIds);
         return $instrument;
     }
 
     public function attachTiles(Instrument $instrument, string|array $tileIds): Instrument
     {
-        $instrument->tiles()->syncWithoutDetaching((array) $tileIds);
+        $tileIds = (array) $tileIds;
+        /** @var TileRepositoryInterface $tileRepository */
+        $tileRepository = app(TileRepositoryInterface::class);
+        $tileRepository
+            ->findMany($tileIds)
+            ->each(
+                function (Tile $tile) use ($instrument) {
+                    Gate::authorize('attachTile', [$instrument, $tile]);
+                }
+            );
+
+        $instrument->tiles()->syncWithoutDetaching($tileIds);
         return $instrument;
     }
 
     public function detachTiles(Instrument $instrument, string|array $tileIds): Instrument
     {
-        $instrument->tiles()->detach((array) $tileIds);
+        $tileIds = (array) $tileIds;
+        /** @var TileRepositoryInterface $tileRepository */
+        $tileRepository = app(TileRepositoryInterface::class);
+        $tileRepository
+            ->findMany($tileIds)
+            ->each(
+                function (Tile $tile) use ($instrument) {
+                    Gate::authorize('detachTile', [$instrument, $tile]);
+                }
+            );
+
+        $instrument->tiles()->detach($tileIds);
         return $instrument;
     }
 
     public function attachAvailableRegions(Instrument $instrument, string|array $regionIds): Instrument
     {
-        $instrument->availableRegions()->syncWithoutDetaching((array) $regionIds);
+        $regionIds = (array) $regionIds;
+        /** @var RegionRepositoryInterface $regionRepository */
+        $regionRepository = app(RegionRepositoryInterface::class);
+        $regionRepository
+            ->findMany($regionIds)
+            ->each(
+                function (Region $region) use ($instrument) {
+                    Gate::authorize('attachAvailableRegion', [$instrument, $region]);
+                }
+            );
+
+        $instrument->availableRegions()->syncWithoutDetaching($regionIds);
         return $instrument;
     }
 
     public function detachAvailableRegions(Instrument $instrument, string|array $regionIds): Instrument
     {
-        $instrument->availableRegions()->detach((array) $regionIds);
+        $regionIds = (array) $regionIds;
+        /** @var RegionRepositoryInterface $regionRepository */
+        $regionRepository = app(RegionRepositoryInterface::class);
+        $regionRepository
+            ->findMany($regionIds)
+            ->each(
+                function (Region $region) use ($instrument) {
+                    Gate::authorize('detachAvailableRegion', [$instrument, $region]);
+                }
+            );
+
+        $instrument->availableRegions()->detach($regionIds);
         return $instrument;
     }
 
     public function attachAvailableTownships(Instrument $instrument, string|array $townshipIds): Instrument
     {
-        $instrument->availableTownships()->syncWithoutDetaching((array) $townshipIds);
+        $townshipIds = (array) $townshipIds;
+        /** @var TownshipRepositoryInterface $townshipRepository */
+        $townshipRepository = app(TownshipRepositoryInterface::class);
+        $townshipRepository
+            ->findMany($townshipIds)
+            ->each(
+                function (Township $township) use ($instrument) {
+                    Gate::authorize('attachAvailableTownship', [$instrument, $township]);
+                }
+            );
+
+        $instrument->availableTownships()->syncWithoutDetaching($townshipIds);
         return $instrument;
     }
 
     public function detachAvailableTownships(Instrument $instrument, string|array $townshipIds): Instrument
     {
-        $instrument->availableTownships()->detach((array) $townshipIds);
+        $townshipIds = (array) $townshipIds;
+        /** @var TownshipRepositoryInterface $townshipRepository */
+        $townshipRepository = app(TownshipRepositoryInterface::class);
+        $townshipRepository
+            ->findMany($townshipIds)
+            ->each(
+                function (Township $township) use ($instrument) {
+                    Gate::authorize('detachAvailableTownship', [$instrument, $township]);
+                }
+            );
+
+        $instrument->availableTownships()->detach($townshipIds);
         return $instrument;
     }
 
     public function attachAvailableNeighbourhoods(Instrument $instrument, string|array $neighbourhoodIds): Instrument
     {
-        $instrument->availableNeighbourhoods()->syncWithoutDetaching((array) $neighbourhoodIds);
+        $neighbourhoodIds = (array) $neighbourhoodIds;
+        /** @var NeighbourhoodRepositoryInterface $neighbourhoodRepository */
+        $neighbourhoodRepository = app(NeighbourhoodRepositoryInterface::class);
+        $neighbourhoodRepository
+            ->findMany($neighbourhoodIds)
+            ->each(
+                function (Neighbourhood $neighbourhood) use ($instrument) {
+                    Gate::authorize('attachAvailableNeighbourhood', [$instrument, $neighbourhood]);
+                }
+            );
+
+        $instrument->availableNeighbourhoods()->syncWithoutDetaching($neighbourhoodIds);
         return $instrument;
     }
 
     public function detachAvailableNeighbourhoods(Instrument $instrument, string|array $neighbourhoodIds): Instrument
     {
-        $instrument->availableNeighbourhoods()->detach((array) $neighbourhoodIds);
+        $neighbourhoodIds = (array) $neighbourhoodIds;
+        /** @var NeighbourhoodRepositoryInterface $neighbourhoodRepository */
+        $neighbourhoodRepository = app(NeighbourhoodRepositoryInterface::class);
+        $neighbourhoodRepository
+            ->findMany($neighbourhoodIds)
+            ->each(
+                function (Neighbourhood $neighbourhood) use ($instrument) {
+                    Gate::authorize('detachAvailableNeighbourhood', [$instrument, $neighbourhood]);
+                }
+            );
+
+        $instrument->availableNeighbourhoods()->detach($neighbourhoodIds);
         return $instrument;
     }
 }
