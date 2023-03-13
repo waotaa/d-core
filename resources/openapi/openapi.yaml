@@ -4872,7 +4872,7 @@ components:
           type: array
           nullable: true
           items:
-            $ref: '/#/components/schemas/Instrument'
+            $ref: '#/components/schemas/Instrument'
     TargetGroupForm:
       type: object
       required:
@@ -4946,7 +4946,7 @@ components:
           type: array
           nullable: true
           items:
-            $ref: '/#/components/schemas/Instrument'
+            $ref: '#/components/schemas/Instrument'
     TileForm:
       type: object
       required:
