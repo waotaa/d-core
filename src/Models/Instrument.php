@@ -2,6 +2,7 @@
 
 namespace Vng\DennisCore\Models;
 
+use Database\Factories\InstrumentFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Vng\DennisCore\Casts\CleanedHtml;
 use Vng\DennisCore\ElasticResources\InstrumentResource;
@@ -99,6 +100,11 @@ class Instrument extends SearchableModel
         });
 
         static::observe(InstrumentObserver::class);
+    }
+
+    protected static function newFactory(): InstrumentFactory
+    {
+        return InstrumentFactory::new();
     }
 
     public function getSearchId()
