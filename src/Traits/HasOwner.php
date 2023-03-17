@@ -38,7 +38,7 @@ trait HasOwner
 
     public function isUserMemberOfOwner(IsManagerInterface $user): bool
     {
-        return $this->hasOwner() && $this->organisation->hasMember($user);
+        return $this->hasOwner() && $this->organisation->hasMember($user->getManager());
     }
 
     /**
