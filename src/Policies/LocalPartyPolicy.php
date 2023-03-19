@@ -17,7 +17,7 @@ class LocalPartyPolicy extends BaseOrganisationPolicy
 
     public function view(IsManagerInterface $user, LocalParty $localParty)
     {
-        if($localParty->hasMember($user)){
+        if($localParty->hasMember($user->getManager())){
             return true;
         }
         return $user->managerCan('localParty.view');
@@ -30,7 +30,7 @@ class LocalPartyPolicy extends BaseOrganisationPolicy
 
     public function update(IsManagerInterface $user, LocalParty $localParty)
     {
-        if($localParty->hasMember($user)
+        if($localParty->hasMember($user->getManager())
             && $user->managerCan('organisation.update')) {
             return true;
         }
@@ -39,7 +39,7 @@ class LocalPartyPolicy extends BaseOrganisationPolicy
 
     public function delete(IsManagerInterface $user, LocalParty $localParty)
     {
-        if($localParty->hasMember($user)
+        if($localParty->hasMember($user->getManager())
             && $user->managerCan('organisation.delete')) {
             return true;
         }
@@ -51,7 +51,7 @@ class LocalPartyPolicy extends BaseOrganisationPolicy
         if (!$localParty->trashed()) {
             return false;
         }
-        if($localParty->hasMember($user)
+        if($localParty->hasMember($user->getManager())
             && $user->managerCan('organisation.restore')) {
             return true;
         }
@@ -63,7 +63,7 @@ class LocalPartyPolicy extends BaseOrganisationPolicy
         if (!$localParty->trashed()) {
             return false;
         }
-        if($localParty->hasMember($user)
+        if($localParty->hasMember($user->getManager())
             && $user->managerCan('organisation.forceDelete')) {
             return true;
         }

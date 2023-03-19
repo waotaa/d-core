@@ -2,6 +2,7 @@
 
 namespace Vng\DennisCore\Models;
 
+use Database\Factories\LocalPartyFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Collection;
@@ -21,6 +22,11 @@ class LocalParty extends AbstractOrganisationBase implements AreaInterface
         'name',
         'slug',
     ];
+    
+    protected static function newFactory(): LocalPartyFactory
+    {
+        return LocalPartyFactory::new();
+    }
 
     public function township(): BelongsTo
     {
