@@ -48,7 +48,7 @@ class OrganisationPolicy
     {
         // if you can create a manager for an organisation you may attach one to it as well
         if ($user->managerCan('manager.organisation.create')
-            && $organisation->hasMember($user)
+            && $organisation->hasMember($user->getManager())
         ) {
             return true;
         }
@@ -71,7 +71,7 @@ class OrganisationPolicy
     public function addInstrument(IsManagerInterface $user, Organisation $organisation): bool
     {
         if ($user->managerCan('instrument.organisation.create')
-            && $organisation->hasMember($user)
+            && $organisation->hasMember($user->getManager())
         ) {
             return true;
         }
@@ -86,7 +86,7 @@ class OrganisationPolicy
     public function addProvider(IsManagerInterface $user, Organisation $organisation): bool
     {
         if ($user->managerCan('provider.organisation.create')
-            && $organisation->hasMember($user)
+            && $organisation->hasMember($user->getManager())
         ) {
             return true;
         }
@@ -101,7 +101,7 @@ class OrganisationPolicy
     public function addContact(IsManagerInterface $user, Organisation $organisation): bool
     {
         if ($user->managerCan('contact.organisation.create')
-            && $organisation->hasMember($user)
+            && $organisation->hasMember($user->getManager())
         ) {
             return true;
         }

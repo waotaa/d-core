@@ -41,7 +41,7 @@ abstract class AbstractOrganisationBase extends SearchableModel implements Organ
 
     public function hasMember(Model $user): bool
     {
-        return $this->organisation->hasMember($user);
+        return $this->organisation->hasMember($user->getManager());
     }
 
     public function delete()
