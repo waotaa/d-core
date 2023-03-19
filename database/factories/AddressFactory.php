@@ -22,6 +22,8 @@ class AddressFactory extends Factory
             'huisnummer' => $this->faker->randomNumber(3),
             'postcode' => $this->faker->postcode,
             'woonplaats' => $this->faker->city,
+            'addressable_type' => 1,
+            'addressable_id' => 1,
         ];
     }
 }

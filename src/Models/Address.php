@@ -2,6 +2,7 @@
 
 namespace Vng\DennisCore\Models;
 
+use Database\Factories\AddressFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -15,7 +16,6 @@ class Address extends Model
     protected $fillable = [
         'created_at',
         'updated_at',
-
         'name',
         'straatnaam',
         'huisnummer',
@@ -29,6 +29,11 @@ class Address extends Model
     {
         parent::boot();
         static::observe(AddressObserver::class);
+    }
+
+    protected static function newFactory(): AddressFactory
+    {
+        return AddressFactory::new();
     }
 
     public function getLabelAttribute()
