@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Support\Collection;
+use Vng\DennisCore\Interfaces\AreaInterface;
 use Vng\DennisCore\Interfaces\IsManagerInterface;
 use Vng\DennisCore\Traits\HasContacts;
 
@@ -151,4 +152,17 @@ class Organisation extends Model
         return $organisations->merge($nationalOrganisations);
     }
 
+    /**
+     * Get all areas this organisation operates in (if not a national party)
+     * @return Collection
+     */
+    public function getAreasActiveInAttribute()
+    {
+        if (!is_null($this->nationalParty()->first())) {
+            return collect();
+        }
+        /** @var AreaInterface $organisationEntity */
+        $organisationEntity = $this->organisationable()->first();
+        return $organisationEntity->getEncompassingAreas();
+    }
 }

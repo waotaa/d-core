@@ -2,6 +2,7 @@
 
 namespace Vng\DennisCore\Models;
 
+use Database\Factories\ProviderFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Vng\DennisCore\ElasticResources\ProviderResource;
 use Vng\DennisCore\Interfaces\IsMemberInterface;
@@ -57,6 +58,11 @@ class Provider extends SearchableModel
         });
 
         static::observe(ProviderObserver::class);
+    }
+
+    protected static function newFactory()
+    {
+        return ProviderFactory::new();
     }
 
     public function instruments(): HasMany

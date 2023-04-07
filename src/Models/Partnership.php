@@ -2,6 +2,7 @@
 
 namespace Vng\DennisCore\Models;
 
+use Database\Factories\PartnershipFactory;
 use Vng\DennisCore\ElasticResources\PartnershipResource;
 use Vng\DennisCore\Interfaces\AreaInterface;
 use Vng\DennisCore\Traits\AreaTrait;
@@ -19,6 +20,11 @@ class Partnership extends AbstractOrganisationBase implements AreaInterface
         'name',
         'slug',
     ];
+
+    protected static function newFactory()
+    {
+        return PartnershipFactory::new();
+    }
 
     public function townships(): BelongsToMany
     {

@@ -2,6 +2,7 @@
 
 namespace Vng\DennisCore\Observers;
 
+use Illuminate\Support\Facades\App;
 use Vng\DennisCore\Interfaces\DennisUserInterface;
 use Vng\DennisCore\Interfaces\IsManagerInterface;
 use Vng\DennisCore\Repositories\ManagerRepositoryInterface;
@@ -25,11 +26,17 @@ class UserObserver
     public function created(DennisUserInterface $user): void
     {
         $this->managerRepository->createForUser($user);
-        $user->sendAccountCreationNotification();
+        if (!App::runningUnitTests()) {
+            $user->sendAccountCreationNotification();
+        }
     }
 
     public function deleted(IsManagerInterface $user): void
     {
-        $this->managerRepository->delete($user->getManager()->id);
+        $manager = $user->getManager();
+        if (!is_null($manager)) {
+            $this->managerRepository->delete($manager->id);
+        }
+
     }
 }

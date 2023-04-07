@@ -119,7 +119,12 @@ $organisationUserPermissions = [
     // This permission allows you to restore a manager from your organisation
     'manager.organisation.restore',
     // This permission allows you to forceDelete a manager from your organisation
-    'manager.organisation.role.manage',
+    'manager.organisation.forceDelete',
+
+    // This permission allows you to manage the role of a manager from your organisation
+    'manager.organisation.role',
+    // This permission allows you to manage the organisation of a manager from your organisation
+    'manager.organisation.members',
 ];
 
 $userAdministratorPermissions = [
@@ -138,10 +143,10 @@ $userAdministratorPermissions = [
     'manager.restore',
     'manager.forceDelete',
 
-    // This permission allows you to manage the role of a manager from your organisation
-    'manager.role.manage',
-    // This permission allows you to manage the organisation of a manager from your organisation
-    'manager.organisation.manage',
+    // This permission allows you to manage the role of a manager
+    'manager.role',
+    // This permission allows you to manage the organisation of a manager
+    'manager.members',
 ];
 
 // Address
@@ -193,31 +198,31 @@ $globalContactPermissions = [
 // Instruments
 $instrumentPropertyPermissions = [
     'ageGroup.viewAny',
-    'ageGroup.view',
-
     'employmentType.viewAny',
-    'employmentType.view',
-
     'sector.viewAny',
-    'sector.view',
-
     'instrumentType.viewAny',
-    'instrumentType.view',
-
     'targetGroup.viewAny',
-    'targetGroup.view',
-
     'targetGroupRegister.viewAny',
-    'targetGroupRegister.view',
-
     'tile.viewAny',
-    'tile.view',
-
     'neighbourhood.viewAny',
-    'neighbourhood.view',
 ];
 $instrumentPropertyManagementPermissions = [
     ...$instrumentPropertyPermissions,
+
+    'ageGroup.view',
+    'employmentType.view',
+    'sector.view',
+    'instrumentType.view',
+    'targetGroup.view',
+    'targetGroupRegister.view',
+    'tile.view',
+    'neighbourhood.view',
+
+    'location.create',
+    'location.update',
+    'location.delete',
+    'location.restore',
+    'location.forceDelete',
 
     'neighbourhood.create',
     'neighbourhood.update',
@@ -329,7 +334,6 @@ return [
             ...$globalContactPermissions,
             ...$globalInstrumentPermissions,
             ...$globalProviderPermissions,
-            ...$instrumentPropertyManagementPermissions,
         ],
         'instrument-manager-organisation' => [
             ...$generalPermissions,

@@ -2,6 +2,7 @@
 
 namespace Vng\DennisCore\Models;
 
+use Database\Factories\RegionFactory;
 use Vng\DennisCore\Interfaces\AreaInterface;
 use Vng\DennisCore\Interfaces\IsOwnerInterface;
 use Vng\DennisCore\ElasticResources\RegionResource;
@@ -29,6 +30,11 @@ class Region extends SearchableModel implements IsOwnerInterface, AreaInterface
         'description',
         'cooperation_partners',
     ];
+
+    protected static function newFactory()
+    {
+        return RegionFactory::new();
+    }
 
     // A Region has many gemeenten
     public function townships(): HasMany

@@ -2,6 +2,7 @@
 
 namespace Vng\DennisCore\Models;
 
+use Database\Factories\ContactFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
@@ -27,6 +28,11 @@ class Contact extends Model
     {
         parent::boot();
         static::observe(ContactObserver::class);
+    }
+
+    protected static function newFactory()
+    {
+        return ContactFactory::new();
     }
 
     public function setTypeAttribute($value)

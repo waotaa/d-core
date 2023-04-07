@@ -2,9 +2,10 @@
 
 namespace Vng\DennisCore\Repositories\Eloquent;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Gate;
-use Vng\DennisCore\Http\Requests\ManagerUpdateRequest;
 use Vng\DennisCore\Interfaces\DennisUserInterface;
 use Vng\DennisCore\Interfaces\IsManagerInterface;
 use Vng\DennisCore\Models\Manager;
@@ -16,6 +17,25 @@ use Vng\DennisCore\Repositories\OrganisationRepositoryInterface;
 class ManagerRepository extends BaseRepository implements ManagerRepositoryInterface
 {
     public string $model = Manager::class;
+
+    public function addMultipleOrganisationConditions(Builder $query, Collection $organisations): Builder
+    {
+        $query->where(function(Builder $query) use ($organisations) {
+            $organisations->each(function (Organisation $organisation) use (&$query) {
+                $query->orWhere(function(Builder $query) use ($organisation) {
+                    return $this->addOrganisationCondition($query, $organisation);
+                });
+            });
+        });
+        return $query;
+    }
+
+    public function addOrganisationCondition(Builder $query, Organisation $organisation): Builder
+    {
+        return $query->whereHas('organisations', function (Builder $query) use ($organisation) {
+            $query->where('id', $organisation->id);
+        });
+    }
 
     /**
      * @param IsManagerInterface&DennisUserInterface&Model $user
