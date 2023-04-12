@@ -16,7 +16,8 @@ class LocalPartyFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name,
+            'name' => 'Lokale partij',
+            'slug' => 'lokale-partij',
         ];
     }
 

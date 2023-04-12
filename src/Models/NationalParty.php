@@ -2,6 +2,7 @@
 
 namespace Vng\DennisCore\Models;
 
+use Database\Factories\NationalPartyFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Collection;
 use Vng\DennisCore\ElasticResources\NationalPartyResource;
@@ -21,6 +22,11 @@ class NationalParty extends AbstractOrganisationBase implements AreaInterface
         'name',
         'slug',
     ];
+
+    protected static function newFactory()
+    {
+        return NationalPartyFactory::new();
+    }
 
     public function getParentAreas(): ?Collection
     {

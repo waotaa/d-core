@@ -2,17 +2,26 @@
 
 namespace Vng\DennisCore\Repositories\Eloquent;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Http\FormRequest;
 use Vng\DennisCore\Http\Requests\OrganisationCreateRequest;
 use Vng\DennisCore\Http\Requests\OrganisationUpdateRequest;
 use Vng\DennisCore\Interfaces\OrganisationEntityInterface;
+use Vng\DennisCore\Models\Manager;
 use Vng\DennisCore\Models\Organisation;
 use Vng\DennisCore\Repositories\OrganisationRepositoryInterface;
 
 class OrganisationRepository extends BaseRepository implements OrganisationRepositoryInterface
 {
     public string $model = Organisation::class;
+
+    public function addManagerIsMemberCondition(Builder $query, Manager $manager): Builder
+    {
+        return $query->whereHas('managers', function (Builder $query) use ($manager) {
+            $query->where('managers.id', $manager->id);
+        });
+    }
 
     public function new(): Organisation
     {

@@ -17,6 +17,8 @@ class OrganisationResource extends ElasticResource
             'nationalParty' => NationalPartyResource::one($this->nationalParty),
             'partnership' => PartnershipResource::one($this->partnership),
 
+            'areasActiveIn' => AreaInterfaceResource::many($this->resource->getAreasActiveInAttribute()),
+
             /**
              * @deprecated
              * Use organisation contacts in stead

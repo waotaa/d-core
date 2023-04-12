@@ -16,9 +16,7 @@ class DownloadsService
 {
     public static function getDownloadsDisk(): string
     {
-        return App::environment('local')
-            ? config('filesystems.default', 'local')
-            : config('filesystems.cloud', 's3');
+        return config('filesystems.cloud', 's3');
     }
 
     public static function getDownloadsDirectory(Organisation $organisation = null): string
@@ -46,6 +44,24 @@ class DownloadsService
 
         return $download->fill([
             'filename' => $originalFileName,
+            'url' => $filePath
+        ]);
+    }
+
+    public static function movePreUploadedFile(string $tempPath, Organisation $organisation, ?Download $download = null): Download
+    {
+        if (is_null($download)) {
+            $download = new Download();
+        }
+
+        $filePath = str_replace('tmp/', static::getDownloadsDirectory($organisation) . '/', $tempPath);
+
+        self::getStorage(static::getDownloadsDisk())->copy(
+            $tempPath,
+            $filePath
+        );
+
+        return $download->fill([
             'url' => $filePath
         ]);
     }
