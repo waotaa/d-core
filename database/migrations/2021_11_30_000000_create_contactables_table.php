@@ -9,6 +9,8 @@ class CreateContactablesTable extends Migration
     public function up(): void
     {
         Schema::create('contactables', function (Blueprint $table) {
+            $table->string('type')->nullable();
+
             $table->foreignId('contact_id')->constrained()->cascadeOnDelete();
             $table->morphs('contactable');
         });
