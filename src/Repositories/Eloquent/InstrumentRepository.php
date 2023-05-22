@@ -109,7 +109,7 @@ class InstrumentRepository extends BaseRepository implements InstrumentRepositor
         return $instrument;
     }
 
-    public function attachContacts(Instrument $instrument, string|array $contactIds, ?string $type = null): Instrument
+    public function attachContacts(Instrument $instrument, string|array $contactIds, ?string $type = null, ?string $label = null): Instrument
     {
         $contactIds = (array) $contactIds;
         /** @var ContactRepositoryInterface $contactRepository */
@@ -126,7 +126,8 @@ class InstrumentRepository extends BaseRepository implements InstrumentRepositor
             throw new Exception('invalid type given ' . $type);
         }
         $pivotValues = [
-            'type' => $type
+            'type' => $type,
+            'label' => $label
         ];
         $instrument->contacts()->syncWithPivotValues($contactIds, $pivotValues, false);
         return $instrument;
