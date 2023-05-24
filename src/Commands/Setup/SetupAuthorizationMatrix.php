@@ -10,12 +10,12 @@ use Spatie\Permission\PermissionRegistrar;
 
 class SetupAuthorizationMatrix extends Command
 {
-    protected $signature = 'eva-core:setup-authorization';
+    protected $signature = 'dennis-core:setup-authorization';
     protected $description = 'Setup or update the roles and permissions as defined in the authorization config';
 
     public function handle(): int
     {
-        $this->info("\n[ Setting up eva authorization matrix ]\n");
+        $this->info("\n[ Setting up dennis authorization matrix ]\n");
 
         // Reset cached roles and permissions
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
@@ -31,7 +31,7 @@ class SetupAuthorizationMatrix extends Command
         $this->output->writeln('assigning permissions to roles');
         $this->assignPermissionsToRoles();
 
-        $this->info("\n[ Setting up eva authorization matrix ] - finished!\n");
+        $this->info("\n[ Setting up dennis authorization matrix ] - finished!\n");
         return 0;
     }
 

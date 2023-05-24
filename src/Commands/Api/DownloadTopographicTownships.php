@@ -11,7 +11,7 @@ class DownloadTopographicTownships extends Command
 {
     const INTERNAL_FILENAME = 'latest-townships-topographic.json';
 
-    protected $signature = 'eva:download-topographic-townships {--g|geom}';
+    protected $signature = 'dennis:download-topographic-townships {--g|geom}';
     protected $description = 'Download (topographic neighbourhood) township geo-data from API';
 
     public function handle(): int

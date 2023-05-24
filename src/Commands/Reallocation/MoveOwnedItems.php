@@ -6,7 +6,7 @@ use Vng\DennisCore\Services\ReallocationService;
 
 class MoveOwnedItems extends ReallocationBaseCommand
 {
-    protected $signature = 'eva:move-items {currentOwner} {currentOwnerTypeOrNewOwner} {newOwner?} {newOwnerType?} {--f|force}';
+    protected $signature = 'dennis:move-items {currentOwner} {currentOwnerTypeOrNewOwner} {newOwner?} {newOwnerType?} {--f|force}';
     protected $description = 'Move the owners Instruments and Providers to a different owner';
 
     public function handle()

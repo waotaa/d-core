@@ -11,7 +11,7 @@ class DownloadAdministrativeTownships extends Command
 {
     const INTERNAL_FILENAME = 'latest-townships-administrative.json';
 
-    protected $signature = 'eva:download-administrative-townships {--g|geom}';
+    protected $signature = 'dennis:download-administrative-townships {--g|geom}';
     protected $description = 'Download (administrative borders) township geo-data from API';
 
     public function handle(): int

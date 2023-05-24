@@ -9,7 +9,7 @@ use Vng\DennisCore\Commands\Geo\TownshipsCreateDataFromSource;
 
 class SetupGeoData extends Command
 {
-    protected $signature = 'eva:setup-geo {--d|download}';
+    protected $signature = 'dennis:setup-geo {--d|download}';
     protected $description = 'Run the geo setup commands';
 
     public function handle(): int

@@ -9,7 +9,7 @@ use Vng\DennisCore\Services\StorageService;
 
 class ExportInstrumentsCosts extends Command
 {
-    protected $signature = 'eva:export-instruments-costs {mark?}';
+    protected $signature = 'dennis:export-instruments-costs {mark?}';
     protected $description = 'Create a json file with all instrument costs data.';
 
     public function handle(): int

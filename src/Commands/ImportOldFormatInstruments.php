@@ -24,7 +24,7 @@ use Webpatser\Uuid\Uuid;
 
 class ImportOldFormatInstruments extends Command
 {
-    protected $signature = 'eva:import-old-instruments {json-file} {mark} {--r|region=} {--t|township=} {--p|partnership=}';
+    protected $signature = 'dennis:import-old-instruments {json-file} {mark} {--r|region=} {--t|township=} {--p|partnership=}';
 
     protected $description = 'Import instruments from a export json';
 

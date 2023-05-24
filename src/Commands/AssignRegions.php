@@ -8,7 +8,7 @@ use Illuminate\Console\Command;
 
 class AssignRegions extends Command
 {
-    protected $signature = 'eva:assign-regions';
+    protected $signature = 'dennis:assign-regions';
     protected $description = 'Assign a region to every township';
 
     public function handle(): int

@@ -7,7 +7,7 @@ use Vng\DennisCore\Services\Instrument\InstrumentExportService;
 
 class ExportInstruments extends Command
 {
-    protected $signature = 'eva:export-instruments {mark?}';
+    protected $signature = 'dennis:export-instruments {mark?}';
     protected $description = 'Create a json file with all instrument data. This json can also be used for an import';
 
     public function handle(): int

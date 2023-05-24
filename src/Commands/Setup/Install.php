@@ -6,12 +6,12 @@ use Illuminate\Console\Command;
 
 class Install extends Command
 {
-    protected $signature = 'eva-core:install {--n|no-interaction}';
+    protected $signature = 'dennis-core:install {--n|no-interaction}';
     protected $description = 'Installs the package';
 
     public function handle(): int
     {
-        $this->info("\n[ Installing eva core ]\n");
+        $this->info("\n[ Installing dennis core ]\n");
 
         $this->publishPackage();
 
@@ -19,7 +19,7 @@ class Install extends Command
             '--no-interaction' => $this->option('no-interaction'),
         ]);
 
-        $this->info("\n[ Installling eva core ] - finished!\n");
+        $this->info("\n[ Installling dennis core ] - finished!\n");
         return 0;
     }
 

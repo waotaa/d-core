@@ -8,7 +8,7 @@ use Vng\DennisCore\Commands\Format\CleanupSyncAttempts;
 
 class Update extends Command
 {
-    protected $signature = 'eva-core:update';
+    protected $signature = 'dennis-core:update';
     protected $description = 'Post deploy update script';
 
     public function handle(): int

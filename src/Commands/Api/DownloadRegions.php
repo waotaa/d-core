@@ -11,7 +11,7 @@ class DownloadRegions extends Command
 {
     const INTERNAL_FILENAME = 'latest-regions.json';
 
-    protected $signature = 'eva:download-regions {--g|geom}';
+    protected $signature = 'dennis:download-regions {--g|geom}';
     protected $description = 'Download work-region (CBS) geo data from API';
 
     public function handle(): int

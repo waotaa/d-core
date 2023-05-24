@@ -6,7 +6,7 @@ use Illuminate\Console\Command;
 
 class AddRsdDeLiemers extends Command
 {
-    protected $signature = 'eva:add-rsd-de-liemers';
+    protected $signature = 'dennis:add-rsd-de-liemers';
     protected $description = 'Add RSD de liemers';
 
     public function handle(): int

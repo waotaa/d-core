@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Storage;
 
 class ImportInstruments extends Command
 {
-    protected $signature = 'eva:import-instruments {json-file} {mark} {--r|region=} {--g|township=} {--e|environment=}';
+    protected $signature = 'dennis:import-instruments {json-file} {mark} {--r|region=} {--g|township=} {--e|environment=}';
 
     protected $description = 'Import instruments from a export json';
 

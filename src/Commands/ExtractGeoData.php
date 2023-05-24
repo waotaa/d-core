@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Storage;
 
 class ExtractGeoData extends Command
 {
-    protected $signature = 'eva:extract-geo';
+    protected $signature = 'dennis:extract-geo';
     protected $description = 'Extract and save a geo.json to storage from the database';
 
     public function handle(): int

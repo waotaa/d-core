@@ -7,12 +7,12 @@ use Vng\DennisCore\Commands\Operations\SetupGeoData;
 
 class Setup extends Command
 {
-    protected $signature = 'eva-core:setup {--n|no-interaction} {--l|lean}';
+    protected $signature = 'dennis-core:setup {--n|no-interaction} {--l|lean}';
     protected $description = 'Setup the core';
 
     public function handle(): int
     {
-        $this->info("\n[ Setting up eva core ]\n");
+        $this->info("\n[ Setting up dennis core ]\n");
 
         $this->call('key:generate');
 
@@ -21,7 +21,7 @@ class Setup extends Command
             $this->setupUtilities();
         }
 
-        $this->info("\n[ Setting up eva core ] - finished!\n");
+        $this->info("\n[ Setting up dennis core ] - finished!\n");
         return 0;
     }
 
