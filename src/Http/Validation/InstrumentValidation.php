@@ -17,9 +17,6 @@ class InstrumentValidation extends ModelValidation
             'description' => [
                 'required',
             ],
-            'method' => [
-                'required'
-            ],
             'applications' => [
                 'required'
             ],
