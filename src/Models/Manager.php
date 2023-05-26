@@ -2,6 +2,7 @@
 
 namespace Vng\DennisCore\Models;
 
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Vng\DennisCore\Interfaces\IsInstrumentWatcherInterface;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -72,6 +73,11 @@ class Manager extends Model implements IsInstrumentWatcherInterface
     public function isCreatedBy(Manager $manager): bool
     {
         return $this->createdBy && $this->createdBy->id === $manager->id;
+    }
+
+    public function executedMutations(): HasMany
+    {
+        return $this->hasMany(Mutation::class);
     }
 
     public function organisations(): BelongsToMany
