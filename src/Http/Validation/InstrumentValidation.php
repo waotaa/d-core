@@ -10,28 +10,26 @@ class InstrumentValidation extends ModelValidation
             'name' => [
                 'required'
             ],
-            'summary' => [
+            'short_description' => [
                 'required',
                 'max:500'
             ],
-            'aim' => [
+            'description' => [
                 'required',
             ],
             'method' => [
                 'required'
             ],
-            'total_costs' => [
-                'nullable',
-                'numeric',
-                'min:0'
+            'applications' => [
+                'required'
+            ],
+            'conditions' => [
+                'required'
             ],
             'organisation_id' => [
                 'required'
             ],
             'provider_id' => [
-                'required',
-            ],
-            'implementation_id' => [
                 'required',
             ],
         ];
