@@ -14,6 +14,7 @@ class AgeGroup extends Model
 
     protected $fillable = [
         'description',
+        'code',
     ];
 
     public function instruments(): BelongsToMany

@@ -8,7 +8,11 @@ class SectorResource extends ElasticResource
     {
         return [
             'id' => $this->id,
-            'description' => $this->description
+            'description' => $this->description,
+            'sbi_group' => $this->sbi_group,
+
+            // SGR / Dutch
+            'sbiGroep' => $this->sbi_group,
         ];
     }
 }

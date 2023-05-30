@@ -9,10 +9,10 @@ class TargetGroupRegisterSeeder extends Seeder
 {
     public function run(): void
     {
-        TargetGroupRegister::query()->firstOrCreate([
+        TargetGroupRegister::query()->updateOrCreate([
             'description' => 'Ja',
         ]);
-        TargetGroupRegister::query()->firstOrCreate([
+        TargetGroupRegister::query()->updateOrCreate([
             'description' => 'Nee',
         ]);
     }

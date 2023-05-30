@@ -15,6 +15,7 @@ class AgeGroupResource extends JsonResource
             'deleted_at' => $this->deleted_at,
 
             'description'  => $this->description,
+            'code' => $this->code,
 
             'instruments' => InstrumentResource::collection($this->whenLoaded('instruments'))
         ];

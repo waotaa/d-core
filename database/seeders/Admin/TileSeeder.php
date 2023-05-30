@@ -7,6 +7,9 @@ use Vng\DennisCore\Models\Tile;
 use Exception;
 use Illuminate\Database\Seeder;
 
+/**
+ * Dennis werklandschapstegel - DW
+ */
 class TileSeeder extends Seeder
 {
     public function run(): void
@@ -21,6 +24,7 @@ class TileSeeder extends Seeder
                 Tile::query()->updateOrCreate([
                     'key' => $tileData['key']
                 ],[
+                    'code' => $tileData['code'],
                     'name' => $tileData['name'],
                     'sub_title' => $tileData['sub_title'],
                     'description' => $this->cleanWhitespaces($tileData['description']),
@@ -41,6 +45,7 @@ class TileSeeder extends Seeder
     private function getData() {
         return [
             [
+                'code' => 'DW01',
                 'name' => 'Voorzorg',
                 'sub_title' => 'Voor behoud van werk',
                 'description' => "
@@ -104,7 +109,9 @@ class TileSeeder extends Seeder
                     'x' => 4,
                     'y' => 0,
                 ],
-            ], [
+            ],
+            [
+                'code' => 'DW02',
                 'name' => 'Werkgever Contact',
                 'sub_title' => 'Vraag werkgever',
                 'description' => "
@@ -170,7 +177,9 @@ class TileSeeder extends Seeder
                     'x' => 4,
                     'y' => 1,
                 ],
-            ], [
+            ],
+            [
+                'code' => 'DW03',
                 'name' => 'Oriëntatie',
                 'sub_title' => 'Op de arbeidsmarkt',
                 'description' => "
@@ -217,7 +226,9 @@ class TileSeeder extends Seeder
                     'x' => 3,
                     'y' => 2,
                 ],
-            ], [
+            ],
+            [
+                'code' => 'DW04',
                 'name' => 'Opleiden',
                 'sub_title' => 'klaar voor werk',
                 'description' => "
@@ -270,7 +281,9 @@ class TileSeeder extends Seeder
                     'x' => 2,
                     'y' => 2,
                 ],
-            ], [
+            ],
+            [
+                'code' => 'DW05',
                 'name' => 'Kandidaat fit',
                 'sub_title' => 'Klaar voor kandidaat',
                 'description' => "
@@ -331,7 +344,9 @@ class TileSeeder extends Seeder
                     'x' => 3,
                     'y' => 0,
                 ],
-            ], [
+            ],
+            [
+                'code' => 'DW06',
                 'name' => 'Opstellen Werkprofiel',
                 'sub_title' => 'Beoordelen vacature',
                 'description' => "
@@ -380,7 +395,9 @@ class TileSeeder extends Seeder
                     'x' => 3,
                     'y' => 1,
                 ],
-            ], [
+            ],
+            [
+                'code' => 'DW07',
                 'name' => 'Werving en Selectie',
                 'sub_title' => 'Vinden van kandidaten bij vacature',
                 'description' => "
@@ -421,7 +438,9 @@ class TileSeeder extends Seeder
                     'x' => 2,
                     'y' => 1,
                 ],
-            ], [
+            ],
+            [
+                'code' => 'DW08',
                 'name' => 'Bemiddeling',
                 'sub_title' => 'Kandidaten aan vacatures koppelen',
                 'description' => "
@@ -484,7 +503,9 @@ class TileSeeder extends Seeder
                     'x' => 1,
                     'y' => 1,
                 ],
-            ], [
+            ],
+            [
+                'code' => 'DW09',
                 'name' => 'Plaatsing',
                 'sub_title' => 'Werkelijk aan de slag',
                 'description' => "
@@ -536,7 +557,9 @@ class TileSeeder extends Seeder
                     'x' => 0,
                     'y' => 1,
                 ],
-            ], [
+            ],
+            [
+                'code' => 'DW10',
                 'name' => 'Nazorg',
                 'sub_title' => 'Voor duurzame plaatsing',
                 'description' => "

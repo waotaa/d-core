@@ -15,6 +15,10 @@ class SectorResource extends JsonResource
             'deleted_at' => $this->deleted_at,
 
             'description'  => $this->description,
+            'sbi_group' => $this->sbi_group,
+
+            // SGR / Dutch
+            'sbiGroep' => $this->sbi_group,
 
             'instruments' => InstrumentResource::collection($this->whenLoaded('instruments'))
         ];

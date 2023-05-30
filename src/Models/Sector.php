@@ -14,6 +14,7 @@ class Sector extends Model
 
     protected $fillable = [
         'description',
+        'sbi_group',
     ];
 
     public function instruments(): BelongsToMany

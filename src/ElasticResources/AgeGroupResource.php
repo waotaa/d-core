@@ -8,7 +8,8 @@ class AgeGroupResource extends ElasticResource
     {
         return [
             'id' => $this->id,
-            'description' => $this->description
+            'description' => $this->description,
+            'code' => $this->code
         ];
     }
 }
