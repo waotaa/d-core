@@ -8,15 +8,15 @@ class RenameKeyOnInstrumentTypesTable extends Migration
 {
     public function up(): void
     {
-        Schema::table('instrument_types', function (Blueprint $table) {
-            $table->renameColumn("`key`", 'code');
-        });
+        if (Schema::hasColumn('instrument_types', 'key')) {
+            Schema::table('instrument_types', function (Blueprint $table) {
+                $table->renameColumn('key', 'code');
+            });
+        }
     }
 
     public function down(): void
     {
-        Schema::table('instrument_types', function (Blueprint $table) {
-            $table->renameColumn('code', "`key`");
-        });
+        // don't rename to key
     }
 }

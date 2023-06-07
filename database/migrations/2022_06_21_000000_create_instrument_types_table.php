@@ -12,7 +12,9 @@ class CreateInstrumentTypesTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
-            $table->string('key')->unique();
+//            Altered since key is a reserved word
+//            $table->string('key')->unique();
+            $table->string('code')->unique();
         });
     }
 
