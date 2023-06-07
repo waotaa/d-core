@@ -112,51 +112,6 @@ class Instrument extends SearchableModel
         return $this->uuid;
     }
 
-    public function setTotalDurationUnitAttribute($value): void
-    {
-        if (is_null($value)) {
-            $this->attributes['total_duration_unit'] = null;
-            return;
-        }
-        $this->attributes['total_duration_unit'] = (new DurationUnitEnum($value))->getKey();
-    }
-
-    public function getTotalDurationUnitAttribute($value): ?string
-    {
-        if (is_null($value) || !in_array($value, DurationUnitEnum::keys())) {
-            return null;
-        }
-        return DurationUnitEnum::$value();
-    }
-
-    public function getRawTotalDurationUnitAttribute(): ?string
-    {
-        return $this->attributes['total_duration_unit'] ?? null;
-    }
-
-    public function getTotalDurationHoursAttribute()
-    {
-        if (DurationUnitEnum::hour()->equals($this->total_duration_unit)) {
-            return $this->total_duration_value;
-        }
-
-        $hoursPerWeek = $this->intensity_hours_per_week;
-        if (DurationUnitEnum::day()->equals($this->total_duration_unit)) {
-            $totalDurationWeeks = ceil($this->total_duration_value / 7);
-            return $hoursPerWeek * $totalDurationWeeks;
-        }
-        if (DurationUnitEnum::week()->equals($this->total_duration_unit)) {
-            return $hoursPerWeek * $this->total_duration_value;
-        }
-        if (DurationUnitEnum::month()->equals($this->total_duration_unit)) {
-            $weeksPerMonth = 52/12;
-            $totalDurationWeeks = $this->total_duration_value * $weeksPerMonth;
-            return $hoursPerWeek * $totalDurationWeeks;
-        }
-
-        return null;
-    }
-
     public function availableRegions(): BelongsToMany
     {
         return $this->belongsToMany(Region::class, 'available_region_instrument')
