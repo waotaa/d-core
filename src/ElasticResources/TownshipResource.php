@@ -12,8 +12,8 @@ class TownshipResource extends ElasticResource
             'id' => $this->id,
             'name' =>  $this->name,
             'slug' => $this->slug,
-            'description' => $this->description,
             'code' => $this->code,
+            'description' => $this->description,
             'featureId' => $this->featureId,
             'region' => $this->region ? TownshipRegionResource::one($this->region) : null,
         ];

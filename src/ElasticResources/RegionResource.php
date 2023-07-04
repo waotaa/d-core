@@ -10,11 +10,15 @@ class RegionResource extends ElasticResource
             'id' => $this->id,
             'name' => $this->name,
             'slug' => $this->slug,
-            'description' => $this->description,
+            'code' => $this->code,
             'color' => $this->color,
-            'cooperation_partners' => $this->cooperation_partners,
-            'townships' => TownshipResource::many($this->townships),
 
+            'description' => $this->description,
+            'cooperation_partners' => $this->cooperation_partners,
+            'additional_information' => $this->additional_information,
+            'terminology' => $this->terminology,
+
+            'townships' => TownshipResource::many($this->townships),
             'contacts' => ContactResource::many($this->contacts),
         ];
     }
