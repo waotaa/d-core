@@ -8,7 +8,7 @@ use Vng\DennisCore\Http\Requests\OrganisationUpdateRequest;
 use Vng\DennisCore\Models\Manager;
 use Vng\DennisCore\Models\Organisation;
 
-interface OrganisationRepositoryInterface
+interface OrganisationRepositoryInterface extends BaseRepositoryInterface
 {
     public function addManagerIsMemberCondition(Builder $query, Manager $manager): Builder;
 

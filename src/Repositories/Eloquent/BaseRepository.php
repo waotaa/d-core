@@ -29,7 +29,7 @@ abstract class BaseRepository implements BaseRepositoryInterface
             ->paginate($perPage);
     }
 
-    public function find(string $id): ?Model
+    public function find($id): ?Model
     {
         return $this->model::find($id);
     }

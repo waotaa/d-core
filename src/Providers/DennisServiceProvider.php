@@ -21,6 +21,7 @@ use Vng\DennisCore\Commands\ExtractGeoData;
 use Vng\DennisCore\Commands\Format\ApplyMorphMap;
 use Vng\DennisCore\Commands\Format\CleanupActionLog;
 use Vng\DennisCore\Commands\Format\CleanupSyncAttempts;
+use Vng\DennisCore\Commands\Format\ContactsMatchOrganisations;
 use Vng\DennisCore\Commands\Format\EnsureManagers;
 use Vng\DennisCore\Commands\Format\EnsureOrganisations;
 use Vng\DennisCore\Commands\Format\MigrateToFormat2;
@@ -136,6 +137,7 @@ class DennisServiceProvider extends AggregateServiceProvider
         ApplyMorphMap::class,
         CleanupActionLog::class,
         CleanupSyncAttempts::class,
+        ContactsMatchOrganisations::class,
         EnsureManagers::class,
         EnsureOrganisations::class,
         MigrateToFormat2::class,

@@ -15,7 +15,7 @@ interface BaseRepositoryInterface
 
     public function index(int $perPage = 10): LengthAwarePaginator;
 
-    public function find(string $id): ?Model;
+    public function find($id): ?Model;
 
     public function findMany(array $ids): Collection;
 
