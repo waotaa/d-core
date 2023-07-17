@@ -13,6 +13,12 @@ class ContactResource extends ElasticResource
             'email' => $this->email,
             'type' => null,
             'label' => $this->resource?->pivot?->label,
+
+            // SGR
+            'ContactpersoonNaam' => $this->name,
+            'Emailadres' => $this->email,
+            'Telefoonnummer' => $this->phone,
+            'RelatieType' => $this->resource?->pivot?->type,
         ];
 
         $pivot = $this->resource->pivot;

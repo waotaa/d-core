@@ -10,6 +10,10 @@ class EmploymentTypeResource extends ElasticResource
             'id' => $this->id,
             'description' => $this->description,
             'code' => $this->code,
+
+            // SGR
+            'Code' => $this->code,
+            'DienstverbandNaam' => $this->description,
         ];
     }
 }

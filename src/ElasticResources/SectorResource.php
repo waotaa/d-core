@@ -13,6 +13,10 @@ class SectorResource extends ElasticResource
 
             // SGR / Dutch
             'sbiGroep' => $this->sbi_group,
+
+            // SGR
+            'SbiGroep' => $this->sbi_group,
+            'SectorNaam' => $this->description,
         ];
     }
 }

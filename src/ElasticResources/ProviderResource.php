@@ -23,6 +23,10 @@ class ProviderResource extends ElasticResource
             'contact' => ContactResource::one($this->contact),
 
 //            'owner' => OwnerResource::one($this->owner), // depricated
+
+            // SGR
+            'AanbiederNaam' => $this->name,
+            'UuidAanbieder' => $this->uuid,
         ];
     }
 }

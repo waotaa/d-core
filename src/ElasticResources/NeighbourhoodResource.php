@@ -10,6 +10,9 @@ class NeighbourhoodResource extends ElasticResource
             'id' => $this->id,
             'name' => $this->name,
             'township' => TownshipResource::one($this->township),
+
+            // SGR
+            'WijkNaam' => $this->name,
         ];
     }
 }

@@ -17,6 +17,10 @@ class TileResource extends ElasticResource
             'list'  => $this->list,
             'key'  => $this->key,
             'position'  => $this->position,
+
+            // SGR
+            'Code' => $this->code,
+            'WerklandschapTegelNaam' => $this->name,
         ];
     }
 }
