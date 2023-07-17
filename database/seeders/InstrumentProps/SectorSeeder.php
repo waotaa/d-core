@@ -38,6 +38,11 @@ class SectorSeeder extends Seeder
 {
     public function run(): void
     {
+        Sector::query()->where([
+            'description' => 'Overheid en Onderwijs',
+        ])->delete();
+
+
         Sector::query()->updateOrCreate([
             'description' => 'Landbouw, Natuur, Milieu',
         ],[
