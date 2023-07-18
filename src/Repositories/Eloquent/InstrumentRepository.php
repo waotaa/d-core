@@ -45,7 +45,7 @@ class InstrumentRepository extends BaseRepository implements InstrumentRepositor
 
     public function update(Instrument $instrument, InstrumentUpdateRequest $request): Instrument
     {
-        Gate::authorize('update', Instrument::class);
+        Gate::authorize('update', $instrument);
         return $this->saveFromRequest($instrument, $request);
     }
 
