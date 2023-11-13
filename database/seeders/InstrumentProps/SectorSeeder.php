@@ -43,6 +43,8 @@ class SectorSeeder extends Seeder
         ])->delete();
 
 
+        // Werkgroep sectoren (gekoppeld aan SBI groep)
+
         Sector::query()->updateOrCreate([
             'description' => 'Landbouw, Natuur, Milieu',
         ],[
@@ -103,6 +105,45 @@ class SectorSeeder extends Seeder
         ],[
             'sbi_group' => 'Q'
             // Q - Gezondheid- en welzijnszorg
+        ]);
+
+        // Later hernoemd naar SBI groepen
+
+        $sbiGroups = [
+            'A' => 'Landbouw, bosbouw, visserij',
+            'B' => 'Winning van delfstoffen',
+            'C' => 'Industrie',
+            'D' => 'Productie en distributie van en handel in elektriciteit, aardgas, stoom en gekoelde lucht',
+            'E' => 'Winning en distributie van water; afval- en afvalwaterbeheer en sanering',
+            'F' => 'Bouwnijverheid',
+            'G' => "Groot- en detailhandel; reparatie van auto's",
+            'H' => 'Vervoer en opslag',
+            'I' => 'Logies-, maaltijd- en drankverstrekking',
+            'J' => 'Informatie en communicatie',
+            'K' => 'Financiële instellingen',
+            'L' => 'Verhuur van en handel in onroerend goed',
+            'M' => 'Advisering, onderzoek en overige specialistische zakelijke dienstverlening',
+            'N' => 'Verhuur van roerende goederen en overige zakelijke dienstverlening',
+            'O' => 'Openbaar bestuur, overheidsdiensten en verplichte sociale verzekeringen',
+            'P' => 'Onderwijs',
+            'Q' => 'Gezondheid- en welzijnszorg',
+            'R' => 'Cultuur, sport en recreatie',
+            'S' => 'Overige dienstverlening',
+            'T' => 'Huishoudens als werkgever; niet-gedifferentieerde productie van goederen en diensten door huishoudens voor eigen gebruik',
+            'U' => 'Extraterritoriale organisaties en lichamen'
+        ];
+
+        foreach ($sbiGroups as $group => $description) {
+            $this->updateOrCreateSector($group, $description);
+        }
+    }
+
+    protected function updateOrCreateSector($group, $description)
+    {
+        Sector::query()->updateOrCreate([
+            'sbi_group' => $group
+        ],[
+            'description' => $description
         ]);
     }
 }
