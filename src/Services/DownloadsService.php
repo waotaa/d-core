@@ -8,7 +8,7 @@ use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Storage;
-use League\Flysystem\Util;
+use League\Flysystem\WhitespacePathNormalizer;
 use Vng\DennisCore\Models\Download;
 use Vng\DennisCore\Models\Organisation;
 
@@ -25,7 +25,7 @@ class DownloadsService
         if (!is_null($organisation)) {
             $downloadPath .= '/' . $organisation->id .  '-' . $organisation->getSlugAttribute();
         }
-        return Util::normalizePath($downloadPath);
+        return (new WhitespacePathNormalizer)->normalizePath($downloadPath);
     }
 
     public static function saveUploadedFile(UploadedFile $uploadedFile, Organisation $organisation, ?Download $download = null): Download

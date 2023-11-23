@@ -12,7 +12,7 @@
         }
     ],
     "require": {
-        "php": "^8.0",
+        "php": "^8.1",
         "ext-dom": "*",
         "elasticsearch/elasticsearch": "^7.4",
         "guzzlehttp/guzzle": "^7.0.1",
@@ -21,7 +21,7 @@
         "webpatser/laravel-uuid": "^4.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^6.0",
+        "orchestra/testbench": "^7.0",
         "phpunit/phpunit": "^9.5"
     },
     "autoload": {
@@ -45,7 +45,7 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "platform": {
-            "php": "8.0"
+            "php": "8.1"
         }
     },
     "minimum-stability": "dev",
