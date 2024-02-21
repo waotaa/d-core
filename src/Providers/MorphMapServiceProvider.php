@@ -23,6 +23,7 @@ use Vng\DennisCore\Models\Organisation;
 use Vng\DennisCore\Models\Partnership;
 use Vng\DennisCore\Models\Provider;
 use Vng\DennisCore\Models\Region;
+use Vng\DennisCore\Models\RegionPage;
 use Vng\DennisCore\Models\RegionalParty;
 use Vng\DennisCore\Models\RegistrationCode;
 use Vng\DennisCore\Models\Sector;
@@ -55,6 +56,7 @@ class MorphMapServiceProvider extends ServiceProvider
         'provider' => Provider::class,
         'region' => Region::class,
         'regional-party' => RegionalParty::class,
+        'regional-page' => RegionPage::class,
         'registration-code' => RegistrationCode::class,
         'sector' => Sector::class,
         'target-group' => TargetGroup::class,

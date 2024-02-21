@@ -12,6 +12,7 @@ use Vng\DennisCore\Commands\Elastic\SyncAll;
 use Vng\DennisCore\Commands\Elastic\SyncInstruments;
 use Vng\DennisCore\Commands\Elastic\SyncProviders;
 use Vng\DennisCore\Commands\Elastic\SyncPublicInstruments;
+use Vng\DennisCore\Commands\Elastic\SyncRegionPages;
 use Vng\DennisCore\Commands\Elastic\SyncRegions;
 use Vng\DennisCore\Commands\Elastic\SyncTiles;
 use Vng\DennisCore\Commands\Elastic\SyncTownships;
@@ -79,6 +80,7 @@ use Vng\DennisCore\Repositories\Eloquent\OrganisationRepository;
 use Vng\DennisCore\Repositories\Eloquent\PartnershipRepository;
 use Vng\DennisCore\Repositories\Eloquent\ProviderRepository;
 use Vng\DennisCore\Repositories\Eloquent\RegionalPartyRepository;
+use Vng\DennisCore\Repositories\Eloquent\RegionPageRepository;
 use Vng\DennisCore\Repositories\Eloquent\RegionRepository;
 use Vng\DennisCore\Repositories\Eloquent\RegistrationCodeRepository;
 use Vng\DennisCore\Repositories\Eloquent\RoleRepository;
@@ -102,6 +104,7 @@ use Vng\DennisCore\Repositories\OrganisationRepositoryInterface;
 use Vng\DennisCore\Repositories\PartnershipRepositoryInterface;
 use Vng\DennisCore\Repositories\ProviderRepositoryInterface;
 use Vng\DennisCore\Repositories\RegionalPartyRepositoryInterface;
+use Vng\DennisCore\Repositories\RegionPageRepositoryInterface;
 use Vng\DennisCore\Repositories\RegionRepositoryInterface;
 use Vng\DennisCore\Repositories\RegistrationCodeRepositoryInterface;
 use Vng\DennisCore\Repositories\RoleRepositoryInterface;
@@ -131,6 +134,7 @@ class DennisServiceProvider extends AggregateServiceProvider
         SyncProviders::class,
         SyncPublicInstruments::class,
         SyncRegions::class,
+        SyncRegionPages::class,
         SyncTiles::class,
         SyncTownships::class,
 
@@ -272,6 +276,7 @@ class DennisServiceProvider extends AggregateServiceProvider
         $this->app->bind(ProviderRepositoryInterface::class, ProviderRepository::class);
         $this->app->bind(RegionalPartyRepositoryInterface::class, RegionalPartyRepository::class);
         $this->app->bind(RegionRepositoryInterface::class, RegionRepository::class);
+        $this->app->bind(RegionPageRepositoryInterface::class, RegionPageRepository::class);
         $this->app->bind(RegistrationCodeRepositoryInterface::class, RegistrationCodeRepository::class);
         $this->app->bind(RoleRepositoryInterface::class, RoleRepository::class);
         $this->app->bind(SectorRepositoryInterface::class, SectorRepository::class);

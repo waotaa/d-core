@@ -80,6 +80,21 @@ $regionGeneralPermissions = [
     'region.view',
 ];
 
+// RegionPage
+$regionPageGeneralPermissions = [
+    'regionPage.viewAny',
+];
+
+$regionPageAdminPermissions = [
+    ...$regionGeneralPermissions,
+    'regionPage.view',
+    'regionPage.create',
+    'regionPage.update',
+    'regionPage.delete',
+    'regionPage.restore',
+    'regionPage.forceDelete',
+];
+
 // Township
 $townshipGeneralPermissions = [
     'township.viewAny',
@@ -94,6 +109,7 @@ $generalPermissions = [
     ...$nationalPartyGeneralPermissions,
     ...$partnershipGeneralPermissions,
     ...$regionGeneralPermissions,
+    ...$regionPageGeneralPermissions,
     ...$townshipGeneralPermissions,
 ];
 
@@ -302,6 +318,7 @@ return [
         'rating',
         'region',
         'regionalParty',
+        'regionPage',
         'registrationCode',
         'sector',
         'targetGroup',
@@ -327,6 +344,7 @@ return [
 
             ...$userAdministratorPermissions,
             ...$instrumentPropertyManagementPermissions,
+            ...$regionPageAdminPermissions,
         ],
         'instrument-manager' => [
             ...$generalPermissions,

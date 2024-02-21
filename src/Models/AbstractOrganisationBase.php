@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use ReflectionClass;
+use Vng\DennisCore\Interfaces\IsManagerInterface;
 use Vng\DennisCore\Interfaces\OrganisationEntityInterface;
 use Vng\DennisCore\Observers\OrganisationEntityObserver;
 use Vng\DennisCore\Traits\HasDynamicSlug;
@@ -39,9 +40,12 @@ abstract class AbstractOrganisationBase extends SearchableModel implements Organ
         return $this->organisation;
     }
 
-    public function hasMember(Model $user): bool
+    public function hasMember(Model|IsManagerInterface $manager): bool
     {
-        return $this->organisation->hasMember($user->getManager());
+        if ($manager instanceof IsManagerInterface) {
+            $manager = $manager->getManager();
+        }
+        return $this->organisation->hasMember($manager);
     }
 
     public function delete()

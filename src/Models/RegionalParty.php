@@ -5,6 +5,7 @@ namespace Vng\DennisCore\Models;
 use Database\Factories\RegionalPartyFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Collection;
 use Vng\DennisCore\ElasticResources\RegionalPartyResource;
 use Vng\DennisCore\Interfaces\AreaInterface;
@@ -31,6 +32,11 @@ class RegionalParty extends AbstractOrganisationBase implements AreaInterface
     public function region(): BelongsTo
     {
         return $this->belongsTo(Region::class);
+    }
+
+    public function regionalPages(): HasMany
+    {
+        return $this->hasMany(RegionPage::class);
     }
 
     public function getParentAreas(): ?Collection

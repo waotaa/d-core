@@ -23,6 +23,7 @@ use Vng\DennisCore\Models\Partnership;
 use Vng\DennisCore\Models\Provider;
 use Vng\DennisCore\Models\Region;
 use Vng\DennisCore\Models\RegionalParty;
+use Vng\DennisCore\Models\RegionPage;
 use Vng\DennisCore\Models\RegistrationCode;
 use Vng\DennisCore\Models\Role;
 use Vng\DennisCore\Models\Sector;
@@ -50,6 +51,7 @@ use Vng\DennisCore\Policies\PartnershipPolicy;
 use Vng\DennisCore\Policies\PermissionPolicy;
 use Vng\DennisCore\Policies\ProviderPolicy;
 use Vng\DennisCore\Policies\RegionalPartyPolicy;
+use Vng\DennisCore\Policies\RegionPagePolicy;
 use Vng\DennisCore\Policies\RegionPolicy;
 use Vng\DennisCore\Policies\RegistrationCodePolicy;
 use Vng\DennisCore\Policies\RolePolicy;
@@ -88,6 +90,7 @@ class AuthServiceProvider extends ServiceProvider
         Provider::class => ProviderPolicy::class,
         RegionalParty::class => RegionalPartyPolicy::class,
         Region::class => RegionPolicy::class,
+        RegionPage::class => RegionPagePolicy::class,
         RegistrationCode::class => RegistrationCodePolicy::class,
         Role::class => RolePolicy::class,
         Sector::class => SectorPolicy::class,

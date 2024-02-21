@@ -19,6 +19,7 @@ class SyncAll extends Command
         $this->call('elastic:sync-instruments', ['--fresh' => $this->option('fresh')]);
         $this->call('elastic:sync-providers', ['--fresh' => $this->option('fresh')]);
         $this->call('elastic:sync-regions', ['--fresh' => $this->option('fresh')]);
+        $this->call('elastic:sync-region-pages', ['--fresh' => $this->option('fresh')]);
         $this->call('elastic:sync-tiles', ['--fresh' => $this->option('fresh')]);
         $this->call('elastic:sync-townships', ['--fresh' => $this->option('fresh')]);
 
