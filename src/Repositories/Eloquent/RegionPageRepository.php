@@ -32,7 +32,7 @@ class RegionPageRepository extends BaseRepository implements RegionPageRepositor
     public function saveFromRequest(RegionPage $regionPage, FormRequest $request): RegionPage
     {
         $regionPage = $regionPage->fill([
-            'name' => $request->input('name'),
+            'description' => $request->input('description'),
             'cooperation_partners' => $request->input('cooperation_partners'),
             'additional_information' => $request->input('additional_information'),
             'terminology' => $request->input('terminology'),

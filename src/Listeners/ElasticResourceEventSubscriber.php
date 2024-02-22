@@ -20,6 +20,7 @@ use Vng\DennisCore\Models\Provider;
 use Vng\DennisCore\Models\Region;
 use Exception;
 use Illuminate\Events\Dispatcher;
+use Vng\DennisCore\Models\RegionPage;
 use Vng\DennisCore\Services\ElasticSearch\SyncService;
 
 class ElasticResourceEventSubscriber
@@ -126,7 +127,7 @@ class ElasticResourceEventSubscriber
     {
         $contact = $event->contact;
 
-        /** @var Instrument|Provider|Region $detached */
+        /** @var Instrument|Provider|Region|RegionPage $detached */
         $detached = $event->contactable;
 
         $attempt = SyncService::createSyncAttempt($detached, 'detach', 'created');
