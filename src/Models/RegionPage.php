@@ -4,6 +4,7 @@ namespace Vng\DennisCore\Models;
 
 use Database\Factories\RegionPageFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Vng\DennisCore\Casts\CleanedHtml;
 use Vng\DennisCore\ElasticResources\RegionPageResource;
 use Vng\DennisCore\Traits\HasContacts;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -21,6 +22,13 @@ class RegionPage extends SearchableModel
         'cooperation_partners',
         'additional_information',
         'terminology',
+    ];
+
+    protected $casts = [
+        'description' => CleanedHtml::class,
+        'cooperation_partners' => CleanedHtml::class,
+        'additional_information' => CleanedHtml::class,
+        'terminology' => CleanedHtml::class,
     ];
 
     protected static function newFactory()
