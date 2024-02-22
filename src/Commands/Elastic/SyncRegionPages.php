@@ -19,7 +19,7 @@ class SyncRegionPages extends Command
         $this->getOutput()->writeln('used index-prefix: ' . config('elastic.prefix'));
 
         if ($this->option('fresh')) {
-            $this->call('elastic:delete-index', ['index' => 'region-pages', '--force' => true]);
+            $this->call('elastic:delete-index', ['index' => 'region_pages', '--force' => true]);
         }
 
         $this->getOutput()->writeln('');
