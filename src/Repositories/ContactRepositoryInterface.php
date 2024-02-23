@@ -17,4 +17,7 @@ interface ContactRepositoryInterface extends OwnedEntityRepositoryInterface
 
     public function attachProviders(Contact $contact, string|array $providerIds, ?string $type = null, ?string $label = null): Contact;
     public function detachProviders(Contact $contact, string|array $providerIds): Contact;
+
+    public function attachRegionPages(Contact $contact, string|array $regionPageIds, ?string $type = null, ?string $label = null): Contact;
+    public function detachRegionPages(Contact $contact, string|array $regionPageIds): Contact;
 }

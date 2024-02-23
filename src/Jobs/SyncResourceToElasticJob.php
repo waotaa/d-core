@@ -4,6 +4,7 @@ namespace Vng\DennisCore\Jobs;
 
 use Elasticsearch\Common\Exceptions\NoNodesAvailableException;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Log;
 use Vng\DennisCore\ElasticResources\ElasticResource;
 use Vng\DennisCore\Models\SyncAttempt;
 use Elasticsearch\Client;
@@ -38,6 +39,14 @@ class SyncResourceToElasticJob extends ElasticJob
                 'id' => $this->getId(),
                 'body' => $this->getResource()->toArray(),
             ]);
+
+            Log::debug('sync result', [
+                'index' => $this->getFullIndex(),
+                'id' => $this->getId(),
+                'body' => $this->getResource()->toArray(),
+                'result' => $result,
+            ]);
+
             $this->updateAttemptStatusWithResult($result);
         } catch (NoNodesAvailableException $noNodesAvailableException) {
             $this->release(20);

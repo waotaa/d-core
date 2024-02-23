@@ -87,4 +87,11 @@ class Contact extends Model
             ->using(Contactables::class)
             ->withPivot(['type', 'label']);
     }
+
+    public function regionPages(): MorphToMany
+    {
+        return $this->morphedByMany(RegionPage::class, 'contactable')
+            ->using(Contactables::class)
+            ->withPivot(['type', 'label']);
+    }
 }

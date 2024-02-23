@@ -81,4 +81,23 @@ class ContactRepository extends BaseRepository implements ContactRepositoryInter
         $contact->providers()->detach((array) $providerIds);
         return $contact;
     }
+
+    public function attachRegionPages(Contact $contact, array|string $regionPageIds, ?string $type = null, ?string $label = null): Contact
+    {
+        if (!is_null($type) && !ContactTypeEnum::search($type)) {
+            throw new \Exception('invalid type given ' . $type);
+        }
+        $pivotValues = [
+            'type' => $type,
+            'label' => $label
+        ];
+        $contact->regionPages()->syncWithPivotValues((array) $regionPageIds, $pivotValues, false);
+        return $contact;
+    }
+
+    public function detachRegionPages(Contact $contact, array|string $regionPageIds): Contact
+    {
+        $contact->regionPages()->detach((array) $regionPageIds);
+        return $contact;
+    }
 }

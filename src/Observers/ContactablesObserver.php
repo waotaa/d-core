@@ -2,8 +2,10 @@
 
 namespace Vng\DennisCore\Observers;
 
+use Illuminate\Support\Facades\Log;
 use Vng\DennisCore\Events\ContactAttachedEvent;
 use Vng\DennisCore\Events\ContactDetachedEvent;
+use Vng\DennisCore\Models\Contact;
 use Vng\DennisCore\Models\Contactables;
 
 class ContactablesObserver
@@ -18,10 +20,20 @@ class ContactablesObserver
         $this->attachConnectedElasticResources($contactables);
     }
 
-    public function deleting(Contactables $contactables): void
+    public function deleted(Contactables $contactables): void
     {
-        $contactables = $contactables->fresh();
-        ContactDetachedEvent::dispatch($contactables->contact, $contactables->contactable);
+        $pivotParent = $contactables->pivotParent;
+        if (get_class($pivotParent) !== Contact::class) {
+            $contactable = $pivotParent;
+        } else {
+            $contactable = $contactables->getContactableEntity();
+        }
+
+        Log::debug('detached contact', [
+            'contactable' => $contactable
+        ]);
+
+        ContactDetachedEvent::dispatch($contactables->contact, $contactable);
     }
 
     public function restored(Contactables $contactables): void
