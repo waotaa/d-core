@@ -41,8 +41,8 @@ class RegionPagePolicy extends BasePolicy
         $regionalParty = $regionPage->regionalParty;
         if (
             !is_null($regionalParty) &&
-            $regionalParty->hasMember($user) &&
-            $user->can('update', $regionalParty)
+            $regionalParty->hasMember($user)
+//            && $user->can('update', $regionalParty)
         ) {
             // When you
             // - are a member of the regional party that manages the region page
