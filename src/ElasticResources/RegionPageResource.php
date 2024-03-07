@@ -15,7 +15,7 @@ class RegionPageResource extends ElasticResource
             'terminology' => $this->terminology,
 
             'region' => RegionResource::one($this->region),
-            'regionalParty' => RegionalPartyResource::many($this->regionalParty),
+            'regionalParty' => RegionalPartyResource::one($this->regionalParty),
             'contacts' => ContactResource::many($this->contacts),
         ];
     }
