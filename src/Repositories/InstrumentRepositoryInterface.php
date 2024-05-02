@@ -17,6 +17,9 @@ interface InstrumentRepositoryInterface extends OwnedEntityRepositoryInterface, 
     public function attachAgeGroups(Instrument $instrument, string|array $ageGroupIds): Instrument;
     public function detachAgeGroups(Instrument $instrument, string|array $ageGroupIds): Instrument;
 
+    public function attachDownloads(Instrument $instrument, string|array $downloadIds): Instrument;
+    public function detachDownloads(Instrument $instrument, string|array $downloadIds): Instrument;
+
     public function attachEmploymentTypes(Instrument $instrument, string|array $employmentTypeIds): Instrument;
     public function detachEmploymentTypes(Instrument $instrument, string|array $employmentTypeIds): Instrument;
 

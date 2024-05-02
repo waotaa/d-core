@@ -313,9 +313,10 @@ class Instrument extends SearchableModel
         return $this->hasMany(Video::class);
     }
 
-    public function downloads(): HasMany
+    public function downloads(): BelongsToMany
     {
-        return $this->hasMany(Download::class);
+        return $this->belongsToMany(Download::class, 'download_instrument')
+            ->withTimestamps();
     }
 
     public function instrumentTrackers(): HasMany

@@ -24,8 +24,8 @@ class DownloadValidation extends ModelValidation
             'filename' => [
                 'prohibited_unless:file,null'
             ],
-            'instrument_id' => [
-                'required',
+            'organisation_id' => [
+                'required'
             ]
         ];
     }

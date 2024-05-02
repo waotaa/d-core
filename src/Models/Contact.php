@@ -6,7 +6,6 @@ use Database\Factories\ContactFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
-use Vng\DennisCore\Enums\ContactTypeEnum;
 use Vng\DennisCore\Observers\ContactObserver;
 use Vng\DennisCore\Traits\HasOwner;
 

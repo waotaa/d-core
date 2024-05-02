@@ -7,7 +7,7 @@ use Vng\DennisCore\Interfaces\IsManagerInterface;
 use Vng\DennisCore\Models\Download;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class DownloadPolicy
+class DownloadPolicy extends InstrumentPropertyPolicy
 {
     use HandlesAuthorization;
 

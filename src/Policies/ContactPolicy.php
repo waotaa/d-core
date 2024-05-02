@@ -6,7 +6,7 @@ use Vng\DennisCore\Interfaces\IsManagerInterface;
 use Vng\DennisCore\Models\Contact;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class ContactPolicy extends BasePolicy
+class ContactPolicy extends InstrumentPropertyPolicy
 {
     use HandlesAuthorization;
 

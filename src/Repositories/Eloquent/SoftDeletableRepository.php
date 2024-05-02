@@ -2,6 +2,7 @@
 
 namespace Vng\DennisCore\Repositories\Eloquent;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 
@@ -12,6 +13,11 @@ trait SoftDeletableRepository
         return $this->model::onlyTrashed()->get();
     }
 
+    public function builderOnlyTrashed(): Builder
+    {
+        return $this->model::onlyTrashed();
+    }
+
     public function findInTrashed(string $id): ?Model
     {
         return $this->model::onlyTrashed()->find($id);
@@ -20,6 +26,11 @@ trait SoftDeletableRepository
     public function findWithTrashed(string $id): ?Model
     {
         return $this->model::withTrashed()->find($id);
+    }
+
+    public function builderWithTrashed(): Builder
+    {
+        return $this->model::withTrashed();
     }
 
     public function restore(string $id): ?Model

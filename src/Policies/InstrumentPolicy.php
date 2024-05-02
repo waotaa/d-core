@@ -8,6 +8,7 @@ use Vng\DennisCore\Interfaces\IsManagerInterface;
 use Vng\DennisCore\Models\Address;
 use Vng\DennisCore\Models\AgeGroup;
 use Vng\DennisCore\Models\Contact;
+use Vng\DennisCore\Models\Download;
 use Vng\DennisCore\Models\EmploymentType;
 use Vng\DennisCore\Models\Instrument;
 use Vng\DennisCore\Models\Location;
@@ -156,10 +157,20 @@ class InstrumentPolicy extends BasePolicy
     {
         return $this->update($user, $instrument);
     }
-    public function addDownload(IsManagerInterface $user, Instrument $instrument): bool
+
+    public function attachAnyDownload(IsManagerInterface $user, Instrument $instrument): bool
     {
         return $this->update($user, $instrument);
     }
+    public function attachDownload(IsManagerInterface $user, Instrument $instrument, Download $download): bool
+    {
+        return $this->update($user, $instrument);
+    }
+    public function detachDownload(IsManagerInterface $user, Instrument $instrument, Download $download): bool
+    {
+        return $this->update($user, $instrument);
+    }
+
     public function addVideo(IsManagerInterface $user, Instrument $instrument): bool
     {
         return $this->update($user, $instrument);

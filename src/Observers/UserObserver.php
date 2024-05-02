@@ -4,6 +4,7 @@ namespace Vng\DennisCore\Observers;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Log;
 use Vng\DennisCore\Interfaces\DennisUserInterface;
 use Vng\DennisCore\Interfaces\IsManagerInterface;
 use Vng\DennisCore\Repositories\ManagerRepositoryInterface;
@@ -42,6 +43,7 @@ class UserObserver
 
     public function forceDeleted(IsManagerInterface $user)
     {
+        Log::info('force deleted user ' . $user->id);
         $this->hardDelete($user);
     }
 
@@ -49,8 +51,8 @@ class UserObserver
     {
         $manager = $user->getManager();
         if (!is_null($manager)) {
+            Log::info('force deleted manager ' . $manager->id);
             $this->managerRepository->delete($manager->id);
         }
     }
-
 }

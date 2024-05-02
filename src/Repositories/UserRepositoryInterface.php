@@ -8,7 +8,7 @@ use Vng\DennisCore\Interfaces\DennisUserInterface;
 use Vng\DennisCore\Interfaces\IsManagerInterface;
 use Vng\DennisCore\Models\Organisation;
 
-interface UserRepositoryInterface extends BaseRepositoryInterface
+interface UserRepositoryInterface extends BaseRepositoryInterface, SoftDeletableRepositoryInterface
 {
     public function addMultipleSameAssociationCondition(Builder $query, Collection $organisations): Builder;
     public function addSameOrganisationCondition(Builder $query, Organisation $organisation): Builder;
