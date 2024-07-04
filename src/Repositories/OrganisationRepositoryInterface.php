@@ -10,6 +10,9 @@ use Vng\DennisCore\Models\Organisation;
 
 interface OrganisationRepositoryInterface extends BaseRepositoryInterface
 {
+    public function findBySlug(string $slug);
+
+    public function addSlugCondition(Builder $query, $slug): Builder;
     public function addManagerIsMemberCondition(Builder $query, Manager $manager): Builder;
 
     public function create(OrganisationCreateRequest $request): Organisation;

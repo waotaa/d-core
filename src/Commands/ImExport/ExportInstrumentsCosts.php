@@ -1,15 +1,16 @@
 <?php
 
-namespace Vng\DennisCore\Commands;
+namespace Vng\DennisCore\Commands\ImExport;
 
+use Illuminate\Console\Command;
 use Vng\DennisCore\ElasticResources\Instrument\InstrumentCostResource;
 use Vng\DennisCore\Models\Instrument;
-use Illuminate\Console\Command;
 use Vng\DennisCore\Services\StorageService;
+use function collect;
 
 class ExportInstrumentsCosts extends Command
 {
-    protected $signature = 'dennis:export-instruments-costs {mark?}';
+    protected $signature = 'export:instruments-costs {mark?}';
     protected $description = 'Create a json file with all instrument costs data.';
 
     public function handle(): int

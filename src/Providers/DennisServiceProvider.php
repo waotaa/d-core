@@ -16,8 +16,6 @@ use Vng\DennisCore\Commands\Elastic\SyncRegionPages;
 use Vng\DennisCore\Commands\Elastic\SyncRegions;
 use Vng\DennisCore\Commands\Elastic\SyncTiles;
 use Vng\DennisCore\Commands\Elastic\SyncTownships;
-use Vng\DennisCore\Commands\ExportInstruments;
-use Vng\DennisCore\Commands\ExportInstrumentsCosts;
 use Vng\DennisCore\Commands\ExtractGeoData;
 use Vng\DennisCore\Commands\Format\ApplyMorphMap;
 use Vng\DennisCore\Commands\Format\CleanupActionLog;
@@ -42,6 +40,8 @@ use Vng\DennisCore\Commands\Geo\TownshipsCheckSourceFromApi;
 use Vng\DennisCore\Commands\Geo\TownshipsCreateDataFromSource;
 use Vng\DennisCore\Commands\Geo\TownshipsCreateDataSetFromApi;
 use Vng\DennisCore\Commands\Geo\TownshipsUpdateDataFromSource;
+use Vng\DennisCore\Commands\ImExport\ExportInstruments;
+use Vng\DennisCore\Commands\ImExport\ExportInstrumentsCosts;
 use Vng\DennisCore\Commands\ImportInstruments;
 use Vng\DennisCore\Commands\ImportOldFormatInstruments;
 use Vng\DennisCore\Commands\Instruments\AssignInstrumentTypes;
@@ -164,6 +164,9 @@ class DennisServiceProvider extends AggregateServiceProvider
         TownshipsCreateDataSetFromApi::class,
         TownshipsUpdateDataFromSource::class,
 
+        ExportInstruments::class,
+        ExportInstrumentsCosts::class,
+
         CleanContacts::class,
         SetupGeoData::class,
 
@@ -181,8 +184,6 @@ class DennisServiceProvider extends AggregateServiceProvider
         Update::class,
 
         AssignRegions::class,
-        ExportInstruments::class,
-        ExportInstrumentsCosts::class,
         ExtractGeoData::class,
         ImportInstruments::class,
         ImportOldFormatInstruments::class,
