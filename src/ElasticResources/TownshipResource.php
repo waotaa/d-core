@@ -16,6 +16,9 @@ class TownshipResource extends ElasticResource
             'description' => $this->description,
             'featureId' => $this->featureId,
             'region' => $this->region ? TownshipRegionResource::one($this->region) : null,
+
+            // SGR
+            'GemeenteNaam' => $this->name,
         ];
     }
 }

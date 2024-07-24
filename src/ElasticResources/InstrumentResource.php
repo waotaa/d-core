@@ -27,6 +27,7 @@ class InstrumentResource extends ElasticResource
             'complete' => InstrumentHelper::create($this->resource)->isComplete(),
 
             'is_leerwerktraject' => $this->is_leerwerktraject,
+            'is_temporary' => $this->is_temporary,
 
             // descriptions
             'short_description' => $this->short_description,
@@ -76,6 +77,23 @@ class InstrumentResource extends ElasticResource
             'available_regions' => RegionResource::many($this->availableRegions),
             'available_townships' => TownshipResource::many($this->availableTownships),
             'available_neighbourhoods' => NeighbourhoodResource::many($this->availableNeighbourhoods),
+
+
+            // SGR
+            'DatumPublicerenTot' => $this->publish_from,
+            'DatumPublicerenVanaf' => $this->publish_to,
+            'IndPubliceren' => InstrumentHelper::create($this->resource)->isPublished(),
+            'InstrumentNaam' => $this->name,
+            'UuidInstrument' => $this->uuid,
+
+            'Aanvragen' => $this->applications,
+            'Beschrijving' => $this->description,
+            'BeschrijvingKort' => $this->short_description,
+            // Is 'ja' geselecteerd?
+//            'IndDoelgroepsRegister' => $this->targetGroupRegisters->filter(fn ($tgr) => $tgr->description === 'Ja')->count() === 1 ,
+            'IndLeerwerktraject' => $this->is_leerwerktraject,
+            'IndTijdelijk' => $this->is_temporary,
+            'Voorwaarden' => $this->conditions,
         ];
     }
 }

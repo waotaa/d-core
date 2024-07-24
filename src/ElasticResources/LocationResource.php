@@ -17,6 +17,12 @@ class LocationResource extends ElasticResource
             'description' => $this->description,
 
             'address' => AddressResource::one($this->address),
+
+            // SGR
+            'IndActief' => $this->is_active,
+            'UitvoeringslocatieNaam' => $this->name,
+            'UitvoeringslocatieToelichting' => $this->description,
+            'UitvoeringsLocatieType' => $this->type,
         ];
     }
 }

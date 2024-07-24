@@ -15,6 +15,9 @@ class RegionResource extends ElasticResource
 
             'townships' => TownshipResource::many($this->townships),
             'contacts' => ContactResource::many($this->contacts),
+
+            // SGR
+            'ArbeidsmarktregioNaam' => $this->name,
         ];
     }
 }

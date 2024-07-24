@@ -24,6 +24,10 @@ class OrganisationResource extends ElasticResource
              * Use organisation contacts in stead
              */
             'contacts' => ContactResource::many($this->contacts),
+
+            // SGR
+            'OrganisatieNaam' => $this->name,
+            'OrganisatieSlug' => $this->slug,
         ];
     }
 }

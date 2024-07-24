@@ -9,7 +9,11 @@ class AgeGroupResource extends ElasticResource
         return [
             'id' => $this->id,
             'description' => $this->description,
-            'code' => $this->code
+            'code' => $this->code,
+
+            // SGR
+            'Code' => $this->code,
+            'LeeftijdsgroepNaam' => $this->description,
         ];
     }
 }
