@@ -2,6 +2,7 @@
 
 namespace Database\Seeders\InstrumentProps;
 
+use Vng\DennisCore\Helpers\Codelijsten;
 use Vng\DennisCore\Models\EmploymentType;
 use Illuminate\Database\Seeder;
 
@@ -12,38 +13,14 @@ class EmploymentTypeSeeder extends Seeder
 {
     public function run(): void
     {
-        // Name changes
-        EmploymentType::query()->where([
-            'description' => 'Stage'
-        ])->update([
-            'description' => 'Stage (met stagevergoeding)',
-        ]);
-
-        // Remove leerwerktraject filtering
-        EmploymentType::query()->where([
-            'description' => 'Leerwerktraject',
-        ])->delete();
-
-        // The data set
-        EmploymentType::query()->updateOrCreate([
-            'description' => 'Reguliere arbeidsovereenkomst',
-        ],[
-            'code' => 'DV01',
-        ]);
-        EmploymentType::query()->updateOrCreate([
-            'description' => 'BBL arbeidsovereenkomst',
-        ],[
-            'code' => 'DV02',
-        ]);
-        EmploymentType::query()->updateOrCreate([
-            'description' => 'Stage (met stagevergoeding)',
-        ],[
-            'code' => 'DV03',
-        ]);
-        EmploymentType::query()->updateOrCreate([
-            'description' => 'Werkervaring',
-        ],[
-            'code' => 'DV04',
-        ]);
+        EmploymentType::withoutEvents(function () {
+            $dienstverbanden = Codelijsten::get('Dienstverbanden');
+            foreach ($dienstverbanden as $codeDienstverbanden => $naamDienstverbanden) {
+                EmploymentType::query()->updateOrCreate(
+                    ['code' => $codeDienstverbanden],
+                    ['description' => $naamDienstverbanden]
+                );
+            }
+        });
     }
 }

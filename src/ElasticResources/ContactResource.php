@@ -2,23 +2,33 @@
 
 namespace Vng\DennisCore\ElasticResources;
 
+use Vng\DennisCore\Helpers\Codelijsten;
+
 class ContactResource extends ElasticResource
 {
     public function toArray()
     {
+        $pivot = $this->resource->pivot;
+        $codeType = $pivot ? Codelijsten::getTypeContactPersoonRelatieCode($pivot->type) : null;
+
         $data = [
+            // >> SGR
+            'CdTypeContactpersoonRelatie' => $codeType,
+            'EmailadresContactpersoon' => $this->email,
+            'NaamContactpersoon' => $this->name,
+            'TelefoonnummerContactpersoon' => $this->phone,
+
+            'InstrumentBeherendeOrganisatie' => OrganisationResource::one($this->whenLoaded('organisation')),
+            'InstrumentWerkgeversdienstverlening' => InstrumentWerkgeversdienstverleningResource::many($this->whenLoaded('instruments')),
+            'Aanbieder' => ProviderResource::many($this->whenLoaded('providers')),
+
+            // >> Current
             'id' => $this->id,
             'name' => $this->name,
             'phone' => $this->phone,
             'email' => $this->email,
             'type' => null,
             'label' => $this->resource?->pivot?->label,
-
-            // SGR
-            'ContactpersoonNaam' => $this->name,
-            'Emailadres' => $this->email,
-            'Telefoonnummer' => $this->phone,
-            'RelatieType' => $this->resource?->pivot?->type,
         ];
 
         $pivot = $this->resource->pivot;

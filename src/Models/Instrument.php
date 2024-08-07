@@ -5,7 +5,7 @@ namespace Vng\DennisCore\Models;
 use Database\Factories\InstrumentFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Vng\DennisCore\Casts\CleanedHtml;
-use Vng\DennisCore\ElasticResources\InstrumentResource;
+use Vng\DennisCore\ElasticResources\InstrumentWerkgeversdienstverleningResource;
 use Vng\DennisCore\Enums\DurationUnitEnum;
 use Vng\DennisCore\Interfaces\AreaInterface;
 use Vng\DennisCore\Interfaces\IsMemberInterface;
@@ -39,7 +39,7 @@ class Instrument extends SearchableModel
     const REACH_NATIONAL = 'national';
 
     protected $table = 'instruments';
-    protected string $elasticResource = InstrumentResource::class;
+    protected string $elasticResource = InstrumentWerkgeversdienstverleningResource::class;
     protected $fillable = [
         'created_at',
         'updated_at',

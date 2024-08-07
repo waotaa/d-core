@@ -3,6 +3,7 @@
 namespace Vng\DennisCore\ElasticResources;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 
 class ElasticResource
@@ -50,5 +51,30 @@ class ElasticResource
     public function __get($key)
     {
         return $this->resource->{$key};
+    }
+
+    protected function whenLoaded($relationship, $value = null)
+    {
+        if (! $this->resource->relationLoaded($relationship)) {
+            return null;
+        }
+
+        if (func_num_args() === 1) {
+            return $this->resource->{$relationship};
+        }
+
+        if ($this->resource->{$relationship} === null) {
+            return null;
+        }
+
+        return value($value);
+    }
+
+    protected function formatDate($date)
+    {
+        if ($date instanceof Carbon) {
+            return $date->copy()->setTimezone('UTC')->format('Y-m-d\TH:i:s.u\Z');
+        }
+        return $date;
     }
 }

@@ -7,6 +7,7 @@ class ProviderResource extends \Vng\DennisCore\ElasticResources\ProviderResource
     public function toArray()
     {
         $resource = parent::toArray();
+        unset($resource['Contactpersoon']);
         unset($resource['contacts']);
         return $resource;
     }

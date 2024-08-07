@@ -2,11 +2,20 @@
 
 namespace Vng\DennisCore\ElasticResources;
 
+use Vng\DennisCore\Helpers\Codelijsten;
+
 class TileResource extends ElasticResource
 {
     public function toArray()
     {
         return [
+            // >> SGR
+            'CdWerklandschapTegel' => $this->code,
+
+            // Bonus
+            'NaamWerklandschapTegel' => Codelijsten::getWerklandschapTegelName($this->code),
+
+            // >> Current
             'id' => $this->id,
             'name'  => $this->name,
             'sub_title'  => $this->sub_title,
@@ -17,10 +26,6 @@ class TileResource extends ElasticResource
             'list'  => $this->list,
             'key'  => $this->key,
             'position'  => $this->position,
-
-            // SGR
-            'Code' => $this->code,
-            'WerklandschapTegelNaam' => $this->name,
         ];
     }
 }

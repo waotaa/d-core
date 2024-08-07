@@ -2,7 +2,7 @@
 
 namespace Vng\DennisCore\Commands\Elastic;
 
-use Vng\DennisCore\ElasticResources\Public\InstrumentResource;
+use Vng\DennisCore\ElasticResources\Public\InstrumentWerkgeversdienstverleningResource;
 use Vng\DennisCore\Jobs\RemoveResourceFromPublicElasticJob;
 use Vng\DennisCore\Jobs\SyncResourceToPublicElasticJob;
 use Illuminate\Console\Command;
@@ -29,7 +29,7 @@ class SyncPublicInstruments extends Command
             dispatch(new SyncResourceToPublicElasticJob(
                 $instrument,
                 'instruments',
-                InstrumentResource::class,
+                InstrumentWerkgeversdienstverleningResource::class,
             ));
         }
 

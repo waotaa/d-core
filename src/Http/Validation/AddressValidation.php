@@ -29,12 +29,22 @@ class AddressValidation extends ModelValidation
             'huisnummer' => [
                 Rule::unique('addresses', 'huisnummer')
                     ->where('postcode', $this->request->input('postcode'))
+                    ->where('huisnummertoevoeging', $this->request->input('huisnummertoevoeging'))
+                    ->where('organisation_id', $this->request->input('organisation_id'))
+            ],
+            'huisnummertoevoeging' => [
+                Rule::unique('addresses', 'huisnummer')
+                    ->where('postcode', $this->request->input('postcode'))
+                    ->where('huisnummer', $this->request->input('huisnummer'))
+                    ->where('organisation_id', $this->request->input('organisation_id'))
             ],
             'postcode' => [
                 'required',
                 'regex:/^[1-9][0-9]{3} ?(?!sa|sd|ss)[a-z]{2}$/i',
                 Rule::unique('addresses', 'postcode')
                     ->where('huisnummer', $this->request->input('huisnummer'))
+                    ->where('huisnummertoevoeging', $this->request->input('huisnummertoevoeging'))
+                    ->where('organisation_id', $this->request->input('organisation_id'))
             ],
         ];
     }
@@ -45,6 +55,15 @@ class AddressValidation extends ModelValidation
             'huisnummer' => [
                 Rule::unique('addresses', 'huisnummer')
                     ->where('postcode', $this->request->input('postcode'))
+                    ->where('huisnummertoevoeging', $this->request->input('huisnummertoevoeging'))
+                    ->where('organisation_id', $this->request->input('organisation_id'))
+                    ->ignore($model->id)
+            ],
+            'huisnummertoevoeging' => [
+                Rule::unique('addresses', 'huisnummer')
+                    ->where('postcode', $this->request->input('postcode'))
+                    ->where('huisnummer', $this->request->input('huisnummer'))
+                    ->where('organisation_id', $this->request->input('organisation_id'))
                     ->ignore($model->id)
             ],
             'postcode' => [
@@ -52,6 +71,8 @@ class AddressValidation extends ModelValidation
                 'regex:/^[1-9][0-9]{3} ?(?!sa|sd|ss)[a-z]{2}$/i',
                 Rule::unique('addresses', 'postcode')
                     ->where('huisnummer', $this->request->input('huisnummer'))
+                    ->where('huisnummertoevoeging', $this->request->input('huisnummertoevoeging'))
+                    ->where('organisation_id', $this->request->input('organisation_id'))
                     ->ignore($model->id)
             ],
         ];

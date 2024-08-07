@@ -2,6 +2,7 @@
 
 namespace Vng\DennisCore\ElasticResources;
 
+/** @deprecated  */
 class TargetGroupRegisterResource extends ElasticResource
 {
     public function toArray()

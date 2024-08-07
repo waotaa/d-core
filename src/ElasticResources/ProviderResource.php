@@ -9,6 +9,20 @@ class ProviderResource extends ElasticResource
     public function toArray()
     {
         return [
+            // >> SGR
+            'NaamAanbieder' => $this->name,
+            'UuidAanbieder' => $this->uuid,
+
+            'InstrumentBeherendeOrganisatie' => OrganisationResource::one($this->whenLoaded('organisation')),
+            'Adres' => AddressResource::one($this->whenLoaded('address')),
+            'Contactpersoon' => ContactResource::many($this->whenLoaded('contacts')),
+
+            // >> Current
+            'id' => $this->id,
+            'created_at' => $this->formatDate($this->created_at),
+            'updated_at' => $this->formatDate($this->updated_at),
+            'deleted_at' => $this->formatDate($this->deleted_at),
+
             'uuid' => $this->uuid,
             'name' => $this->name,
             'slug' => (string) Str::slug($this->name),
@@ -23,10 +37,6 @@ class ProviderResource extends ElasticResource
             'contact' => ContactResource::one($this->contact),
 
 //            'owner' => OwnerResource::one($this->owner), // depricated
-
-            // SGR
-            'AanbiederNaam' => $this->name,
-            'UuidAanbieder' => $this->uuid,
         ];
     }
 }

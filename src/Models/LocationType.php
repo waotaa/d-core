@@ -20,6 +20,7 @@ class LocationType extends Model
 
     protected $fillable = [
         'name',
+        'code',
     ];
 
     public function instruments(): BelongsToMany

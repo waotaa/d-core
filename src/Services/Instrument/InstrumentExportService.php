@@ -3,7 +3,7 @@
 namespace Vng\DennisCore\Services\Instrument;
 
 use Illuminate\Support\Collection;
-use Vng\DennisCore\ElasticResources\InstrumentResource;
+use Vng\DennisCore\ElasticResources\InstrumentWerkgeversdienstverleningResource;
 use Vng\DennisCore\Models\Instrument;
 use Vng\DennisCore\Services\ImExport\AbstractEntityExportService;
 
@@ -21,7 +21,7 @@ class InstrumentExportService extends AbstractEntityExportService
 
         $instruments = $this->items->map(function(Instrument $instrument) {
             $instrument->import_mark = $this->importMark;
-            return InstrumentResource::make($instrument)->toArray();
+            return InstrumentWerkgeversdienstverleningResource::make($instrument)->toArray();
         });
         return $this->createExportJson($instruments);
     }
