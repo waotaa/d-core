@@ -8,8 +8,8 @@ class OrganisationResource extends ElasticResource
     {
         return [
             // >> SGR
-            'NaamInstrumentBeherendeOrganisatie' => $this->name,
-            'OrganisatieSlug' => $this->slug,
+            'NaamInstrumentBeherendeOrganisatie' => $this->name,    // AN..200
+            'OrganisatieSlug' => $this->slug,                       // AN..200
 
             'LokalePartij' => LocalPartyResource::one($this->whenLoaded('localParty')),
             'RegionalePartij' => RegionalPartyResource::one($this->whenLoaded('regionalParty')),

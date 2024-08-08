@@ -13,7 +13,7 @@ class AgeGroupResource extends ElasticResource
             'CdLeeftijdsgroep' => $this->code,
 
             // Bonus
-            'NaamLeeftijdsgroep' => Codelijsten::getLeeftijdsgroepName($this->code),
+            'NaamLeeftijdsgroep' => Codelijsten::getLeeftijdsgroepName($this->code), // AN..200
 
             // >> Current
             'id' => $this->id,

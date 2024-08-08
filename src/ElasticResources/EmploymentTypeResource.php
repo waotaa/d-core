@@ -13,7 +13,7 @@ class EmploymentTypeResource extends ElasticResource
             'CdDienstverband' => $this->code,
 
             // Bonus
-            'NaamDienstverband' => Codelijsten::getDienstverbandName($this->code),
+            'NaamDienstverband' => Codelijsten::getDienstverbandName($this->code),  // AN..200
 
             // >> Current
             'id' => $this->id,

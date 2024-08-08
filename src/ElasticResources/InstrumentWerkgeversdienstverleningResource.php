@@ -23,13 +23,13 @@ class InstrumentWerkgeversdienstverleningResource extends ElasticResource
         return [
             // >> SGR
             // Instrument
-            'IndDoelgroepsRegister' => $indDoelgroepsRegister,
-            'IndLeerwerktraject' => $this->is_leerwerktraject,
-            'IndTijdelijk' => $this->is_temporary,
-            'OmsAanvraag' => $this->applications,
-            'OmsInstrument' => $this->description,
-            'OmsKortInstrument' => $this->short_description,
-            'OmsVoorwaarden' => $this->conditions,
+            'IndDoelgroepsRegister' => $indDoelgroepsRegister,  // StdIndNvt
+            'IndLeerwerktraject' => $this->is_leerwerktraject,  // StdIndJN
+            'IndTijdelijk' => $this->is_temporary,              // StdIndJN
+            'OmsAanvraag' => $this->applications,               // AN..320 - 2785
+            'OmsInstrument' => $this->description,              // AN..320 - 11757
+            'OmsKortInstrument' => $this->short_description,    // AN..320 - 1751
+            'OmsVoorwaarden' => $this->conditions,              // AN..320 - 5177
 
             'Instrument' => InstrumentResource::one($this->resource),
 
