@@ -11,7 +11,6 @@ use Vng\DennisCore\Models\Download;
 use Vng\DennisCore\Models\EmploymentType;
 use Vng\DennisCore\Models\Instrument;
 use Vng\DennisCore\Models\InstrumentTracker;
-use Vng\DennisCore\Models\InstrumentType;
 use Vng\DennisCore\Models\Link;
 use Vng\DennisCore\Models\LocalParty;
 use Vng\DennisCore\Models\Location;
@@ -42,7 +41,6 @@ class MorphMapServiceProvider extends ServiceProvider
         'download' => Download::class,
         'employment-type' => EmploymentType::class,
         'instrument' => Instrument::class,
-        'instrument-type' => InstrumentType::class,
         'instrument-tracker' => InstrumentTracker::class,
         'link' => Link::class,
         'local-party' => LocalParty::class,

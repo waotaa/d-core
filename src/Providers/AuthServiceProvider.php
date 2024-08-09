@@ -11,7 +11,6 @@ use Vng\DennisCore\Models\Download;
 use Vng\DennisCore\Models\EmploymentType;
 use Vng\DennisCore\Models\Instrument;
 use Vng\DennisCore\Models\InstrumentTracker;
-use Vng\DennisCore\Models\InstrumentType;
 use Vng\DennisCore\Models\Link;
 use Vng\DennisCore\Models\LocalParty;
 use Vng\DennisCore\Models\Location;
@@ -39,7 +38,6 @@ use Vng\DennisCore\Policies\DownloadPolicy;
 use Vng\DennisCore\Policies\EmploymentTypePolicy;
 use Vng\DennisCore\Policies\InstrumentPolicy;
 use Vng\DennisCore\Policies\InstrumentTrackerPolicy;
-use Vng\DennisCore\Policies\InstrumentTypePolicy;
 use Vng\DennisCore\Policies\LinkPolicy;
 use Vng\DennisCore\Policies\LocalPartyPolicy;
 use Vng\DennisCore\Policies\LocationPolicy;
@@ -77,7 +75,6 @@ class AuthServiceProvider extends ServiceProvider
         EmploymentType::class => EmploymentTypePolicy::class,
         Instrument::class => InstrumentPolicy::class,
         InstrumentTracker::class => InstrumentTrackerPolicy::class,
-        InstrumentType::class => InstrumentTypePolicy::class,
         Link::class => LinkPolicy::class,
         LocalParty::class => LocalPartyPolicy::class,
         Location::class => LocationPolicy::class,

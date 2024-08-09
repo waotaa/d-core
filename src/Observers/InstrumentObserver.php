@@ -4,7 +4,6 @@ namespace Vng\DennisCore\Observers;
 
 use Vng\DennisCore\Events\ElasticRelatedResourceChanged;
 use Vng\DennisCore\Models\Instrument;
-use Vng\DennisCore\Models\InstrumentType;
 use Vng\DennisCore\Services\ModelHelpers\InstrumentTrackerHelper;
 
 class InstrumentObserver
@@ -26,18 +25,6 @@ class InstrumentObserver
         $user = request()->user();
         if ($user) {
             InstrumentTrackerHelper::createQuickTrackerForAuthor($instrument, $user->manager);
-        }
-    }
-
-    public function saving(Instrument $instrument): void
-    {
-        $dedicatedType = config('dennis-core.instrument.dedicatedType');
-        if ($dedicatedType) {
-            $instrumentType = InstrumentType::query()->where('name', $dedicatedType)->first();
-            if (is_null($instrumentType)) {
-                throw new \Exception('Cannot find instrument type with current dedicated instrument type config');
-            }
-            $instrument->instrumentType()->associate($instrumentType);
         }
     }
 

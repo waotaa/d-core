@@ -16,7 +16,6 @@ class SeedCharacteristics extends Command
 
         $this->call('db:seed', ['--class' => 'Database\Seeders\InstrumentProps\AgeGroupSeeder', '--force' => true]);
         $this->call('db:seed', ['--class' => 'Database\Seeders\InstrumentProps\EmploymentTypeSeeder', '--force' => true]);
-        $this->call('db:seed', ['--class' => 'Database\Seeders\InstrumentProps\InstrumentTypeSeeder', '--force' => true]);
         $this->call('db:seed', ['--class' => 'Database\Seeders\InstrumentProps\SectorSeeder', '--force' => true]);
         $this->call('db:seed', ['--class' => 'Database\Seeders\InstrumentProps\TargetGroupRegisterSeeder', '--force' => true]);
         $this->call('db:seed', ['--class' => 'Database\Seeders\InstrumentProps\TargetGroupSeeder', '--force' => true]);

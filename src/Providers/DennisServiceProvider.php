@@ -43,7 +43,6 @@ use Vng\DennisCore\Commands\Geo\TownshipsUpdateDataFromSource;
 use Vng\DennisCore\Commands\ImExport\ExportInstruments;
 use Vng\DennisCore\Commands\ImportInstruments;
 use Vng\DennisCore\Commands\ImportOldFormatInstruments;
-use Vng\DennisCore\Commands\Instruments\AssignInstrumentTypes;
 use Vng\DennisCore\Commands\Instruments\InstrumentSignalingCheck;
 use Vng\DennisCore\Commands\Operations\CleanContacts;
 use Vng\DennisCore\Commands\Operations\SetupGeoData;
@@ -168,7 +167,6 @@ class DennisServiceProvider extends AggregateServiceProvider
         CleanContacts::class,
         SetupGeoData::class,
 
-        AssignInstrumentTypes::class,
         InstrumentSignalingCheck::class,
 
         DuplicateOwnedItems::class,
