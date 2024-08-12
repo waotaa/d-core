@@ -3,6 +3,7 @@
 namespace Database\Seeders\Admin;
 
 use Vng\DennisCore\Enums\TileEnum;
+use Vng\DennisCore\Helpers\Codelijsten;
 use Vng\DennisCore\Models\Tile;
 use Exception;
 use Illuminate\Database\Seeder;
@@ -14,25 +15,29 @@ class TileSeeder extends Seeder
 {
     public function run(): void
     {
-        foreach ($this->getData() as $tileData) {
+        Tile::withoutEvents(function () {
+            $werklandschapTegels = Codelijsten::getWerklandschapTegelsDennis();
             $tileKeys = TileEnum::keys();
-            if (!in_array($tileData['key'], $tileKeys)) {
-                throw new Exception('Invalid tile key found in key data');
-            }
 
-            Tile::withoutEvents(function () use ($tileData) {
+            foreach ($werklandschapTegels as $codeWerklandschapTegel => $naamWerklandschapTegel) {
+                $tileData = $this->findByCode($codeWerklandschapTegel);
+
+                if (!in_array($tileData['key'], $tileKeys)) {
+                    throw new Exception('Invalid tile key found in key data');
+                }
+
                 Tile::query()->updateOrCreate([
-                    'key' => $tileData['key']
-                ],[
-                    'code' => $tileData['code'],
-                    'name' => $tileData['name'],
+                    'code' => $codeWerklandschapTegel
+                ], [
+                    'key' => $tileData['key'],
+                    'name' => $naamWerklandschapTegel,
                     'sub_title' => $tileData['sub_title'],
                     'description' => $this->cleanWhitespaces($tileData['description']),
                     'list' => $this->cleanWhitespaces($tileData['list']),
                     'position' => $tileData['position'],
                 ]);
-            });
-        }
+            }
+        });
     }
 
     private function cleanWhitespaces($input) {
@@ -40,6 +45,16 @@ class TileSeeder extends Seeder
         $input = str_replace(PHP_EOL, ' ', $input);
         // multiple whitespaces reduced to one
         return preg_replace("/\s+/", ' ', $input);
+    }
+
+    private function findByCode($code) {
+        $data = $this->getData();
+        foreach ($data as $item) {
+            if ($item['code'] === $code) {
+                return $item;
+            }
+        }
+        return null;
     }
 
     private function getData() {

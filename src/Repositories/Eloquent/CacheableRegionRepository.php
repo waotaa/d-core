@@ -1,0 +1,24 @@
+<?php
+
+namespace Vng\DennisCore\Repositories\Eloquent;
+
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Cache;
+use Vng\DennisCore\Repositories\RegionRepositoryInterface;
+
+class CacheableRegionRepository extends RegionRepository implements RegionRepositoryInterface
+{
+    public function all(): Collection
+    {
+        return Cache::remember('regions.all', 2*60, function () {
+            return parent::all();
+        });
+    }
+
+    public function allWithTownships(): Collection
+    {
+        return Cache::remember('regions.allWithTownships', 2*60, function () {
+            return parent::allWithTownships();
+        });
+    }
+}

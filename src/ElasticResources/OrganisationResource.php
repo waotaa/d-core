@@ -28,12 +28,12 @@ class OrganisationResource extends ElasticResource
             'slug' => $this->slug,
             'type' => $this->type,
 
-            'localParty' => LocalPartyResource::one($this->localParty),
-            'regionalParty' => RegionalPartyResource::one($this->regionalParty),
-            'nationalParty' => NationalPartyResource::one($this->nationalParty),
-            'partnership' => PartnershipResource::one($this->partnership),
+            'localParty' => LocalPartyResource::one($this->whenLoaded('localParty')),
+            'regionalParty' => RegionalPartyResource::one($this->whenLoaded('regionalParty')),
+            'nationalParty' => NationalPartyResource::one($this->whenLoaded('nationalParty')),
+            'partnership' => PartnershipResource::one($this->whenLoaded('partnership')),
 
-            'contacts' => ContactResource::many($this->contacts),
+            'contacts' => ContactResource::many($this->whenLoaded('contacts')),
 
             'areasActiveIn' => AreaInterfaceResource::many($this->resource->getAreasActiveInAttribute()),
         ];

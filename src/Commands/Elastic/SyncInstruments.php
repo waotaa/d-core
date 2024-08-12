@@ -7,6 +7,7 @@ use Vng\DennisCore\Jobs\SyncSearchableModelToElasticJob;
 use Vng\DennisCore\Models\Instrument;
 use Illuminate\Console\Command;
 use Vng\DennisCore\Models\SyncAttempt;
+use Vng\DennisCore\Repositories\InstrumentRepositoryInterface;
 
 class SyncInstruments extends Command
 {
@@ -23,7 +24,19 @@ class SyncInstruments extends Command
         }
 
         $this->output->writeln('');
-        foreach (Instrument::all() as $instrument) {
+
+        /** @var InstrumentRepositoryInterface $instrumentRepository */
+        $instrumentRepository = app(InstrumentRepositoryInterface::class);
+        $instruments = $instrumentRepository->builder()
+            ->with([
+                'organisation',
+            ])
+            ->get();
+
+        $this->output->writeln($instruments->count() . ' instruments found');
+        $this->output->writeln('');
+
+        foreach ($instruments as $instrument) {
             $this->output->write('.');
 //            $this->getOutput()->write('- ' . $instrument->name);
 

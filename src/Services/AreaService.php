@@ -4,7 +4,7 @@ namespace Vng\DennisCore\Services;
 
 use Illuminate\Support\Collection;
 use Vng\DennisCore\Interfaces\AreaInterface;
-use Vng\DennisCore\Models\Region;
+use Vng\DennisCore\Repositories\Eloquent\CacheableRegionRepository;
 
 class AreaService
 {
@@ -72,7 +72,8 @@ class AreaService
 
     public static function getNationalAreas(): Collection
     {
-        return Region::all();
+        $regionRepo = new CacheableRegionRepository();
+        return $regionRepo->allWithTownships();
     }
 }
 

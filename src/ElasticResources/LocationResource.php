@@ -30,7 +30,7 @@ class LocationResource extends ElasticResource
             'is_active' => $this->is_active,
             'description' => $this->description,
 
-            'address' => AddressResource::one($this->address),
+            'address' => AddressResource::one($this->whenLoaded('address')),
         ];
     }
 }

@@ -34,7 +34,7 @@ class ProviderResource extends ElasticResource
             'organisation' => OrganisationResource::one($this->organisation),
 
             'address' => AddressResource::one($this->address),
-            'contact' => ContactResource::one($this->contact),
+            'contacts' => ContactResource::many($this->contacts),
 
 //            'owner' => OwnerResource::one($this->owner), // depricated
         ];
