@@ -2,6 +2,8 @@
 
 namespace Vng\DennisCore\ElasticResources;
 
+use Vng\DennisCore\Helpers\Codelijsten;
+
 class RegistrationCodeResource extends ElasticResource
 {
     public function toArray()
@@ -10,8 +12,7 @@ class RegistrationCodeResource extends ElasticResource
             // >> SGR
             'Registratiecode' => $this->code,       // AN..34
             'Registratiecodelabel' => $this->label, // AN..200
-
-            // todo: is_displayed toevoegen?
+            'IndWeergeven' => Codelijsten::getJaNeeNvtIndicatieCode($this->is_displayed),
 
             'InstrumentWerkgeversdienstverlening' => InstrumentWerkgeversdienstverleningResource::one($this->whenLoaded('instrument')),
 

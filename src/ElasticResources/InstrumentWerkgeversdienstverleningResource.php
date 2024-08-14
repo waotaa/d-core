@@ -18,14 +18,13 @@ class InstrumentWerkgeversdienstverleningResource extends ElasticResource
         if ($this->targetGroupRegisters->count() !== 0) {
             $targetGroupRegister = $this->targetGroupRegisters->filter(fn ($tgr) => $tgr->description === 'Ja')->count() === 1;
         }
-        $indDoelgroepsRegister = Codelijsten::getIndicatieCode($targetGroupRegister);
 
         return [
             // >> SGR
             // Instrument
-            'IndDoelgroepsRegister' => $indDoelgroepsRegister,  // StdIndNvt
-            'IndLeerwerktraject' => $this->is_leerwerktraject,  // StdIndJN
-            'IndTijdelijk' => $this->is_temporary,              // StdIndJN
+            'IndDoelgroepsRegister' => Codelijsten::getJaNeeNvtIndicatieCode($targetGroupRegister),  // StdIndNvt
+            'IndLeerwerktraject' => Codelijsten::getJaNeeIndicatieCode($this->is_leerwerktraject),  // StdIndJN
+            'IndTijdelijk' => Codelijsten::getJaNeeIndicatieCode($this->is_temporary),              // StdIndJN
             'OmsAanvraag' => $this->applications,               // AN..320 - 2785
             'OmsInstrument' => $this->description,              // AN..320 - 11757
             'OmsKortInstrument' => $this->short_description,    // AN..320 - 1751
