@@ -38,6 +38,10 @@ class Instrument extends SearchableModel
     const REACH_REGIONAL = 'regional';
     const REACH_NATIONAL = 'national';
 
+    const REACH_LOCAL_SGR = 'Lokaal';
+    const REACH_REGIONAL_SGR = 'Regionaal';
+    const REACH_NATIONAL_SGR = 'Landelijk';
+
     protected $table = 'instruments';
     protected string $elasticResource = InstrumentWerkgeversdienstverleningResource::class;
     protected $fillable = [
@@ -198,6 +202,14 @@ class Instrument extends SearchableModel
     public function getAllAvailableAreasAttribute(): Collection
     {
         return AreaService::getEncompassingAreasForCollection($this->availableAreas);
+    }
+
+    public function getAllAvailableTownshipsAttribute(): Collection
+    {
+        $townshipType = (new Township())->getType();
+        return $this->getAttribute('allAvailableAreas')
+            ->filter(fn (AreaInterface $area) => $area->getType() === $townshipType)
+            ->values();
     }
 
     /**

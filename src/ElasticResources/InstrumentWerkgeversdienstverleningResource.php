@@ -32,17 +32,11 @@ class InstrumentWerkgeversdienstverleningResource extends ElasticResource
 
             'Instrument' => InstrumentResource::one($this->resource),
 
-            'Aanbieder' => ProviderResource::one($this->provider),
-            'Contactpersoon' => ContactResource::many($this->contacts),
             'Dienstverband' => EmploymentTypeResource::many($this->employmentTypes),
             'Doelgroep' => TargetGroupResource::many($this->targetGroups),
-            'Download' => DownloadResource::many($this->downloads),
             'Leeftijdsgroep' => AgeGroupResource::many($this->ageGroups),
-            'Link' => LinkResource::many($this->links),
-            'Registratiecode' => RegistrationCodeResource::many($this->registrationCodes),
+
             'Sector' => SectorResource::many($this->sectors),
-            'Uitvoeringslocatie' => LocationResource::many($this->locations),
-            'Video' => VideoResource::many($this->videos),
             'WerklandschapTegel' => TileResource::many($this->tiles),
 
             // todo: beschikbaarheid?
