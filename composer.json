@@ -1,6 +1,5 @@
-
 {
-    "name": "vng/dennis-core",
+    "name": "vng/eva-core",
     "description": "Kern voor beheerapplicaties van instrumentengids Dennis",
     "type": "library",
     "license": "MIT",
