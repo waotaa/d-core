@@ -3,10 +3,10 @@
 namespace Vng\DennisCore\Models;
 
 use Database\Factories\TileFactory;
-use Vng\DennisCore\ElasticResources\TileResource;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Vng\DennisCore\ElasticResources\Original\TileResource;
 
 class Tile extends SearchableModel
 {

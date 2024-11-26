@@ -5,7 +5,7 @@ namespace Vng\DennisCore\Models;
 use Database\Factories\NationalPartyFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Collection;
-use Vng\DennisCore\ElasticResources\NationalPartyResource;
+use Vng\DennisCore\ElasticResources\Original\NationalPartyResource;
 use Vng\DennisCore\Interfaces\AreaInterface;
 use Vng\DennisCore\Services\AreaService;
 use Vng\DennisCore\Traits\AreaTrait;

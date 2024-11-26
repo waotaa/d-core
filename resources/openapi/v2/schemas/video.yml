@@ -1,0 +1,18 @@
+type: object
+properties:
+  NaamVideo:
+    type: string
+    maxLength: 200
+    pattern: "^[a-zA-Z0-9]*$"
+  AanbiederVideo:
+    type: string
+    maxLength: 200
+    pattern: "^[a-zA-Z0-9]*$"
+  SleutelVideo:
+    type: string
+    maxLength: 200
+    pattern: "^[a-zA-Z0-9]*$"
+  Instrument:
+    nullable: true
+    allOf:
+      - $ref: './instrument.yml'

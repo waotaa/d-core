@@ -1,0 +1,13 @@
+type: object
+properties:
+  CdMunteenheid:
+    type: string
+    maxLength: 3
+    pattern: "^[a-zA-Z0-9]*$"
+  CdPositiefNegatief:
+    type: string
+    maxLength: 1
+    pattern: "^[0-1]*$"
+  WaardeBedr:
+    type: integer
+    maximum: 999999999999999999

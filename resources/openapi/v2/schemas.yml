@@ -1,0 +1,110 @@
+Aanbieder:
+  $ref: './schemas/aanbieder.yml'
+Adres:
+  $ref: './schemas/adres.yml'
+AdresNederland:
+  $ref: './schemas/adresNederland.yml'
+Antwoordnradres:
+  $ref: './schemas/antwoordnradres.yml'
+Arbeidsmarktregio:
+  $ref: './schemas/arbeidsmarktregio.yml'
+#Beoordeling:
+#  $ref: './schemas/beoordeling.yml'
+Bewerkmoment:
+  $ref: './schemas/bewerkmoment.yml'
+Contactpersoon:
+  $ref: './schemas/contactpersoon.yml'
+Dienstverband:
+  $ref: './schemas/dienstverband.yml'
+Doelgroep:
+  $ref: './schemas/doelgroep.yml'
+Download:
+  $ref: './schemas/download.yml'
+Gebied:
+  $ref: './schemas/gebied.yml'
+Gemeente:
+  $ref: './schemas/gemeente.yml'
+Groepsvorm:
+  $ref: './schemas/groepsvorm.yml'
+Instrument:
+  $ref: './schemas/instrument.yml'
+InstrumentBeherendeOrganisatie:
+  $ref: './schemas/instrumentBeherendeOrganisatie.yml'
+#InstrumentOmgeving:
+#  $ref: './schemas/instrumentOmgeving.yml'
+InstrumentWerkgeversdienstverlening:
+  $ref: './schemas/instrumentWerkgeversdienstverlening.yml'
+#InstrumentWerknemersdienstverlening:
+#  $ref: './schemas/instrumentWerknemersdienstverlening.yml'
+#Klantkenmerk:
+#  $ref: './schemas/klantkenmerk.yml'
+LandelijkePartij:
+  $ref: './schemas/landelijkePartij.yml'
+Leeftijdsgroep:
+  $ref: './schemas/leeftijdsgroep.yml'
+Link:
+  $ref: './schemas/link.yml'
+LokalePartij:
+  $ref: './schemas/lokalePartij.yml'
+#Nieuwsbericht:
+#  $ref: './schemas/nieuwsbericht.yml'
+Postadres:
+  $ref: './schemas/postadres.yml'
+RegionalePartij:
+  $ref: './schemas/regionalePartij.yml'
+Registratiecode:
+  $ref: './schemas/registratiecode.yml'
+Samenwerking:
+  $ref: './schemas/samenwerking.yml'
+SectorInstrument:
+  $ref: './schemas/sectorInstrument.yml'
+#StandaardBedrag:
+#  $ref: './schemas/standaardBedrag.yml'
+Straatadres:
+  $ref: './schemas/straatadres.yml'
+Uitvoeringslocatie:
+  $ref: './schemas/uitvoeringslocatie.yml'
+Uitvoeringsvorm:
+  $ref: './schemas/uitvoeringsvorm.yml'
+Video:
+  $ref: './schemas/video.yml'
+Werklandschaptegel:
+  $ref: './schemas/werklandschaptegel.yml'
+Wijk:
+  $ref: './schemas/wijk.yml'
+
+
+CdArbeidsmarktregio:
+  $ref: './codelijsten/CdArbeidsmarktregio.yml'
+CdBereikInstrument:
+  $ref: './codelijsten/CdBereikInstrument.yml'
+CdDienstverband:
+  $ref: './codelijsten/CdDienstverband.yml'
+CdDoelgroep:
+  $ref: './codelijsten/CdDoelgroep.yml'
+CdEenheidDuurTraject:
+  $ref: './codelijsten/CdEenheidDuurTraject.yml'
+CdGroepsvorm:
+  $ref: './codelijsten/CdGroepsvorm.yml'
+#CdKlantkenmerk:
+#  $ref: './codelijsten/CdKlantkenmerk.yml'
+CdLeeftijdsgroep:
+  $ref: './codelijsten/CdLeeftijdsgroep.yml'
+CdSbi:
+  $ref: './codelijsten/CdSbi.yml'
+CdTypeContactpersoonRelatie:
+  $ref: './codelijsten/CdTypeContactpersoonRelatie.yml'
+CdTypeGebied:
+  $ref: './codelijsten/CdTypeGebied.yml'
+CdTypeOrganisatie:
+  $ref: './codelijsten/CdTypeOrganisatie.yml'
+CdTypeUitvoeringslocatie:
+  $ref: './codelijsten/CdTypeUitvoeringslocatie.yml'
+CdUitvoeringsvorm:
+  $ref: './codelijsten/CdUitvoeringsvorm.yml'
+CdWerklandschaptegel:
+  $ref: './codelijsten/CdWerklandschaptegel.yml'
+StdIndJN:
+  $ref: './codelijsten/StdIndJN.yml'
+StdIndNvt:
+  $ref: './codelijsten/StdIndNvt.yml'

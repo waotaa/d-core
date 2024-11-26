@@ -2,7 +2,7 @@
 
 namespace Vng\DennisCore\Services\Provider;
 
-use Vng\DennisCore\ElasticResources\ProviderResource;
+use Vng\DennisCore\ElasticResources\Original\ProviderResource;
 use Vng\DennisCore\Models\Provider;
 use Vng\DennisCore\Services\ImExport\AbstractEntityExportService;
 

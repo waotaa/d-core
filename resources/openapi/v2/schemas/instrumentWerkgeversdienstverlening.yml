@@ -1,0 +1,33 @@
+type: object
+properties:
+  OmsKortInstrument:
+    type: string
+    maxLength: 5000
+    pattern: "^[a-zA-Z0-9]*$"
+  OmsAanvraag:
+    type: string
+    maxLength: 5000
+    pattern: "^[a-zA-Z0-9]*$"
+  OmsInstrument:
+    type: string
+    maxLength: 5000
+    pattern: "^[a-zA-Z0-9]*$"
+  OmsVoorwaarden:
+    type: string
+    maxLength: 5000
+    pattern: "^[a-zA-Z0-9]*$"
+  IndDoelgroepregister:
+    $ref: '../codelijsten/StdIndNvt.yml'
+  IndTijdelijkeRegeling:
+    $ref: '../codelijsten/StdIndJN.yml'
+  IndLeerwerktraject:
+    $ref: '../codelijsten/StdIndJN.yml'
+
+  Instrument:
+    $ref: './instrument.yml'
+  Dienstverband:
+    $ref: './dienstverband.yml'
+  Leeftijdsgroep:
+    $ref: './leeftijdsgroep.yml'
+  SectorInstrument:
+    $ref: './sectorInstrument.yml'

@@ -3,12 +3,12 @@
 namespace Vng\DennisCore\Models;
 
 use Database\Factories\PartnershipFactory;
-use Vng\DennisCore\ElasticResources\PartnershipResource;
-use Vng\DennisCore\Interfaces\AreaInterface;
-use Vng\DennisCore\Traits\AreaTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Collection;
+use Vng\DennisCore\ElasticResources\Original\PartnershipResource;
+use Vng\DennisCore\Interfaces\AreaInterface;
+use Vng\DennisCore\Traits\AreaTrait;
 
 class Partnership extends AbstractOrganisationBase implements AreaInterface
 {

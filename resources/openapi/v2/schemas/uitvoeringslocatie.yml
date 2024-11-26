@@ -1,0 +1,17 @@
+type: object
+properties:
+  NaamUitvoeringslocatie:
+    type: string
+    maxLength: 200
+    pattern: "^[a-zA-Z0-9]*$"
+  CdTypeUitvoerigslocatie:
+    $ref: '../codelijsten/CdTypeUitvoeringslocatie.yml'
+  IndUitvoeringslocatieActief:
+    $ref: '../codelijsten/StdIndJN.yml'
+  ToelUitvoeringslocatie:
+    type: string
+    maxLength: 2000
+    pattern: "^[a-zA-Z0-9]*$"
+    nullable: true
+  Adres:
+    $ref: './adres.yml'

@@ -2,10 +2,10 @@
 
 namespace Vng\DennisCore\Commands\Elastic;
 
-use Vng\DennisCore\ElasticResources\Public\InstrumentWerkgeversdienstverleningResource;
+use Illuminate\Console\Command;
+use Vng\DennisCore\ElasticResources\Original\Public\InstrumentWerkgeversdienstverleningResource;
 use Vng\DennisCore\Jobs\RemoveResourceFromPublicElasticJob;
 use Vng\DennisCore\Jobs\SyncResourceToPublicElasticJob;
-use Illuminate\Console\Command;
 use Vng\DennisCore\Models\Instrument;
 use Vng\DennisCore\Services\ElasticSearch\ElasticPublicClientBuilder;
 

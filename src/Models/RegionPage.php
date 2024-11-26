@@ -3,12 +3,12 @@
 namespace Vng\DennisCore\Models;
 
 use Database\Factories\RegionPageFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Vng\DennisCore\Casts\CleanedHtml;
-use Vng\DennisCore\ElasticResources\RegionPageResource;
-use Vng\DennisCore\Traits\HasContacts;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Vng\DennisCore\Casts\CleanedHtml;
+use Vng\DennisCore\ElasticResources\Original\RegionPageResource;
+use Vng\DennisCore\Traits\HasContacts;
 
 class RegionPage extends SearchableModel
 {

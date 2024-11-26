@@ -1,0 +1,6 @@
+type: object
+properties:
+  InstrumentBeherendeOrganisatie:
+    nullable: true
+    allOf:
+      - $ref: './instrumentBeherendeOrganisatie.yml'

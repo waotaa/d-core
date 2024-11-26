@@ -6,7 +6,7 @@ use Database\Factories\LocalPartyFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Collection;
-use Vng\DennisCore\ElasticResources\LocalPartyResource;
+use Vng\DennisCore\ElasticResources\Original\LocalPartyResource;
 use Vng\DennisCore\Interfaces\AreaInterface;
 use Vng\DennisCore\Traits\AreaTrait;
 

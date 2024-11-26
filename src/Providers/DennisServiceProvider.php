@@ -3,6 +3,7 @@
 namespace Vng\DennisCore\Providers;
 
 use Illuminate\Support\AggregateServiceProvider;
+use Vng\DennisCore\Commands\ApiSpecs\GenerateSchema;
 use Vng\DennisCore\Commands\AssignRegions;
 use Vng\DennisCore\Commands\Dev\PasswordGenerationTest;
 use Vng\DennisCore\Commands\Elastic\DeleteIndex;
@@ -122,6 +123,8 @@ class DennisServiceProvider extends AggregateServiceProvider
     ];
 
     protected $commands = [
+        GenerateSchema::class,
+
         PasswordGenerationTest::class,
 
         DeleteIndex::class,

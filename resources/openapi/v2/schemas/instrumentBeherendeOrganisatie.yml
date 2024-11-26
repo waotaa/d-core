@@ -1,0 +1,37 @@
+type: object
+properties:
+  NaamInstrumentBeherendeOrganisatie:
+    type: string
+    maxLength: 200
+    pattern: "^[a-zA-Z0-9]*$"
+  SlugOrganisatie:
+    type: string
+    maxLength: 200
+    pattern: "^[a-zA-Z0-9]*$"
+  CdTypeOrganisatie:
+    $ref: '../codelijsten/CdTypeOrganisatie.yml'
+  Contactpersoon:
+    type: array
+    nullable: true
+    items:
+      $ref: './contactpersoon.yml'
+  LokalePartij:
+    nullable: true
+    allOf:
+      - $ref: './lokalePartij.yml'
+  RegionalePartij:
+    nullable: true
+    allOf:
+      - $ref: './regionalePartij.yml'
+  LandelijkePartij:
+    nullable: true
+    allOf:
+      - $ref: './landelijkePartij.yml'
+  Samenwerking:
+    nullable: true
+    allOf:
+      - $ref: './samenwerking.yml'
+  ActieveGebieden:
+    nullable: true
+    items:
+      $ref: './gebied.yml'

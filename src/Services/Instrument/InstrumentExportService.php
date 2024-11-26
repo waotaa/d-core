@@ -3,7 +3,7 @@
 namespace Vng\DennisCore\Services\Instrument;
 
 use Illuminate\Support\Collection;
-use Vng\DennisCore\ElasticResources\InstrumentWerkgeversdienstverleningResource;
+use Vng\DennisCore\ElasticResources\Original\InstrumentWerkgeversdienstverleningResource;
 use Vng\DennisCore\Models\Instrument;
 use Vng\DennisCore\Services\ImExport\AbstractEntityExportService;
 

@@ -4,16 +4,16 @@ namespace Vng\DennisCore\Models;
 
 use Database\Factories\ProviderFactory;
 use Illuminate\Database\Eloquent\Builder;
-use Vng\DennisCore\ElasticResources\ProviderResource;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Vng\DennisCore\ElasticResources\Original\ProviderResource;
 use Vng\DennisCore\Interfaces\IsMemberInterface;
 use Vng\DennisCore\Observers\ProviderObserver;
 use Vng\DennisCore\Repositories\Eloquent\ProviderRepository;
 use Vng\DennisCore\Traits\HasContacts;
 use Vng\DennisCore\Traits\HasOwner;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Webpatser\Uuid\Uuid;
 
 class Provider extends SearchableModel

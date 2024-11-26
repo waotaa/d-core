@@ -1,0 +1,65 @@
+type: object
+properties:
+  NaamInstrumentOmgeving:
+    type: string
+    maxLength: 200
+    pattern: "^[a-zA-Z0-9]*$"
+  SlugInstrumentOmgeving:
+    type: string
+    maxLength: 200
+    pattern: "^[a-zA-Z0-9]*$"
+  TitelInstrumentOmgeving:
+    type: string
+    maxLength: 10000
+    pattern: "^[a-zA-Z0-9]*$"
+    nullable: true
+  OmsInstrumentOmgeving:
+    type: string
+    maxLength: 10000
+    pattern: "^[a-zA-Z0-9]*$"
+    nullable: true
+  UrlInstrumentOmgeving:
+    type: string
+    maxLength: 200
+    pattern: "^[a-zA-Z0-9]*$"
+    nullable: true
+  UrlLogo:
+    type: string
+    maxLength: 200
+    pattern: "^[a-zA-Z0-9]*$"
+    nullable: true
+  PrimaireKleur:
+    type: string
+    maxLength: 7
+    pattern: "^#[A-Fa-f0-9]{6}$"
+  SecundaireKleur:
+    type: string
+    maxLength: 7
+    pattern: "^#[A-Fa-f0-9]{6}$"
+  user_pool_id:
+    type: string
+    nullable: true
+  user_pool_client_id:
+    type: string
+    nullable: true
+  Contactpersoon:
+    nullable: true
+    allOf:
+      - $ref: './contactpersoon.yml'
+  GetoondeOrganisaties:
+    type: array
+    items:
+      $ref: './instrumentBeherendeOrganisatie.yml'
+    nullable: true
+  GetoondeGebieden:
+    type: array
+    items:
+      $ref: './gebied.yml'
+    nullable: true
+  Nieuwsbericht:
+    type: array
+    items:
+      $ref: './nieuwsbericht.yml'
+    nullable: true
+  InstrumentBeherendeOrganisatie:
+    $ref: './instrumentBeherendeOrganisatie.yml'

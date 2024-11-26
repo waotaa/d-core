@@ -1,0 +1,116 @@
+type: object
+properties:
+  NaamInstrument:
+    type: string
+    maxLength: 200
+    pattern: "^[a-zA-Z0-9]*$"
+  UuidInstrument:
+    type: string
+    minLength: 36
+    maxLength: 36
+    pattern: "^[a-zA-Z0-9]*$"
+  SlugInstrument:
+    type: string
+    maxLength: 200
+    pattern: "^[a-zA-Z0-9]*$"
+  IndPublicatieInstrument:
+    $ref: '../codelijsten/StdIndJN.yml'
+  DatBPublicatieInstrument:
+    type: string
+    format: date-time
+    nullable: true
+  DatEPublicatieInstrument:
+    type: string
+    format: date-time
+    nullable: true
+  IndCompleet:
+    $ref: '../codelijsten/StdIndJN.yml'
+  Bewerkmoment:
+    $ref: './bewerkmoment.yml'
+  CdBereikInstrument:
+    $ref: '../codelijsten/CdBereikInstrument.yml'
+  NaamBereikInstrument:
+    type: string
+    maxLength: 200
+    pattern: "^[a-zA-Z0-9]*$"
+  IndLandelijk:
+    $ref: '../codelijsten/StdIndJN.yml'
+  IndRegionaal:
+    $ref: '../codelijsten/StdIndJN.yml'
+  IndLokaal:
+    $ref: '../codelijsten/StdIndJN.yml'
+  InstrumentBeherendeOrganisatie:
+    $ref: './instrumentBeherendeOrganisatie.yml'
+  Groepsvorm:
+    type: array
+    nullable: true
+    items:
+      $ref: './groepsvorm.yml'
+  Uitvoeringslocatie:
+    type: array
+    nullable: true
+    items:
+      $ref: './uitvoeringslocatie.yml'
+
+  RegistratieCode:
+    type: array
+    nullable: true
+    items:
+      $ref: './registratiecode.yml'
+  Beoordeling:
+    type: array
+    nullable: true
+    items:
+      $ref: './beoordeling.yml'
+  Werklandschaptegel:
+    type: array
+    nullable: true
+    items:
+      $ref: './werklandschaptegel.yml'
+  Doelgroep:
+    type: array
+    nullable: true
+    items:
+      $ref: './doelgroep.yml'
+  Klantkenmerk:
+    type: array
+    nullable: true
+    items:
+      $ref: './klantkenmerk.yml'
+  Aanbieder:
+    $ref: './aanbieder.yml'
+  Contactpersoon:
+    type: array
+    nullable: true
+    items:
+      $ref: './contactpersoon.yml'
+  BeschikbareGebieden:
+    type: array
+    nullable: true
+    items:
+      $ref: './gebied.yml'
+  OmvatteBeschikbareGebieden:
+    type: array
+    nullable: true
+    items:
+      $ref: './gebied.yml'
+  OmvatteBeschikbareGebiedenGemeenten:
+    type: array
+    nullable: true
+    items:
+      $ref: './gebied.yml'
+  Link:
+    type: array
+    nullable: true
+    items:
+      $ref: './link.yml'
+  Video:
+    type: array
+    nullable: true
+    items:
+      $ref: './video.yml'
+  Download:
+    type: array
+    nullable: true
+    items:
+      $ref: './download.yml'

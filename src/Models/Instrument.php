@@ -4,9 +4,14 @@ namespace Vng\DennisCore\Models;
 
 use Database\Factories\InstrumentFactory;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Collection;
 use Vng\DennisCore\Casts\CleanedHtml;
-use Vng\DennisCore\ElasticResources\InstrumentWerkgeversdienstverleningResource;
-use Vng\DennisCore\Enums\DurationUnitEnum;
+use Vng\DennisCore\ElasticResources\Original\InstrumentWerkgeversdienstverleningResource;
 use Vng\DennisCore\Interfaces\AreaInterface;
 use Vng\DennisCore\Interfaces\IsMemberInterface;
 use Vng\DennisCore\Observers\InstrumentObserver;
@@ -15,12 +20,6 @@ use Vng\DennisCore\Services\AreaService;
 use Vng\DennisCore\Traits\CanSaveQuietly;
 use Vng\DennisCore\Traits\HasContacts;
 use Vng\DennisCore\Traits\HasOwner;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Collection;
 use Vng\DennisCore\Traits\ModelSearch;
 use Webpatser\Uuid\Uuid;
 
@@ -250,6 +249,17 @@ class Instrument extends SearchableModel
             return static::REACH_REGIONAL;
         }
         return static::REACH_NATIONAL;
+    }
+
+    public function getReachSGR()
+    {
+        if ($this->isLocal()) {
+            return static::REACH_LOCAL_SGR;
+        }
+        if ($this->isRegional()) {
+            return static::REACH_REGIONAL_SGR;
+        }
+        return static::REACH_NATIONAL_SGR;
     }
 
     public function provider(): BelongsTo

@@ -1,0 +1,14 @@
+type: object
+properties:
+  NaamLink:
+    type: string
+    maxLength: 200
+    pattern: "^[a-zA-Z0-9]*$"
+  UrlLink:
+    type: string
+    maxLength: 200
+    pattern: "^[a-zA-Z0-9]*$"
+  Instrument:
+    nullable: true
+    allOf:
+        - $ref: './instrument.yml'

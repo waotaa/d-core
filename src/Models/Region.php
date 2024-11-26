@@ -3,17 +3,17 @@
 namespace Vng\DennisCore\Models;
 
 use Database\Factories\RegionFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Collection;
+use Vng\DennisCore\ElasticResources\Original\RegionResource;
 use Vng\DennisCore\Interfaces\AreaInterface;
 use Vng\DennisCore\Interfaces\IsOwnerInterface;
-use Vng\DennisCore\ElasticResources\RegionResource;
 use Vng\DennisCore\Traits\AreaTrait;
 use Vng\DennisCore\Traits\HasDynamicSlug;
 use Vng\DennisCore\Traits\IsOwner;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Collection;
 
 class Region extends SearchableModel implements IsOwnerInterface, AreaInterface
 {

@@ -3,18 +3,18 @@
 namespace Vng\DennisCore\Models;
 
 use Database\Factories\TownshipFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Vng\DennisCore\ElasticResources\TownshipResource;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Collection;
+use Vng\DennisCore\ElasticResources\Original\TownshipResource;
 use Vng\DennisCore\Interfaces\AreaInterface;
 use Vng\DennisCore\Interfaces\IsOwnerInterface;
 use Vng\DennisCore\Traits\AreaTrait;
 use Vng\DennisCore\Traits\HasDynamicSlug;
 use Vng\DennisCore\Traits\IsOwner;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Collection;
 
 class Township extends SearchableModel implements IsOwnerInterface, AreaInterface
 {

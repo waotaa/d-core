@@ -2,12 +2,12 @@
 
 namespace Vng\DennisCore\Jobs;
 
+use Elasticsearch\Client;
 use Elasticsearch\Common\Exceptions\NoNodesAvailableException;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Log;
-use Vng\DennisCore\ElasticResources\ElasticResource;
+use Vng\DennisCore\ElasticResources\Original\ElasticResource;
 use Vng\DennisCore\Models\SyncAttempt;
-use Elasticsearch\Client;
 use Vng\DennisCore\Services\ElasticSearch\ElasticClientBuilder;
 
 class SyncResourceToElasticJob extends ElasticJob

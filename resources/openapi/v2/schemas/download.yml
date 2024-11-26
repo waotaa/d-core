@@ -1,0 +1,12 @@
+type: object
+properties:
+  NaamDownload:
+    type: string
+    maxLength: 200
+    pattern: "^[a-zA-Z0-9]*$"
+  UrlDownload:
+    type: string
+    maxLength: 200
+    pattern: "^[a-zA-Z0-9]*$"
+  Instrument:
+    $ref: './instrument.yml'

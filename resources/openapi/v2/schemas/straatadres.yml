@@ -1,0 +1,18 @@
+type: object
+properties:
+  Huisnr:
+    type: string
+    maxLength: 5
+    pattern: "^[0-9]*$"
+  Huisnrtoevoeging:
+    type: string
+    maxLength: 6
+    pattern: "^[a-zA-Z0-9]*$"
+  NaamOpenbareRuimte:
+    type: string
+    maxLength: 80
+    pattern: "^[a-zA-Z0-9]*$"
+  Straatnaam:
+    type: string
+    maxLength: 24
+    pattern: "^[a-zA-Z0-9]*$"
