@@ -24,8 +24,8 @@ Gebied:
   $ref: './schemas/gebied.yml'
 Gemeente:
   $ref: './schemas/gemeente.yml'
-Groepsvorm:
-  $ref: './schemas/groepsvorm.yml'
+#Groepsvorm:
+#  $ref: './schemas/groepsvorm.yml'
 Instrument:
   $ref: './schemas/instrument.yml'
 InstrumentBeherendeOrganisatie:
