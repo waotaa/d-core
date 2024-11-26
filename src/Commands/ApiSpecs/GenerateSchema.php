@@ -15,8 +15,6 @@ class GenerateSchema extends Command
     {
         $this->getOutput()->writeln('Generating schema');
 
-        $this->handleSchema('v1');
-        $this->newLine(3);
         $this->handleSchema('v2');
 
         $this->line('Done!');
