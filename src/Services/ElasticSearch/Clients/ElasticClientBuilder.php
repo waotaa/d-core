@@ -1,9 +1,10 @@
 <?php
 
-namespace Vng\DennisCore\Services\ElasticSearch;
+namespace Vng\DennisCore\Services\ElasticSearch\Clients;
 
 use Elasticsearch\Client;
 use Elasticsearch\ClientBuilder;
+use function config;
 
 /**
  * Creates an elastic client for the 'main' elastic instance

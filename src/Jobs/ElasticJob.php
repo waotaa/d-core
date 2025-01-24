@@ -9,7 +9,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Vng\DennisCore\Models\SyncAttempt;
-use Vng\DennisCore\Services\ElasticSearch\ElasticClientBuilder;
+use Vng\DennisCore\Services\ElasticSearch\Clients\ElasticClientBuilder;
 use Vng\DennisCore\Services\ElasticSearch\SyncService;
 
 abstract class ElasticJob implements ElasticJobInterface, ShouldQueue

@@ -8,7 +8,7 @@ use Vng\DennisCore\Http\Requests\OrganisationUpdateRequest;
 use Vng\DennisCore\Models\Manager;
 use Vng\DennisCore\Models\Organisation;
 
-interface OrganisationRepositoryInterface extends BaseRepositoryInterface
+interface OrganisationRepositoryInterface extends BaseRepositoryInterface, SoftDeletableRepositoryInterface
 {
     public function findBySlug(string $slug);
 

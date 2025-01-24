@@ -7,7 +7,7 @@ use Vng\DennisCore\ElasticResources\Original\Public\InstrumentWerkgeversdienstve
 use Vng\DennisCore\Jobs\RemoveResourceFromPublicElasticJob;
 use Vng\DennisCore\Jobs\SyncResourceToPublicElasticJob;
 use Vng\DennisCore\Models\Instrument;
-use Vng\DennisCore\Services\ElasticSearch\ElasticPublicClientBuilder;
+use Vng\DennisCore\Services\ElasticSearch\Clients\ElasticPublicClientBuilder;
 
 class SyncPublicInstruments extends Command
 {
@@ -33,11 +33,14 @@ class SyncPublicInstruments extends Command
             ));
         }
 
-        foreach (Instrument::onlyTrashed()->get() as $instrument) {
-            dispatch(new RemoveResourceFromPublicElasticJob(
-                'instruments',
-                $instrument->getSearchId()
-            ));
+        if (!$this->option('fresh')) {
+            $this->output->warning('Removing instruments from public instance');
+            foreach (Instrument::onlyTrashed()->get() as $instrument) {
+                dispatch(new RemoveResourceFromPublicElasticJob(
+                    'instruments',
+                    $instrument->getSearchId()
+                ));
+            }
         }
 
         $this->output->writeln('');

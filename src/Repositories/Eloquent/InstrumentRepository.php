@@ -3,6 +3,7 @@
 namespace Vng\DennisCore\Repositories\Eloquent;
 
 use Exception;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
 use Vng\DennisCore\Enums\ContactTypeEnum;
@@ -550,5 +551,45 @@ class InstrumentRepository extends BaseRepository implements InstrumentRepositor
 
         $instrument->availableNeighbourhoods()->sync($neighbourhoodIds);
         return $instrument;
+    }
+
+    public function getElasticResourceBuilder(): Builder
+    {
+        return $this
+            ->builder()
+            ->with([
+                'organisation',
+
+                'organisation.nationalParty',
+                'organisation.regionalParty',
+                'organisation.regionalParty.region',
+                'organisation.localParty',
+                'organisation.localParty.township',
+                'organisation.partnership',
+                'organisation.partnership.townships',
+
+                // Resources have no children called
+                'ageGroups',
+                'employmentTypes',
+                'locations',
+                'registrationCodes',
+                'sectors',
+                'targetGroupRegisters',
+                'targetGroups',
+                'tiles',
+                'links',
+                'videos',
+                'downloads',
+
+                'provider',
+                'provider.address',
+                'provider.contacts',
+
+                'contacts',
+                'availableRegions',
+                'availableTownships',
+                'availableNeighbourhoods',
+                'parentInstrument'
+            ]);
     }
 }

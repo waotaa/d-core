@@ -2,10 +2,8 @@
 
 namespace Vng\DennisCore\Commands\Elastic;
 
-use Elasticsearch\Client;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\App;
-use Vng\DennisCore\Services\ElasticSearch\ElasticClientBuilder;
+use Vng\DennisCore\Services\ElasticSearch\Clients\ElasticClientBuilder;
 
 class GetMapping extends Command
 {

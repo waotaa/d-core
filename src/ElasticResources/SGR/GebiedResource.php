@@ -2,6 +2,7 @@
 
 namespace Vng\DennisCore\ElasticResources\SGR;
 
+use Vng\DennisCore\Helpers\Codelijsten;
 use Vng\DennisCore\Interfaces\AreaInterface;
 
 class GebiedResource extends ElasticResource
@@ -12,10 +13,9 @@ class GebiedResource extends ElasticResource
     public function toArray()
     {
         return [
-            'identifier' => $this->resource->getAreaIdentifier(),
-            'name' => $this->resource->getName(),
-            'slug' => $this->resource->getSlug(),
-            'type' => $this->resource->getType(),
+            'NaamGebied' => $this->resource->getAreaName(),
+            'CdTypeGebied' => Codelijsten::getTypeGebiedCode($this->resource->getAreaTypeSGR()),
+            'NaamTypeGebied' => $this->resource->getAreaTypeSGR(),
         ];
     }
 }

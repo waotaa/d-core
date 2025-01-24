@@ -3,7 +3,7 @@
 namespace Vng\DennisCore\Jobs;
 
 use Elasticsearch\Client;
-use Vng\DennisCore\Services\ElasticSearch\ElasticPublicClientBuilder;
+use Vng\DennisCore\Services\ElasticSearch\Clients\ElasticPublicClientBuilder;
 
 trait PublicElasticClientTrait
 {

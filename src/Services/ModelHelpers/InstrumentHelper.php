@@ -80,7 +80,9 @@ class InstrumentHelper
                 ->where(function (Builder $builder) use ($today) {
                     return $builder
                         ->whereNull('publish_to')
-                        ->orWhereDate('publish_to', '>', $today);
+//                        ->orWhereDate('publish_to', '>', $today); // Exclusief publish to dag
+                        ->orWhereDate('publish_to', '>=', $today); // Inclusief publish to dag
+
                 });
         });
     }
@@ -99,7 +101,8 @@ class InstrumentHelper
                 ->orWhere(function (Builder $builder) use ($today) {
                     return $builder
                         ->whereNotNull('publish_to')
-                        ->whereDate('publish_to', '<', $today);
+//                        ->whereDate('publish_to', '<', $today); // Exclusief publish to dag
+                        ->orWhereDate('publish_to', '>=', $today); // Inclusief publish to dag
                 });
         });
     }

@@ -3,7 +3,7 @@
 namespace Vng\DennisCore\Commands\Elastic;
 
 use Illuminate\Console\Command;
-use Vng\DennisCore\Services\ElasticSearch\ElasticClientBuilder;
+use Vng\DennisCore\Services\ElasticSearch\Clients\ElasticClientBuilder;
 
 class DeleteIndex extends Command
 {

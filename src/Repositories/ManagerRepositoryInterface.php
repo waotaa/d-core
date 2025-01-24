@@ -4,6 +4,7 @@ namespace Vng\DennisCore\Repositories;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
+use Vng\DennisCore\Http\Requests\ManagerUpdateRequest;
 use Vng\DennisCore\Interfaces\IsManagerInterface;
 use Vng\DennisCore\Models\Organisation;
 use Vng\DennisCore\Models\Manager;
@@ -16,6 +17,7 @@ interface ManagerRepositoryInterface extends BaseRepositoryInterface
 
     public function createForUser(IsManagerInterface $user): Manager;
     public function update(Manager $manager, array $attributes): Manager;
+    public function updateFromRequest(Manager $manager, ManagerUpdateRequest $request): Manager;
 
     public function attachOrganisations(Manager $manager, string|array $organisationIds): Manager;
     public function detachOrganisations(Manager $manager, string|array $organisationIds): Manager;

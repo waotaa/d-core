@@ -9,10 +9,12 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Support\Collection;
+use InvalidArgumentException;
+use RuntimeException;
 use Vng\DennisCore\Interfaces\AreaInterface;
-use Vng\DennisCore\Interfaces\IsManagerInterface;
+use Vng\DennisCore\Interfaces\OrganisationEntityInterface;
+use Vng\DennisCore\Observers\OrganisationObserver;
 use Vng\DennisCore\Traits\HasContacts;
 
 class Organisation extends Model
@@ -21,9 +23,20 @@ class Organisation extends Model
         SoftDeletes,
         HasContacts;
 
+    public bool $isCascadingDelete = false;
+    public bool $isCascadingRestore = false;
+
     protected $table = 'organisations';
 
-    protected $fillable = [];
+    protected $fillable = [
+        'organisation_type'
+    ];
+
+    protected static function boot()
+    {
+        parent::boot();
+        static::observe(OrganisationObserver::class);
+    }
 
     public function getIdentifierAttribute()
     {
@@ -35,19 +48,64 @@ class Organisation extends Model
         return $this->id . '-' . $this->slug;
     }
 
+    // Organisation type / variant
+
+    public function setOrganisationType(Model $model): void
+    {
+        // Zorg dat het model het juiste interface implementeert
+        if (!($model instanceof OrganisationEntityInterface)) {
+            throw new InvalidArgumentException('The provided model must implement OrganisationEntityInterface.');
+        }
+
+        // Stel organisation_type in op de classname van het model
+        $this->organisation_type = class_basename($model);
+    }
+
+    public function getOrganisationVariantAttribute()
+    {
+        if ($this->organisation_type) {
+            $relationName = \Illuminate\Support\Str::camel($this->organisation_type);
+
+            // Controleer met `withTrashed()` of de relatie bestaat
+            if (method_exists($this, $relationName)) {
+                return $this->{$relationName}()->withTrashed()->first();
+            }
+        }
+
+        // Controleer de relaties op volgorde, inclusief soft-deleted records
+        if ($this->localParty()->withTrashed()->exists()) {
+            return $this->localParty()->withTrashed()->first();
+        }
+
+        if ($this->regionalParty()->withTrashed()->exists()) {
+            return $this->regionalParty()->withTrashed()->first();
+        }
+
+        if ($this->nationalParty()->withTrashed()->exists()) {
+            return $this->nationalParty()->withTrashed()->first();
+        }
+
+        if ($this->partnership()->withTrashed()->exists()) {
+            return $this->partnership()->withTrashed()->first();
+        }
+
+        // Werp een exception als geen variant gevonden wordt
+        throw new RuntimeException("Organisation with ID {$this->id} has no valid organisation variant.");
+    }
+
     public function getNameAttribute()
     {
-        return $this->organisationable?->name;
+        return $this->organisation_variant?->name;
     }
 
     public function getSlugAttribute()
     {
-        return $this->organisationable?->slug;
+        return $this->organisation_variant?->slug;
     }
 
     public function getTypeAttribute()
     {
-        return $this->organisationable?->type;
+        return $this->organisation_variant?->type;
     }
 
     public function managers(): BelongsToMany
@@ -86,13 +144,9 @@ class Organisation extends Model
         return $this->hasOne(Partnership::class, 'organisation_id');
     }
 
-    /**
-     * Optional relation to make it easier to find the matching Organisation entity
-     * @return MorphTo
-     */
-    public function organisationable(): MorphTo
+    public function scopeNationalParty($query)
     {
-        return $this->morphTo();
+        return $query->whereHas('nationalParty');
     }
 
     public function ownedAddresses(): HasMany
@@ -148,7 +202,9 @@ class Organisation extends Model
         }
 
         // we include all national parties
-        $nationalOrganisations = Organisation::query()->whereHasMorph('organisationable', [NationalParty::class])->get();
+        $nationalOrganisations = Organisation::query()
+            ->whereHas('nationalParty')
+            ->get();
         return $organisations->merge($nationalOrganisations);
     }
 

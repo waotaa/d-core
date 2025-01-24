@@ -5,6 +5,9 @@ namespace Vng\DennisCore\Providers;
 use Illuminate\Support\AggregateServiceProvider;
 use Vng\DennisCore\Commands\ApiSpecs\GenerateSchema;
 use Vng\DennisCore\Commands\AssignRegions;
+use Vng\DennisCore\Commands\Data\CheckOrphanedOrganisations;
+use Vng\DennisCore\Commands\Data\CheckSoftDeletedOrganisations;
+use Vng\DennisCore\Commands\Data\EnsureIntegrity;
 use Vng\DennisCore\Commands\Dev\PasswordGenerationTest;
 use Vng\DennisCore\Commands\Elastic\DeleteIndex;
 use Vng\DennisCore\Commands\Elastic\DeletePublicIndex;
@@ -113,6 +116,7 @@ use Vng\DennisCore\Repositories\TargetGroupRepositoryInterface;
 use Vng\DennisCore\Repositories\TileRepositoryInterface;
 use Vng\DennisCore\Repositories\TownshipRepositoryInterface;
 use Vng\DennisCore\Repositories\VideoRepositoryInterface;
+use Vng\DennisCore\Commands\Data\CheckAndSetOrganisationType;
 
 class DennisServiceProvider extends AggregateServiceProvider
 {
@@ -124,6 +128,11 @@ class DennisServiceProvider extends AggregateServiceProvider
 
     protected $commands = [
         GenerateSchema::class,
+
+        CheckAndSetOrganisationType::class,
+        CheckOrphanedOrganisations::class,
+        CheckSoftDeletedOrganisations::class,
+        EnsureIntegrity::class,
 
         PasswordGenerationTest::class,
 

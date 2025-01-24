@@ -12,7 +12,7 @@ use Vng\DennisCore\Models\Instrument;
 use Vng\DennisCore\Models\Organisation;
 use Vng\DennisCore\Repositories\DownloadRepositoryInterface;
 use Vng\DennisCore\Repositories\InstrumentRepositoryInterface;
-use Vng\DennisCore\Services\DownloadsService;
+use Vng\DennisCore\Services\Storage\DownloadStorageService;
 
 class DownloadRepository extends BaseRepository implements DownloadRepositoryInterface
 {
@@ -22,15 +22,42 @@ class DownloadRepository extends BaseRepository implements DownloadRepositoryInt
 
     public function create(DownloadCreateRequest $request): Download
     {
-        return $this->saveFromRequest(new $this->model(), $request);
+        return $this->createFromRequest(new $this->model(), $request);
     }
 
     public function update(Download $download, DownloadUpdateRequest $request): Download
     {
-        return $this->saveFromRequest($download, $request);
+        return $this->updateFromRequest($download, $request);
     }
 
-    public function saveFromRequest(Download $download, FormRequest $request): Download
+    public function createFromRequest(Download $download, FormRequest $request): Download
+    {
+        $organisation = $this->getOrganisationFromRequest($request);
+        $fileData = $this->storeFileFromRequest($organisation, $request);
+        if (is_null($fileData)) {
+            throw new \Exception('Invalid request. Missing file or key');
+        }
+
+        $download->fill($fileData);
+        $download = $this->fillFromRequest($download, $request);
+        $download->save();
+        return $download;
+    }
+
+    public function updateFromRequest(Download $download, FormRequest $request): Download
+    {
+        $organisation = $this->getOrganisationFromRequest($request);
+        $fileData = $this->storeFileFromRequest($organisation, $request);
+        if (!is_null($fileData)) {
+            $download->fill($fileData);
+        }
+
+        $download = $this->fillFromRequest($download, $request);
+        $download->save();
+        return $download;
+    }
+
+    private function getOrganisationFromRequest(FormRequest $request): Organisation
     {
         $organisationRepository = new OrganisationRepository();
         /** @var Organisation $organisation */
@@ -38,25 +65,39 @@ class DownloadRepository extends BaseRepository implements DownloadRepositoryInt
         if (is_null($organisation)) {
             throw new \Exception('invalid organisation provided');
         }
+        return $organisation;
+    }
 
+    private function storeFileFromRequest(Organisation $organisation, FormRequest $request): ?array
+    {
         if ($request->has('file')) {
             /** @var UploadedFile $uploadedFile */
             $uploadedFile = $request->file('file');
-            $download = DownloadsService::saveUploadedFile($uploadedFile, $organisation, $download);
-        } elseif ($request->has('key')) {
-            $download = DownloadsService::movePreUploadedFile($request->input('key'), $organisation, $download);
-            $download->fill([
-                'filename' => $request->input('filename'),
-            ]);
-        } else {
-            throw new \Exception('Invalid request. Missing file or key');
+            $storedFile = DownloadStorageService::make()->setOrganisation($organisation)->storeUploadedFile($uploadedFile);
+            return [
+                'filename' => $storedFile->getFilename(),
+                'url' => $storedFile->getPath()
+            ];
         }
 
+        if ($request->has('key')) {
+            $filePath = DownloadStorageService::make()->setOrganisation($organisation)->movePreUploadedFile($request->input('key'));
+            return [
+                'filename' => $request->input('filename'),
+                'url' => $filePath
+            ];
+        }
+
+        return null;
+    }
+
+    private function fillFromRequest(Download $download, FormRequest $request): Download
+    {
         $download->fill([
             'label' => $request->input('label'),
         ]);
+        $organisation = $this->getOrganisationFromRequest($request);
         $download->organisation()->associate($organisation);
-        $download->save();
         return $download;
     }
 

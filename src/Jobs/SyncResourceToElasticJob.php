@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Log;
 use Vng\DennisCore\ElasticResources\Original\ElasticResource;
 use Vng\DennisCore\Models\SyncAttempt;
-use Vng\DennisCore\Services\ElasticSearch\ElasticClientBuilder;
+use Vng\DennisCore\Services\ElasticSearch\Clients\ElasticClientBuilder;
 
 class SyncResourceToElasticJob extends ElasticJob
 {

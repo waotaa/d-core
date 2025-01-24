@@ -3,23 +3,68 @@
 namespace Vng\DennisCore\Observers;
 
 use Illuminate\Database\Eloquent\Model;
-use Vng\DennisCore\Repositories\Eloquent\OrganisationRepository;
+use Illuminate\Support\Facades\Log;
+use Vng\DennisCore\Models\AbstractOrganisationBase;
+use Vng\DennisCore\Models\Organisation;
+use Vng\DennisCore\Repositories\OrganisationRepositoryInterface;
 
 class OrganisationEntityObserver
 {
+    public function __construct(
+        protected OrganisationRepositoryInterface $organisationRepository
+    )
+    {}
+
     public function creating(Model $model): void
     {
-        $orgRepo = new OrganisationRepository();
-        $organisation = $orgRepo->new();
+        /** @var Organisation $organisation */
+        $organisation = $this->organisationRepository->new();
+        $organisation->setOrganisationType($model);
         $organisation->save();
         $model->organisation()->associate($organisation);
     }
 
-    public function saved(Model $model): void
+    public function deleting(AbstractOrganisationBase $model)
     {
-        // optional
-        $orgRepo = new OrganisationRepository();
-        $organisation = $orgRepo->associateOrganisationable($model);
-        $organisation->save();
+        if ($model->isForceDeleting()) {
+            Log::debug('hard deleting organisation entity');
+        } else {
+            Log::debug('soft deleting organisation entity');
+        }
+
+        if (!$model->isCascadingDelete) {
+            // The deletion originated from the OrganisationEntity and needs to cascade to the organisation
+
+            /** @var Organisation $organisation */
+            $organisation = $model->organisation()->withTrashed()->first();
+            if ($organisation) {
+                // flag the organisation that the deletion performed on it originated here, so it does not need to cascade back
+                $organisation->isCascadingDelete = true;
+
+                if ($model->isForceDeleting()) {
+                    Log::debug('cascade hard delete to organisation');
+                    $organisation->forceDelete();
+                } else {
+                    Log::debug('cascade soft delete to organisation');
+                    $organisation->delete();
+                }
+            }
+        }
+    }
+
+    public function restoring(AbstractOrganisationBase $model)
+    {
+        if (!$model->isCascadingRestore) {
+            // The restoration originated from the OrganisationEntity and needs to cascade to the organisation
+
+            /** @var Organisation $organisation */
+            $organisation = $model->organisation()->withTrashed()->first();
+            if ($organisation) {
+                // flag the organisation that the restoration performed on it originated here, so it does not need to cascade back
+                $organisation->isCascadingRestore = true;
+
+                $organisation->restore();
+            }
+        }
     }
 }

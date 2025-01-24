@@ -2,6 +2,7 @@
 
 namespace Vng\DennisCore\Repositories;
 
+use Illuminate\Database\Eloquent\Builder;
 use Vng\DennisCore\Http\Requests\InstrumentCreateRequest;
 use Vng\DennisCore\Http\Requests\InstrumentUpdateRequest;
 use Vng\DennisCore\Models\Instrument;
@@ -47,4 +48,6 @@ interface InstrumentRepositoryInterface extends OwnedEntityRepositoryInterface, 
     public function attachAvailableNeighbourhoods(Instrument $instrument, string|array $neighbourhoodIds): Instrument;
     public function detachAvailableNeighbourhoods(Instrument $instrument, string|array $neighbourhoodIds): Instrument;
     public function syncAvailableNeighbourhoods(Instrument $instrument, string|array $neighbourhoodIds): Instrument;
+
+    public function getElasticResourceBuilder(): Builder;
 }

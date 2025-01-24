@@ -186,9 +186,9 @@ class Instrument extends SearchableModel
         }
 
         // Has owner: Return owner areas
-        /** @var AreaInterface $organisationEntity */
-        $organisationEntity = $this->organisation->organisationable;
-        return $organisationEntity->getOwnAreas();
+        /** @var AreaInterface $organisationVariant */
+        $organisationVariant = $this->organisation->organisationVariant;
+        return $organisationVariant->getOwnAreas();
     }
 
     /**
@@ -205,9 +205,9 @@ class Instrument extends SearchableModel
 
     public function getAllAvailableTownshipsAttribute(): Collection
     {
-        $townshipType = (new Township())->getType();
+        $townshipType = (new Township())->getAreaType();
         return $this->getAttribute('allAvailableAreas')
-            ->filter(fn (AreaInterface $area) => $area->getType() === $townshipType)
+            ->filter(fn (AreaInterface $area) => $area->getAreaType() === $townshipType)
             ->values();
     }
 
@@ -230,7 +230,7 @@ class Instrument extends SearchableModel
             return false;
         }
         $regionAreas = $this->availableAreas->filter(function (AreaInterface $area) {
-            return $area->getType() === 'Region';
+            return $area->getAreaType() === 'Region';
         });
         return $regionAreas->count() > 0;
     }
@@ -351,5 +351,46 @@ class Instrument extends SearchableModel
     {
         $instrumentRepository = $this->app->make(InstrumentRepositoryInterface::class);
         return $instrumentRepository->addMultipleOwnerConditions($query, $user->getAssociations());
+    }
+
+    public function getElasticRequiredRelations(): void
+    {
+        $relations = [
+            'organisation',
+
+            'organisation.nationalParty',
+            'organisation.regionalParty',
+            'organisation.regionalParty.region',
+            'organisation.localParty',
+            'organisation.localParty.township',
+            'organisation.partnership',
+            'organisation.partnership.townships',
+
+            // Resources have no children called
+            'ageGroups',
+            'employmentTypes',
+            'locations',
+            'registrationCodes',
+            'sectors',
+            'targetGroupRegisters',
+            'targetGroups',
+            'tiles',
+            'links',
+            'videos',
+            'downloads',
+
+            'provider',
+            'provider.address',
+            'provider.contacts',
+
+            'contacts',
+            'availableRegions',
+            'availableTownships',
+            'availableNeighbourhoods',
+            'parentInstrument'
+        ];
+
+        // Laad alleen de relaties die nog niet geladen zijn
+        $this->loadMissing($relations);
     }
 }

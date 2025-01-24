@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Vng\DennisCore\Observers\DownloadObserver;
-use Vng\DennisCore\Services\DownloadsService;
+use Vng\DennisCore\Services\Storage\DownloadStorageService;
 use Vng\DennisCore\Traits\HasOwner;
 
 class Download extends Model
@@ -31,7 +31,7 @@ class Download extends Model
     {
         if ($deleteFile) {
             try {
-                DownloadsService::deleteDownloadFile($this);
+                DownloadStorageService::make()->deleteFile($this->url);
             } catch (\Exception $e) {
                 // accept for now that deleting the file failed.
                 // We still want to delete the download entity though
