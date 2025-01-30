@@ -64,8 +64,12 @@ class ManagerPolicy extends BasePolicy
         if ($manager->id === $targetManager->id || $targetManager->isCreatedBy($manager)) {
             return true;
         }
+
+        $targetIsNoSuperAdmin = !$targetManager->hasRole(Role::SUPER_ADMIN_ROLE);
         if ($manager->managersShareOrganisation($targetManager)
-            && $user->managerCan('manager.organisation.update')) {
+            && $user->managerCan('manager.organisation.update')
+            && $targetIsNoSuperAdmin
+        ) {
             return true;
         }
         return $user->managerCan('manager.update');
@@ -77,8 +81,11 @@ class ManagerPolicy extends BasePolicy
         if ($manager->id === $targetManager->id || $targetManager->isCreatedBy($manager)) {
             return true;
         }
+        $targetIsNoSuperAdmin = !$targetManager->hasRole(Role::SUPER_ADMIN_ROLE);
         if ($manager->managersShareOrganisation($targetManager)
-            && $user->managerCan('manager.organisation.delete')) {
+            && $user->managerCan('manager.organisation.delete')
+            && $targetIsNoSuperAdmin
+        ) {
             return true;
         }
         return $user->managerCan('manager.delete');
@@ -90,8 +97,11 @@ class ManagerPolicy extends BasePolicy
         if ($manager->id === $targetManager->id || $targetManager->isCreatedBy($manager)) {
             return true;
         }
+        $targetIsNoSuperAdmin = !$targetManager->hasRole(Role::SUPER_ADMIN_ROLE);
         if ($manager->managersShareOrganisation($targetManager)
-            && $user->managerCan('manager.organisation.restore')) {
+            && $user->managerCan('manager.organisation.restore')
+            && $targetIsNoSuperAdmin
+        ) {
             return true;
         }
         return $user->managerCan('manager.restore');
@@ -123,10 +133,12 @@ class ManagerPolicy extends BasePolicy
         }
 
         $assignableRoles = $manager->getAssignableRoles();
+        $targetIsNoSuperAdmin = !$targetManager->hasRole(Role::SUPER_ADMIN_ROLE);
 
         if ($this->hasManagingRelation($manager, $targetManager)
             && $user->managerCan('manager.organisation.role')
             && in_array($role->name, $assignableRoles)
+            && $targetIsNoSuperAdmin
         ) {
             return true;
         }
@@ -135,8 +147,11 @@ class ManagerPolicy extends BasePolicy
 
     public function detachRole(IsManagerInterface $user, Manager $targetManager)
     {
+        $targetIsNoSuperAdmin = !$targetManager->hasRole(Role::SUPER_ADMIN_ROLE);
         if ($this->hasManagingRelation($user->getManager(), $targetManager)
-            && $user->managerCan('manager.organisation.role')) {
+            && $user->managerCan('manager.organisation.role')
+            && $targetIsNoSuperAdmin
+        ) {
             return true;
         }
         return $user->managerCan('manager.role');
@@ -152,9 +167,11 @@ class ManagerPolicy extends BasePolicy
     {
         $hasManagingRelation = $this->hasManagingRelation($user->getManager(), $targetManager);
         $managerIsMember = $user->getManager()->hasOrganisation($organisation);
+        $targetIsNoSuperAdmin = !$targetManager->hasRole(Role::SUPER_ADMIN_ROLE);
         if ($hasManagingRelation
             && $managerIsMember
             && $user->managerCan('manager.organisation.members')
+            && $targetIsNoSuperAdmin
         ) {
             return true;
         }
@@ -165,9 +182,11 @@ class ManagerPolicy extends BasePolicy
     {
         $hasManagingRelation = $this->hasManagingRelation($user->getManager(), $targetManager);
         $managerIsMember = $user->getManager()->hasOrganisation($organisation);
+        $targetIsNoSuperAdmin = !$targetManager->hasRole(Role::SUPER_ADMIN_ROLE);
         if ($hasManagingRelation
             && $managerIsMember
             && $user->managerCan('manager.organisation.members')
+            && $targetIsNoSuperAdmin
         ) {
             return true;
         }
