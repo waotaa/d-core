@@ -8,6 +8,7 @@ use Vng\DennisCore\Commands\AssignRegions;
 use Vng\DennisCore\Commands\Data\CheckOrphanedOrganisations;
 use Vng\DennisCore\Commands\Data\CheckSoftDeletedOrganisations;
 use Vng\DennisCore\Commands\Data\EnsureIntegrity;
+use Vng\DennisCore\Commands\Dev\GenerateReport;
 use Vng\DennisCore\Commands\Dev\PasswordGenerationTest;
 use Vng\DennisCore\Commands\Elastic\DeleteIndex;
 use Vng\DennisCore\Commands\Elastic\DeletePublicIndex;
@@ -134,6 +135,7 @@ class DennisServiceProvider extends AggregateServiceProvider
         CheckSoftDeletedOrganisations::class,
         EnsureIntegrity::class,
 
+        GenerateReport::class,
         PasswordGenerationTest::class,
 
         DeleteIndex::class,
