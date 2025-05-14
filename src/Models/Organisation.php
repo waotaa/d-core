@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Log;
 use InvalidArgumentException;
 use RuntimeException;
 use Vng\DennisCore\Interfaces\AreaInterface;
@@ -217,8 +218,12 @@ class Organisation extends Model
         if (!is_null($this->nationalParty()->first())) {
             return collect();
         }
-        /** @var AreaInterface $organisationEntity */
-        $organisationEntity = $this->organisationable()->first();
-        return $organisationEntity->getEncompassingAreas();
+        /** @var AreaInterface $organisationVariant */
+        $organisationVariant = $this->getOrganisationVariantAttribute();
+        if (is_null($organisationVariant)) {
+            Log::warning('Organisation without organisationVariant encountered - org id ['. $this->getAttribute('id').']');
+            return collect();
+        }
+        return $organisationVariant->getEncompassingAreas();
     }
 }
