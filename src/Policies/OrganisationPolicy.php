@@ -44,23 +44,45 @@ class OrganisationPolicy
      * @param Organisation $organisation
      * @return bool
      */
-    public function attachAnyManager(IsManagerInterface $user, Organisation $organisation): bool
+    private function canAssignManagerToOrganisation(IsManagerInterface $user, Organisation $organisation): bool
     {
-        // if you can create a manager for an organisation you may attach one to it as well
-        if ($user->managerCan('manager.organisation.create')
-            && $organisation->hasMember($user->getManager())
+        $manager = $user->getManager();
+        if ($user->managerCan('organisation.assign-manager.within-organisation')
+            && $organisation->hasMember($manager)
         ) {
             return true;
         }
-        return $user->managerCan('manager.create');
+        return $user->managerCan('organisation.assign-manager');
     }
-    public function attachManager(IsManagerInterface $user, Organisation $organisation): bool
+
+    /**
+     * @param Model&IsManagerInterface $user
+     * @param Organisation $organisation
+     * @return bool
+     */
+    public function attachAnyManager(IsManagerInterface $user, Organisation $organisation): bool
     {
-        return $this->attachAnyManager($user, $organisation);
+        return $this->canAssignManagerToOrganisation($user, $organisation);
     }
-    public function detachManager(IsManagerInterface $user, Organisation $organisation): bool
+
+    public function attachManager(IsManagerInterface $user, Organisation $organisation, Manager $targetManager): bool
     {
-        return $this->attachAnyManager($user, $organisation);
+        if ($user->getManager()->hasManagingRelation($targetManager)
+            && $this->canAssignManagerToOrganisation($user, $organisation)
+        ) {
+            return true;
+        }
+        return $user->managerCan('organisation.assign-manager');
+    }
+
+    public function detachManager(IsManagerInterface $user, Organisation $organisation, Manager $targetManager): bool
+    {
+        if ($user->getManager()->hasManagingRelation($targetManager)
+            && $this->canAssignManagerToOrganisation($user, $organisation)
+        ) {
+            return true;
+        }
+        return $user->managerCan('organisation.assign-manager');
     }
 
     /**
