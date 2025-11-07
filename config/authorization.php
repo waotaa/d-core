@@ -216,6 +216,25 @@ $globalContactPermissions = [
     'contact.forceDelete'
 ];
 
+// Download
+$organisationDownloadPermissions = [
+    'download.viewAny',
+    'download.organisation.view',
+    'download.organisation.create',
+    'download.organisation.update',
+    'download.organisation.delete',
+];
+
+$globalDownloadPermissions = [
+    ...$organisationDownloadPermissions,
+    'download.viewAny',
+    'download.viewAll',
+    'download.view',
+    'download.create',
+    'download.update',
+    'download.delete',
+];
+
 // Instruments
 $instrumentPropertyPermissions = [
     'ageGroup.viewAny',
@@ -341,6 +360,7 @@ return [
 
             ...$globalAddressPermissions,
             ...$globalContactPermissions,
+            ...$globalDownloadPermissions,
             ...$globalInstrumentPermissions,
             ...$globalProviderPermissions,
 
@@ -352,6 +372,7 @@ return [
             ...$generalPermissions,
             ...$globalAddressPermissions,
             ...$globalContactPermissions,
+            ...$globalDownloadPermissions,
             ...$globalInstrumentPermissions,
             ...$globalProviderPermissions,
         ],
@@ -359,6 +380,7 @@ return [
             ...$generalPermissions,
             ...$organisationAddressPermissions,
             ...$organisationContactPermissions,
+            ...$organisationDownloadPermissions,
             ...$organisationInstrumentPermissions,
             ...$organisationProviderPermissions,
         ],
