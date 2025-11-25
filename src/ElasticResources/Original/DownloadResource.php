@@ -12,7 +12,7 @@ class DownloadResource extends ElasticResource
             'updated_at' => $this->updated_at,
 
             'label' => $this->label,
-            'url' => $this->url,
+            'url' => $this->cdnUrl,
             'filename' => $this->filename,
         ];
     }

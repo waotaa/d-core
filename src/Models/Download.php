@@ -40,6 +40,13 @@ class Download extends Model
         return parent::delete();
     }
 
+    public function getCdnUrlAttribute()
+    {
+        return DownloadStorageService::make()
+            ->setOrganisation($this->organisation)
+            ->getFileUrl($this->attributes['url']);
+    }
+
     /**
      * @deprecated remove after migration
      */
