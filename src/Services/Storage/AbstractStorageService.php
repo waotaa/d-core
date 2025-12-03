@@ -46,9 +46,12 @@ abstract class AbstractStorageService
     public function storeUploadedFile(UploadedFile $uploadedFile): StoredFile
     {
         $originalFileName = $uploadedFile->getClientOriginalName();
-        // The storage directory here does not have a name.
-        $filePath = $this->storeFile($uploadedFile);
 
+        $extension = $uploadedFile->getClientOriginalExtension();
+        $sluggedName = Str::slug(pathinfo($originalFileName, PATHINFO_FILENAME));
+        $storedFileName = now()->format('Ymd-His') . '_' . $sluggedName . '.' . $extension;
+
+        $filePath = $this->storeFile($uploadedFile, $storedFileName);
         return new StoredFile($originalFileName, $filePath);
     }
 

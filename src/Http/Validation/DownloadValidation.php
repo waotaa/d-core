@@ -15,17 +15,22 @@ class DownloadValidation extends ModelValidation
             // default upload method
             'file' => [
                 'required_without:key',
-                'prohibited_unless:key,null',
+                'prohibited_with:key',
+                'file',
+                'mimes:pdf,doc,docx,jpg,png',
                 'max:5000',
             ],
             // multipart upload method
             'key' => [
                 'required_without:file',
-                'prohibited_unless:file,null'
+                'prohibited_with:file',    // als er een file is, mag key niet
+                'string',
             ],
             // multipart upload method
             'filename' => [
-                'prohibited_unless:file,null'
+                'required_with:key',       // als key is gezet, is filename verplicht
+                'prohibited_with:file',    // als file is gezet, mag filename niet
+                'string',
             ],
             'organisation_id' => [
                 'required'

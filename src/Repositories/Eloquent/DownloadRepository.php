@@ -70,7 +70,7 @@ class DownloadRepository extends BaseRepository implements DownloadRepositoryInt
 
     private function storeFileFromRequest(Organisation $organisation, FormRequest $request): ?array
     {
-        if ($request->has('file')) {
+        if ($request->hasFile('file')) {
             /** @var UploadedFile $uploadedFile */
             $uploadedFile = $request->file('file');
             $storedFile = DownloadStorageService::make()->setOrganisation($organisation)->storeUploadedFile($uploadedFile);
