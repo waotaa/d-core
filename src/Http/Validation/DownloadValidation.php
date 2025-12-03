@@ -12,24 +12,30 @@ class DownloadValidation extends ModelValidation
             'label' => [
                 'required'
             ],
-            // default upload method
+
+            // Normale upload
             'file' => [
                 'required_without:key',
-                'prohibited_with:key',
+                // verboden ALS key is ingevuld
+                'prohibited_if:key,*',
                 'file',
                 'mimes:pdf,doc,docx,jpg,png',
                 'max:5000',
             ],
-            // multipart upload method
+
+            // Vapor multipart upload
             'key' => [
                 'required_without:file',
-                'prohibited_with:file',    // als er een file is, mag key niet
+                // verboden ALS file is ingevuld
+                'prohibited_if:file,*',
                 'string',
             ],
-            // multipart upload method
+
             'filename' => [
-                'required_with:key',       // als key is gezet, is filename verplicht
-                'prohibited_with:file',    // als file is gezet, mag filename niet
+                // verplicht als key aanwezig is
+                'required_with:key',
+                // verboden als file is ingevuld
+                'prohibited_if:file,*',
                 'string',
             ],
             'organisation_id' => [
