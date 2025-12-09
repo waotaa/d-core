@@ -3,7 +3,9 @@
 namespace Vng\DennisCore\Observers;
 
 use Vng\DennisCore\Events\ElasticRelatedResourceChanged;
+use Vng\DennisCore\Events\InstrumentSaved;
 use Vng\DennisCore\Models\Download;
+use Vng\DennisCore\Models\Instrument;
 
 class DownloadObserver
 {
@@ -29,8 +31,11 @@ class DownloadObserver
 
     private function syncConnectedElasticResources(Download $download): void
     {
-        if (!is_null($download->instrument)) {
-            ElasticRelatedResourceChanged::dispatch($download->instrument, $download);
-        }
+        $download->instruments->each(
+            function(Instrument $instrument) use ($download) {
+                ElasticRelatedResourceChanged::dispatch($instrument, $download);
+                InstrumentSaved::dispatch($instrument);
+            }
+        );
     }
 }
