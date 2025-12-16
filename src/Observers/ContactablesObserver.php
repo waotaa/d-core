@@ -43,6 +43,10 @@ class ContactablesObserver
 
     private function attachConnectedElasticResources(Contactables $contactables): void
     {
+        Log::debug('attached contact', [
+//            'contact' => $contactables->contact,
+            'contactable' => $contactables->contactable
+        ]);
         ContactAttachedEvent::dispatch($contactables->contact, $contactables->contactable);
     }
 }

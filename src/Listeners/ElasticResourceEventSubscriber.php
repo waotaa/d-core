@@ -3,6 +3,7 @@
 namespace Vng\DennisCore\Listeners;
 
 use Illuminate\Support\Facades\Bus;
+use Illuminate\Support\Facades\Log;
 use Vng\DennisCore\Events\ContactAttachedEvent;
 use Vng\DennisCore\Events\ContactDetachedEvent;
 use Vng\DennisCore\Events\ElasticRelatedResourceChanged;
@@ -109,9 +110,12 @@ class ElasticResourceEventSubscriber
     {
         $contact = $event->contact;
 
-        /** @var Instrument|Provider|Region $attached */
+        /** @var Instrument|Provider|Region|RegionPage $attached */
         $attached = $event->contactable;
 
+        Log::debug('handling contact attached event', [
+            'attached' => $attached
+        ]);
         $attempt = SyncService::createSyncAttempt($attached, 'attach', 'created');
         $attempt = SyncService::addRelatedModel($attempt, $contact);
 
@@ -130,6 +134,9 @@ class ElasticResourceEventSubscriber
         /** @var Instrument|Provider|Region|RegionPage $detached */
         $detached = $event->contactable;
 
+        Log::debug('handling contact detached event', [
+            'detached' => $detached
+        ]);
         $attempt = SyncService::createSyncAttempt($detached, 'detach', 'created');
         $attempt = SyncService::addRelatedModel($attempt, $contact);
 
